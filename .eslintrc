@@ -1,0 +1,7 @@
+{
+  "extends": ["standard", "standard-flow"],
+  "root": true,
+  "env": {
+    "node": true
+  }
+}

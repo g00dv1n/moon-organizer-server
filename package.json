@@ -1,0 +1,37 @@
+{
+  "name": "moon-organizer-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/app",
+  "scripts": {
+    "test:lint": "flow ./src && eslint ./src",
+    "flow": "flow; test $? -eq 0 -o $? -eq 2",
+    "lint": "eslint ./src",
+    "dev": "nodemon --watch ./src --exec 'npm -s run test:lint && node ./dev.js'",
+    "start:file": "babel -d ./dist ./src -s && node ./dist/$FILE_NAME",
+    "start": "FILE_NAME=app.js npm -s run start:file"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "babel-cli": "^6.24.0",
+    "babel-core": "^6.24.0",
+    "babel-preset-env": "^1.2.2",
+    "babel-preset-flow": "^6.23.0",
+    "babel-register": "^6.24.0",
+    "koa": "^2.2.0",
+    "rimraf": "^2.6.1"
+  },
+  "devDependencies": {
+    "babel-eslint": "^7.2.1",
+    "eslint": "^3.18.0",
+    "eslint-config-standard": "^7.1.0",
+    "eslint-config-standard-flow": "^1.0.1",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-node": "^4.2.1",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^2.1.1",
+    "flow-bin": "^0.42.0",
+    "nodemon": "^1.11.0"
+  }
+}
