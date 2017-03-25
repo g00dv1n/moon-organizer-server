@@ -2,5 +2,5 @@
 ./src
 
 [ignore]
-.*/dis/.*
-.*/node_modules/.*
+.*/dis/*
+.*/node_modules/*
