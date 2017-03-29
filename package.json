@@ -6,7 +6,7 @@
   "scripts": {
     "flow": "./node_modules/.bin/flow",
     "lint": "./node_modules/.bin/eslint ./src",
-    "dev": "./node_modules/.bin/nodemon --watch ./src --exec 'npm -s run flow && npm -s run lint && node ./dev.js'",
+    "dev": "NODE_ENV=development DEBUG='moon-organizer' ./node_modules/.bin/nodemon --watch ./src --exec 'npm -s run flow && npm -s run lint && node ./dev.js'",
     "start": "./node_modules/.bin/babel -d ./dist ./src -s && node ./dist/app.js",
     "flow:typed": "./node_modules/.bin/flow-typed install --overwrite"
   },
@@ -19,8 +19,12 @@
     "babel-preset-flow": "^6.23.0",
     "babel-register": "^6.24.0",
     "config": "^1.25.1",
+    "debug": "^2.6.3",
     "koa": "^2.2.0",
+    "koa-bodyparser": "^4.2.0",
+    "koa-jwt": "koa-v2",
     "koa-logger": "^2.0.1",
+    "koa-router": "next",
     "rimraf": "^2.6.1"
   },
   "devDependencies": {
