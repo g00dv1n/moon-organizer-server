@@ -1,3 +1,10 @@
 {
-  "PORT": 8090
+  "PORT": 8090,
+  "SECRET": "moon-organizer",
+  "db": {
+    "client": "sqlite3",
+    "connection": {
+      "filename": "./moon-db.sqlite"
+    }
+  }
 }

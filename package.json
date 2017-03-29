@@ -8,7 +8,8 @@
     "lint": "./node_modules/.bin/eslint ./src",
     "dev": "NODE_ENV=development DEBUG='moon-organizer' ./node_modules/.bin/nodemon --watch ./src --exec 'npm -s run flow && npm -s run lint && node ./dev.js'",
     "start": "./node_modules/.bin/babel -d ./dist ./src -s && node ./dist/app.js",
-    "flow:typed": "./node_modules/.bin/flow-typed install --overwrite"
+    "flow:typed": "./node_modules/.bin/flow-typed install --overwrite",
+    "test": "./node_modules/.bin/tape -r babel-register ./tests/**/*.js"
   },
   "author": "",
   "license": "ISC",
@@ -18,14 +19,21 @@
     "babel-preset-env": "^1.2.2",
     "babel-preset-flow": "^6.23.0",
     "babel-register": "^6.24.0",
+    "bookshelf": "^0.10.3",
     "config": "^1.25.1",
     "debug": "^2.6.3",
+    "jsonwebtoken": "^7.3.0",
+    "knex": "^0.12.9",
     "koa": "^2.2.0",
     "koa-bodyparser": "^4.2.0",
     "koa-jwt": "koa-v2",
     "koa-logger": "^2.0.1",
     "koa-router": "next",
-    "rimraf": "^2.6.1"
+    "mariasql": "^0.2.6",
+    "mysql": "^2.13.0",
+    "pg": "^6.1.5",
+    "rimraf": "^2.6.1",
+    "sqlite3": "^3.1.8"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.1",
@@ -37,6 +45,9 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^2.1.1",
     "flow-bin": "^0.42.0",
-    "nodemon": "^1.11.0"
+    "mocha": "^3.2.0",
+    "nodemon": "^1.11.0",
+    "supertest": "^3.0.0",
+    "tape": "^4.6.3"
   }
 }
