@@ -2,9 +2,29 @@
   "PORT": 8090,
   "SECRET": "moon-organizer",
   "db": {
-    "client": "sqlite3",
+    "client": "mysql",
     "connection": {
-      "filename": "./moon-db.sqlite"
+      "host"     : "127.0.0.1",
+      "user"     : "moon",
+      "password" : "moon-organizer",
+      "database" : "MOON_DB",
+      "charset"  : "utf8"
     }
-  }
+  },
+  "defaultUsers": [
+    {
+      "name": "Alex",
+      "surname": "g00dv1n",
+      "password": "admin123",
+      "birthday": "12.12.1991 7:42",
+      "email": "g00dv1n.private@gmail.com"
+    },
+    {
+      "name": "Moon",
+      "surname": "User",
+      "password": "admin123",
+      "birthday": "12.12.1991 7:42",
+      "email": "moon@gmail.com"
+    }
+  ]
 }

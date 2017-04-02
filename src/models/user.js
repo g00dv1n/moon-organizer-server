@@ -1,15 +1,27 @@
 import { bookshelf, knex } from '../db'
 
-knex.schema.createTable('users', function (table) {
-  table.increments()
-  table.string('name')
-  table.string('email', 128)
-  table.timestamps()
+const tableName = 'users'
+
+const createTablePromise = () => {
+  return knex.schema.createTable(tableName, function (table) {
+    table.increments().primary()
+    table.string('name')
+    table.string('surname')
+    table.string('email').unique()
+    table.string('password')
+    table.string('categories')
+    table.dateTime('birthday')
+    table.date('expired_at')
+    table.timestamp('created_at').defaultTo(knex.fn.now())
+  })
+}
+
+const UserModel = bookshelf.Model.extend({
+  tableName: tableName
 })
 
-const user = bookshelf.Model.extend({
-  tableName: 'users'
-
-})
-
-export default user
+export {
+  tableName,
+  UserModel,
+  createTablePromise
+}
