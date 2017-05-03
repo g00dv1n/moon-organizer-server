@@ -2,6 +2,7 @@ import Koa from 'koa'
 import Debug from './debug'
 import serve from 'koa-static'
 import logger from 'koa-logger'
+import cors from 'koa2-cors'
 import bodyParser from 'koa-bodyparser'
 import config from 'config'
 import path from 'path'
@@ -18,6 +19,7 @@ app.context.debug = debug
 // setup middlewares
 app.use(logger())
 app.use(bodyParser())
+app.use(cors())
 debug(path.join('..', __dirname, 'frontend'))
 app.use(serve(path.join(__dirname, '..', 'frontend')))
 
