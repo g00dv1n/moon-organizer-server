@@ -1,7 +1,9 @@
 import Router from 'koa-router'
-import { UserModel } from '../models/user'
+import { UserModel } from '../models/users'
+import { ReviewModel } from '../models/reviews'
 import jwt from 'jsonwebtoken'
 import config from 'config'
+
 
 const router = new Router({prefix: '/api/public'})
 
@@ -32,6 +34,13 @@ router.post('/auth', async function (ctx) {
     if (e.message === 'invalid token') ctx.throw(401, 'Invalid JWT')
     ctx.throw(e.status || 500, e.message)
   }
+})
+
+router.post('/review', async function (ctx) {
+  const {rate, feedback} = ctx.request.body
+  if(!rate && !feedback) ctx.throw(400, 'Cannot get rate or feedback fields')
+  const res = await new ReviewModel({rate, feedback}).save()
+  ctx.body = res.toJSON()
 })
 
 export default router

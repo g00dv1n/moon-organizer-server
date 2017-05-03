@@ -20,8 +20,10 @@ const UserModel = bookshelf.Model.extend({
   tableName: tableName
 })
 
+UserModel.createTable = createTablePromise
+UserModel.tableName = tableName
+UserModel.drop = () => knex.schema.dropTableIfExists(UserModel.tableName)
+
 export {
-  tableName,
-  UserModel,
-  createTablePromise
+  UserModel
 }

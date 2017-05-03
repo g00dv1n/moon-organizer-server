@@ -1,11 +1,14 @@
-import { UserModel, createTablePromise, tableName } from './models/user'
+import { UserModel } from './models/users'
+import { ReviewModel } from './models/reviews'
 import { knex } from './db'
 import config from 'config'
 import moment from 'moment'
 
 async function seed () {
-  await drop()
-  await createTablePromise()
+  await UserModel.drop()
+
+  /* CREATE USERS */
+  await UserModel.createTable()
   const users = config.get('defaultUsers')
   const models = await Promise.all(users.map(user => {
     const birthdayDate = moment(user.birthday, 'DD.MM.YYYY h:mm').toDate()
@@ -14,14 +17,13 @@ async function seed () {
     return new UserModel(userForSave).save()
   }))
   models.forEach(model => console.log(`Saved user: ${JSON.stringify(model.toJSON())}`))
-  console.log('SELECT:')
-  const res = await new UserModel({email: 'g00dv1n.private@gmail.com'}).fetch()
-  console.log(res.toJSON())
-  await knex.destroy()
-}
+  /* END CREATE USERS */
 
-function drop () {
-  return knex.schema.dropTableIfExists(tableName)
+  // await ReviewModel.drop()
+  await ReviewModel.createTable()
+
+  await knex.destroy()
+
 }
 
 seed().catch((err) => {
