@@ -37,11 +37,10 @@ router.post('/auth', async function (ctx) {
 })
 
 router.post('/review', async function (ctx) {
-  const {rate, feedback} = ctx.request.body
-  if(!rate && !feedback) ctx.throw(400, 'Cannot get rate or feedback fields')
-  const res = await new ReviewModel({rate, feedback}).save()
+  const review = ctx.request.body
+  if(!review.rate && !review.feedback) ctx.throw(400, 'Cannot get rate or feedback fields')
+  const res = await new ReviewModel(review).save()
   ctx.body = res.toJSON()
 })
 
 export default router
-
