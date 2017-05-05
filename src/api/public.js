@@ -43,4 +43,9 @@ router.post('/review', async function (ctx) {
   ctx.body = res.toJSON()
 })
 
+router.get('/reviews', async function (ctx) {
+  const res = await new ReviewModel().fetchAll()
+  ctx.body = res.toJSON().sort((a, b) => b.id - a.id)
+})
+
 export default router
