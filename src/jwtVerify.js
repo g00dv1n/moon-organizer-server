@@ -9,8 +9,13 @@ const verifyToken = (token, secret) => {
   })
 }
 
-const jwtVerify = (secret) => {
+const jwtVerify = (secret, excludePaths) => {
   return async (ctx, next) => {
+    const match = excludePaths
+      .every(path => new RegExp(path, 'g').test(ctx.request.path))
+
+    if (match) return next()
+    
     if (!ctx.header.authorization) ctx.throw(401, 'Authorization required')
 
     const [scheme, token] = ctx.header.authorization.split(' ')
@@ -24,8 +29,7 @@ const jwtVerify = (secret) => {
 
       ctx.state.user = payload
     } catch (e) {
-      if (e.message === 'invalid token') ctx.throw(401, 'Invalid JWT')
-      ctx.throw(e.status || 500, e.message)
+        ctx.throw(401, e.message)
     }
     await next()
   }

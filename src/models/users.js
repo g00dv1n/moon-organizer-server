@@ -11,7 +11,9 @@ const createTablePromise = () => {
     table.string('password')
     table.string('categories')
     table.dateTime('birthday')
-    table.date('expired_at')
+    table.string('ip')
+    table.string('countryCode')
+    table.string('avatarUrl')
     table.timestamp('created_at').defaultTo(knex.fn.now())
   })
 }

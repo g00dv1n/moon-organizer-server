@@ -1,6 +1,5 @@
 import Koa from 'koa'
 import Debug from './debug'
-import serve from 'koa-static'
 import logger from 'koa-logger'
 import cors from 'koa2-cors'
 import bodyParser from 'koa-bodyparser'
@@ -17,15 +16,23 @@ const debug = Debug()
 app.context.debug = debug
 
 // setup middlewares
+app.use(cors())
 app.use(logger())
 app.use(bodyParser())
-app.use(cors())
-debug(path.join('..', __dirname, 'frontend'))
-app.use(serve(path.join(__dirname, '..', 'frontend')))
 
+// error handler
+app.use(async (ctx, next) => {
+  try {
+    await next()
+  }
+  catch (err) {
+    ctx.body = err.message
+    ctx.status = err.status
+  }
+})
 // mount routers
 app.use(publicAPI.routes())
-app.use(jwtVerify(SECRET))
+app.use(jwtVerify(SECRET, ['/api/public']))
 app.use(privateAPI.routes())
 
 const listen = () => {
