@@ -26,7 +26,7 @@ router.post('/auth', async function (ctx) {
       id: user.get('id'),
       email: user.get('email')
     }
-    const token = jwt.sign(payload, config.get('SECRET'), {expiresIn: '24h'})
+    const token = jwt.sign(payload, config.get('SECRET'), {expiresIn: '1y'})
     // print token for debug
     ctx.debug('jwt token: %o', token)
     ctx.body = {jwt: token}
