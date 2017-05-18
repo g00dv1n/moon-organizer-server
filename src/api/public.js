@@ -3,6 +3,8 @@ import { UserModel } from '../models/users'
 import { ReviewModel } from '../models/reviews'
 import jwt from 'jsonwebtoken'
 import config from 'config'
+import send from 'koa-send'
+import {AVATARS_ROOT} from '../helpers/storeAvatars'
 
 
 const router = new Router({prefix: '/api/public'})
@@ -46,6 +48,14 @@ router.post('/review', async function (ctx) {
 router.get('/reviews', async function (ctx) {
   const res = await new ReviewModel().fetchAll()
   ctx.body = res.toJSON().sort((a, b) => b.id - a.id)
+})
+
+router.get('/avatar/:avatarUrl', async ctx => {
+  try {
+    await send(ctx, ctx.params.avatarUrl, {root: AVATARS_ROOT})
+  } catch (err) {
+    ctx.throw(404, err)
+  }
 })
 
 export default router

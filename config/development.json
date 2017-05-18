@@ -1,6 +1,7 @@
 {
   "PORT": 8090,
   "SECRET": "moon-organizer",
+  "avatarsDir": "avatars",
   "db": {
     "client": "mysql",
     "connection": {

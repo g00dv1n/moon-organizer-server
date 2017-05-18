@@ -26,6 +26,7 @@ app.use(async (ctx, next) => {
     await next()
   }
   catch (err) {
+    debug("ERROR: %o", err)
     ctx.body = err.message
     ctx.status = err.status
   }

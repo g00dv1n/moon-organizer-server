@@ -1,5 +1,9 @@
 import Router from 'koa-router'
 import { UserModel } from '../models/users'
+import asyncBusboy from 'async-busboy'
+import fs from 'fs'
+import config from 'config'
+import {storeAvatars} from '../helpers/storeAvatars'
 
 const router = new Router({prefix: '/api/private'})
 
@@ -8,9 +12,28 @@ router.get('/', ctx => {
 })
 
 router.get('/user', async ctx => {
-  ctx.body = await await new UserModel({id: ctx.state.user.id}).fetch({
+  ctx.body = await new UserModel({id: ctx.state.user.id}).fetch({
     columns: ['id', 'name', 'surname', 'email', 'categories', 'birthday', 'avatarUrl']
   })
 });
+
+router.put('/avatar', async ctx => {
+  const {files} = await asyncBusboy(ctx.req)
+
+  try {
+    const file = files[0]
+    if(file) {
+      const outName = `${ctx.state.user.email}@${new Date().getTime()}.png`
+      const avatarPath = storeAvatars(file, outName)
+      ctx.debug('Store user avatar: %s', avatarPath)
+      ctx.body = await new UserModel({
+        id: ctx.state.user.id, 
+        avatarUrl: outName
+      }).save()
+     }
+  } catch(err)  {
+    ctx.throw(400, err)
+  }
+})
 
 export default router
