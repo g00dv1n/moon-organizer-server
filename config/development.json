@@ -18,12 +18,14 @@
       "surname": "g00dv1n",
       "password": "admin123",
       "birthday": "12.12.1991 7:42",
+      "categories": "lucky;garden",
       "email": "g00dv1n.private@gmail.com"
     },
     {
       "name": "Moon",
       "surname": "User",
       "password": "admin123",
+      "categories": "lucky;garden",
       "birthday": "12.12.1991 7:42",
       "email": "moon@gmail.com"
     }

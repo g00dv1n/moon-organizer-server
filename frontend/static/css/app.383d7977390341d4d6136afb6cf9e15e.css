@@ -140,9 +140,21 @@ body {
 .login-modal__content {
     width: 400px;
 }
-.slide {
-    transition: all .3s ease;
+.bookmarks-modal {
+    font-size: 18px;
+    text-align: center;
 }
+.bookmarks-modal strong {
+    font-weight: 900;
+    font-size: 20px;
+}
+.bookmarks-modal__thanks {
+    margin-top: 10px;
+}
+.bookmarks-modal__thanks i {
+    color: rgb(255, 142, 50)
+}
+
 
 
 .login-modal__content[data-v-42fd9966] {
@@ -584,11 +596,51 @@ html[data-v-b0af122e], body[data-v-b0af122e] {
 }
 
 
-.main-container[data-v-c9711722] {
-    margin-top: 50px;
-    margin-left: 50px;
+.profile-container {
     text-align: left;
 }
+.profile__daytime {
+    max-width: 300px;
+    width: 100%;
+}
+.profile-container .el-input
+{
+    max-width: 300px !important;
+    width: 100% !important;
+}
+.profile__input  {
+    font-size: 20px !important;
+}
+.profile__title {
+    text-align: center;
+    width: 100%;
+    margin-left: 0;
+    padding: 0;
+    font-size: 26px;
+    margin-top: 40px;
+    margin-bottom: 10px;
+}
+.profile__title img {
+    width: 40px;
+    display: inline-block;
+    padding-bottom: 15px;
+}
+.profile__title div {
+    display: inline-block;
+}
+.profile__btns {
+    position: relative;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    display: block;
+}
+.profile__btns .md-button {
+}
+.profile__btns .md-button:last-child {
+    top: 0;
+    right: 0;
+}
+
 
 .avatar-uploader .el-upload {
     border: 1px dashed #d9d9d9;
@@ -614,10 +666,45 @@ html[data-v-b0af122e], body[data-v-b0af122e] {
 .avatar-uploader-icon:before {
     line-height: 178px;
 }
-.avatar {
-    text-align: left;
+.avatar-container {
     width: 300px;
 }
+.alert-container {
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+.alert-container .el-alert.el-alert--success {
+    background-color: #AED581;
+}
+.alert-container .el-alert.el-alert--error {
+    background-color: #FF8A65;
+}
+
+
+.el-select {
+    width: 300px;
+}
+
+.dtm-container > * {
+    display: inline-block;
+    width: 100%;
+    margin: 0 !important;
+    padding: 0 !important;
+    box-sizing: border-box;
+}
+.time-container {
+    margin-top: 15px;
+}
+.dtm-container__day {
+    width: 30%;
+}
+.dtm-container__month {
+    width: 30%;
+}
+.dtm-container__year {
+    width: 37%;
+}
+
 
 
 .review {
@@ -846,4 +933,4 @@ background: #ccc;
 	content: '\21BB';
 }
 
-/*# sourceMappingURL=app.2f3091e767f8e27b18f5a6f510fe3ed8.css.map*/
+/*# sourceMappingURL=app.383d7977390341d4d6136afb6cf9e15e.css.map*/

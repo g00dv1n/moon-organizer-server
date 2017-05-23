@@ -10,7 +10,7 @@ const createTablePromise = () => {
     table.string('email').unique()
     table.string('password')
     table.string('categories')
-    table.dateTime('birthday')
+    table.string('birthday')
     table.string('ip')
     table.string('countryCode')
     table.string('avatarUrl')

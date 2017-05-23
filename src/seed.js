@@ -11,7 +11,7 @@ async function seed () {
   await UserModel.createTable()
   const users = config.get('defaultUsers')
   const models = await Promise.all(users.map(user => {
-    const birthdayDate = moment(user.birthday, 'DD.MM.YYYY h:mm').toDate()
+    const birthdayDate = moment(user.birthday, 'DD.MM.YYYY h:mm').unix()
     const userForSave = Object.assign({}, user, {birthday: birthdayDate})
     // return save promise
     return new UserModel(userForSave).save()
