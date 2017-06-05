@@ -8,6 +8,7 @@ import {AVATARS_ROOT} from '../helpers/storeAvatars'
 
 
 const router = new Router({prefix: '/api/public'})
+const cities = require('../../world-cities-parser/cities.json')
 
 router.get('/', ctx => {
   ctx.body = 'public API'
@@ -56,6 +57,14 @@ router.get('/avatar/:avatarUrl', async ctx => {
   } catch (err) {
     ctx.throw(404, err)
   }
+})
+
+router.get('/cities/:lang/:search', async ctx => {
+  const {search, lang} = ctx.params
+  const re = new RegExp(`^${search}`, 'ig')
+  ctx.body = cities
+    .filter((c) => re.test(c[lang || 'en']))
+    .slice(0, 26)
 })
 
 export default router

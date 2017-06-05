@@ -1,8 +1,6 @@
 import Router from 'koa-router'
 import { UserModel } from '../models/users'
 import asyncBusboy from 'async-busboy'
-import fs from 'fs'
-import config from 'config'
 import {storeAvatars, removeAvatars} from '../helpers/storeAvatars'
 
 const router = new Router({prefix: '/api/private'})
@@ -13,16 +11,36 @@ router.get('/', ctx => {
 
 router.get('/user', async ctx => {
   ctx.body = await new UserModel({id: ctx.state.user.id}).fetch({
-    columns: ['id', 'name', 'surname', 'email', 'categories', 'birthday', 'avatarUrl']
+    columns: [
+      'id',
+      'name',
+      'surname',
+      'email',
+      'categories',
+      'birthday',
+      'avatarUrl',
+      'password'
+    ]
   })
-});
+})
+
+router.post('/user', async ctx => {
+  const user = ctx.request.body
+  const {id} = ctx.state.user
+  if (id && user) {
+    const res = await new UserModel(Object.assign({}, user, {id})).save()
+    ctx.body = res.toJSON()
+  } else {
+    ctx.throw(400, 'Cannot get user id from state or user form body')
+  }
+})
 
 router.put('/avatar', async ctx => {
   const {files} = await asyncBusboy(ctx.req)
 
   try {
     const file = files[0]
-    if(file) {
+    if (file) {
       // save new avatar to fs
       const outName = `${ctx.state.user.email}@${new Date().getTime()}.png`
       const avatarPath = storeAvatars(file, outName)
@@ -32,16 +50,15 @@ router.put('/avatar', async ctx => {
       const user = await new UserModel({id: ctx.state.user.id}).fetch()
       if (user.get('avatarUrl')) {
         const r = await removeAvatars(user.get('avatarUrl'))
-        ctx.debug((r ? 'delete last avatar: ' : 
-        'cannot delete last avatar: ') + user.get('avatarUrl'))
+        ctx.debug((r ? 'delete last avatar: ' : 'cannot delete last avatar: ') + user.get('avatarUrl'))
       }
       // save new name to user model
       ctx.body = await new UserModel({
-        id: ctx.state.user.id, 
+        id: ctx.state.user.id,
         avatarUrl: outName
       }).save()
-     }
-  } catch(err)  {
+    }
+  } catch (err) {
     ctx.throw(400, err)
   }
 })
