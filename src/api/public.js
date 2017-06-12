@@ -5,6 +5,7 @@ import jwt from 'jsonwebtoken'
 import config from 'config'
 import send from 'koa-send'
 import {AVATARS_ROOT} from '../helpers/storeAvatars'
+import request from 'request'
 
 
 const router = new Router({prefix: '/api/public'})
@@ -65,6 +66,13 @@ router.get('/cities/:lang/:search', async ctx => {
   ctx.body = cities
     .filter((c) => re.test(c[lang || 'en']))
     .slice(0, 26)
+})
+
+// TODO удалить потом. Создано для костыльного проброса через HTTPS
+router.all('/skyservice/proxy/', async (ctx, next) => {
+  ctx.respond = false
+  const url = 'http://94.154.233.218:3000/viber/push-handler'
+  ctx.req.pipe(request(url)).pipe(ctx.res)
 })
 
 export default router
