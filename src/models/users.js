@@ -10,6 +10,8 @@ const createTablePromise = () => {
     table.string('email').unique()
     table.string('password')
     table.string('categories')
+    table.json('tasks')
+    table.json('tasksOnCalendar')
     table.string('birthday')
     table.string('ip')
     table.string('countryCode')

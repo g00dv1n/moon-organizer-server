@@ -5,7 +5,7 @@
   "main": "./dist/app",
   "scripts": {
     "flow": "./node_modules/.bin/flow",
-    "lint": "./node_modules/.bin/eslint ./src",
+    "lint": "./node_modules/.bin/standard ./src/**/*.js",
     "fl": "./node_modules/.bin/nodemon --watch ./src --exec 'npm -s run flow && npm -s run lint'",
     "dev": "NODE_ENV=development DEBUG='moon-organizer' ./node_modules/.bin/nodemon --watch ./src --exec 'npm -s run flow && node ./dev.js'",
     "start": "./node_modules/.bin/babel -d ./dist ./src -s && node ./dist/app.js",
@@ -58,6 +58,7 @@
     "flow-typed": "^2.0.0",
     "mocha": "^3.2.0",
     "nodemon": "^1.11.0",
+    "standard": "^10.0.2",
     "supertest": "^3.0.0",
     "tape": "^4.6.3"
   }

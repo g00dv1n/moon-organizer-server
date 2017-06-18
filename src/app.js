@@ -24,9 +24,8 @@ app.use(bodyParser())
 app.use(async (ctx, next) => {
   try {
     await next()
-  }
-  catch (err) {
-    debug("ERROR: %o", err)
+  } catch (err) {
+    debug('ERROR: %o', err)
     ctx.body = err.message
     ctx.status = err.status
   }

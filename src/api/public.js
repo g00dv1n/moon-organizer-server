@@ -6,7 +6,6 @@ import config from 'config'
 import send from 'koa-send'
 import {AVATARS_ROOT} from '../helpers/storeAvatars'
 
-
 const router = new Router({prefix: '/api/public'})
 const cities = require('../../world-cities-parser/cities.json')
 
