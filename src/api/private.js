@@ -22,7 +22,8 @@ router.get('/user', async ctx => {
       'avatarUrl',
       'password',
       'tasks',
-      'tasksOnCalendar'
+      'tasksOnCalendar',
+      'tasksFrom'
     ]
   })
   ctx.body = fieldsTransform(res.toJSON())

@@ -11,6 +11,7 @@ const createTablePromise = () => {
     table.string('password')
     table.string('categories')
     table.json('tasks')
+    table.json('tasksFrom')
     table.json('tasksOnCalendar')
     table.string('birthday')
     table.string('ip')

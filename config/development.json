@@ -12,6 +12,14 @@
       "charset"  : "utf8"
     }
   },
+  "mail": {
+    "host": "moonorganizer.com",
+    "port": 587,
+    "auth": {
+      "user": "do-not-reply@moonorganizer.com",
+      "pass": "0Zfc1*k2"
+    }
+  },
   "defaultUsers": [
     {
       "name": "Alex",
@@ -20,7 +28,6 @@
       "birthday": "12.12.1991 7:42",
       "categories": ["lucky", "garden"],
       "tasks": ["$86", "$67"],
-      "tasksOnCalendar": [],
       "email": "g00dv1n.private@gmail.com"
     },
     {
@@ -29,7 +36,6 @@
       "password": "admin123",
       "categories": ["lucky", "garden"],
       "tasks": ["$12", "$13"],
-      "tasksOnCalendar": [],
       "birthday": "12.12.1991 7:42",
       "email": "moon@gmail.com"
     }
