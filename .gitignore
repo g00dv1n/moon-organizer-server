@@ -6,3 +6,4 @@ npm-debug.log*
 .idea
 yarn.lock*
 flow-typed
+package-lock.json

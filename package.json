@@ -31,7 +31,6 @@
     "knex": "^0.12.9",
     "koa": "^2.2.0",
     "koa-bodyparser": "^4.2.0",
-    "koa-jwt": "koa-v2",
     "koa-logger": "^2.0.1",
     "koa-router": "next",
     "koa-send": "^4.1.0",
