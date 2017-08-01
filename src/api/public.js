@@ -44,6 +44,10 @@ router.post('/review', async function (ctx) {
   if (!review.rate && !review.feedback) {
     ctx.throw(400, 'Cannot get rate or feedback fields')
   }
+  if (review.id === null ) {
+    delete review.id
+  }
+  
   const res = await new ReviewModel(review).save()
   ctx.body = res.toJSON()
 })

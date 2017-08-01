@@ -3,12 +3,12 @@
   "SECRET": "moon-organizer",
   "avatarsDir": "avatars",
   "db": {
-    "client": "pg",
+    "client": "mysql",
     "connection": {
       "host"     : "127.0.0.1",
       "user"     : "moon",
       "password" : "moon-organizer",
-      "database" : "moon_db",
+      "database" : "MOON_DB",
       "charset"  : "utf8"
     }
   },
