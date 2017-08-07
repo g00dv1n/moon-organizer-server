@@ -1,4 +1,5 @@
 {
     "standard.enable": true,
+    "standard.autoFixOnSave": true,
     "flow.useNPMPackagedFlow":true
 }

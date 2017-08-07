@@ -1,0 +1,69 @@
+import crypto from 'crypto'
+
+export class WayForPay {
+  constructor (merchantAccount, merchantPassword) {
+    if (typeof merchantAccount !== 'string' || !merchantAccount) {
+      throw new Error('Merchant account must be string and not empty')
+    }
+
+    if (typeof merchantPassword !== 'string' || !merchantAccount) {
+      throw new Error('Merchant password must be string and not empty')
+    }
+
+        /*
+            Define class fiedls
+        */
+    this.PURCHASE_URL = 'https://secure.wayforpay.com/pay'
+    this.API_URL = 'https://api.wayforpay.com/api'
+
+    this.SIGNAUTRE_FIELDS = [
+
+      'merchantAccount',
+      'merchantDomainName',
+      'orderReference',
+      'orderDate',
+      'amount',
+      'currency',
+      'productName',
+      'productCount',
+      'productPrice'
+    ]
+        /*
+            end define
+        */
+
+    this._merchantAccount = merchantAccount
+    this._merchantPassword = merchantPassword
+  }
+
+  buildForm (fiedls) {
+    const fullFields = this._getFullFields(fiedls)
+    const merchantSignature = this._calculateSignature(fullFields)
+    fullFields.merchantSignature = merchantSignature
+
+    let form = `<form method="POST" action="${this.PURCHASE_URL}" accept-charset="utf-8">\n`
+
+    for (const key in fullFields) {
+      form += `<input type="text" name="${key}" value="${fullFields[key]}" />\n`
+    }
+    form += '<input type="submit" value="Submit purchase form"></form>'
+    return form
+  }
+
+  _calculateSignature (fullFields) {
+    const concatStr = this.SIGNAUTRE_FIELDS
+            .map(field => fullFields[field])
+            .join(';')
+    const hmac = crypto.createHmac('md5', this._merchantPassword)
+    hmac.update(concatStr)
+    return hmac.digest('hex')
+  }
+  _getFullFields (fiedls) {
+    return Object.assign({}, fiedls, {
+      merchantAccount: this._merchantAccount,
+      merchantTransactionSecureType: 'AUTO',
+      transactionType: 'PURCHASE',
+      authorizationType: 'SimpleSignature'
+    })
+  }
+}

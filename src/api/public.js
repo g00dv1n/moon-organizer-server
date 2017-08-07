@@ -6,6 +6,8 @@ import config from 'config'
 import send from 'koa-send'
 import { AVATARS_ROOT } from '../helpers/storeAvatars'
 import { sendNewPassword } from '../mail'
+import { WPF } from '../purchase/main'
+import randomstring from 'randomstring'
 
 const router = new Router({ prefix: '/api/public' })
 const cities = require('../../world-cities-parser/cities.json')
@@ -44,10 +46,10 @@ router.post('/review', async function (ctx) {
   if (!review.rate && !review.feedback) {
     ctx.throw(400, 'Cannot get rate or feedback fields')
   }
-  if (review.id === null ) {
+  if (review.id === null) {
     delete review.id
   }
-  
+
   const res = await new ReviewModel(review).save()
   ctx.body = res.toJSON()
 })
@@ -81,8 +83,43 @@ router.post('/reset-password', async ctx => {
     ctx.throw(404, 'Cannot get user with email=' + email)
   }
   const newPass = Math.random().toString(36).substring(16)
-  await sendNewPassword({lang, email, password: newPass})
+  await sendNewPassword({ lang, email, password: newPass })
   ctx.body = await new UserModel({ id: user.id, password: newPass }).save()
+})
+
+router.get('/purchase', async ctx => {
+  const fields = {
+    'merchantDomainName': 'www.market.ua',
+    'authorizationType': 'SimpleSignature',
+    'orderReference': randomstring.generate(8),
+    'orderDate': '1501710845',
+    'amount': '1',
+    'currency': 'UAH',
+    'productName': 'Test tovar',
+    'productPrice': '1',
+    'productCount': '1',
+    'clientFirstName': 'Name',
+    'clientLastName': 'Surname',
+    'clientEmail': 'g00dv1n.private@gmail.com',
+    'clientPhone': '380954939068',
+    'merchantTransactionSecureType': 'AUTO',
+    'serviceUrl': 'http://31.43.145.164:8090/api/public/purchase-callback',
+    'language': 'en'
+  }
+  ctx.body = `
+  <html>
+    <body>
+      ${WPF.buildForm(fields)}
+    </body>
+  </html>
+  `
+})
+
+router.post('/purchase-callback', async ctx => {
+  ctx.debug(ctx.request.body)
+  console.log(ctx.request.headers)
+  console.log(JSON.parse(ctx.request.rawBody))
+  ctx.body = 'OK'
 })
 
 export default router

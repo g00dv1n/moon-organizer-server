@@ -31,7 +31,7 @@ app.use(async (ctx, next) => {
 })
 // mount routers
 app.use(publicAPI.routes())
-app.use(jwtVerify(SECRET, ['/api/public']))
+app.use(jwtVerify(SECRET, ['/api/public', '/robots.txt', '/favicon.ico']))
 app.use(privateAPI.routes())
 
 const listen = () => {

@@ -23,7 +23,7 @@ async function seed () {
 
   /* CREATE REVIEWS */
   await ReviewModel.createTable()
-  await new ReviewModel({rate: 5}).save()
+  await new ReviewModel({ rate: 5 }).save()
   /* END CREATE REVIEWS */
 
   await knex.destroy()
