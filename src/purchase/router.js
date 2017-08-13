@@ -2,21 +2,9 @@ import Router from 'koa-router'
 import { WPF } from '../purchase/main'
 import asyncBusboy from 'async-busboy'
 import {OrderModel} from '../models/orders'
+import {processRegistration} from './processing'
 
 const router = new Router({ prefix: '/api/purchase' })
-
-const productInfo = {
-  name: {
-    ru: 'Лунный Календарь',
-    ua: 'Лунный Календарь',
-    en: 'Lunar Calendar'
-  },
-  currency: {
-    ru: 'RUB',
-    ua: 'UAH',
-    en: 'USD'
-  }
-}
 
 router.get('/getform/:locale', async ctx => {
   const fields = {
@@ -51,13 +39,19 @@ router.get('/form/:locale', async ctx => {
     // 'clientFirstName': 'Name',
     // 'clientLastName': 'Surname',
     'clientEmail': 'g00dv1n.private@gmail.com',
-    'clientPhone': '380954939068',
+    // 'clientPhone': '380954939068',
     'language': ctx.params.locale || 'en',
     'returnUrl': 'http://31.43.145.164:8090/api/purchase/thankyou-page'
   }
   ctx.body = {
     htmlForm: WPF.buildForm(fields)
   }
+})
+
+router.post('/checkout', async ctx => {
+  const {user, locale = 'en'} = ctx.request.body
+
+  ctx.body = await processRegistration(user, locale.toLowerCase())
 })
 
 router.post('/thankyou-page', async ctx => {
@@ -78,9 +72,14 @@ router.post('/thankyou-page', async ctx => {
 })
 
 router.post('/purchase-callback', async ctx => {
+  // logs
   ctx.debug('purchase-callback')
   console.log(JSON.parse(ctx.request.rawBody))
+  //
   const wpfResponse = JSON.parse(ctx.request.rawBody)
+  if (wpfResponse.reasonCode === 1100) {
+
+  }
   await new OrderModel(wpfResponse).save()
   ctx.body = WPF.createResponseObject(wpfResponse.orderReference)
 })

@@ -1,7 +1,7 @@
 import tape from 'tape'
-import moment from 'moment'
-import {WayForPay} from '../src/purchase/way-for-pay'
-import {OrderModel} from '../src/models/orders'
+import { WayForPay } from '../src/purchase/way-for-pay'
+import { OrderModel } from '../src/models/orders'
+import {setupProductInfo} from '../src/purchase/processing'
 
 const WPF = new WayForPay('test_merch_n1', 'flk3409refn54t54t*FNJRET')
 
@@ -33,7 +33,7 @@ const responseFromWayForPay = {
 
 tape('test Way For Pay Response Signature', (t) => {
   t.equal(WPF._calculateResponseSignature(responseFromWayForPay),
-   responseFromWayForPay.merchantSignature)
+    responseFromWayForPay.merchantSignature)
   t.end()
 })
 
@@ -44,5 +44,17 @@ tape('test Save Order', async (t) => {
     t.fail('Cannot save Order')
     console.log(err)
   }
+  t.end()
+})
+
+tape('test Product Info', async (t) => {
+  const expected = {
+    productName: 'Лунный Календарь',
+    currency: 'RUB',
+    productPrice: '179.95'
+  }
+  const actual = setupProductInfo('ru')
+  t.deepEqual(actual, expected)
+
   t.end()
 })

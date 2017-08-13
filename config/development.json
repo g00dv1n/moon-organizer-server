@@ -3,6 +3,7 @@
   "SECRET": "moon-organizer",
   "avatarsDir": "avatars",
   "PURCHASE_CALLBACK_URL": "http://31.43.145.164:8090/api/purchase/purchase-callback",
+  "PURCAHSE_RETURN_URL": "http://31.43.145.164:8090/api/purchase/thankyou-page",
   "MERCHANT_DOMAIN_NAME": "moonorganizer.com",
   "db": {
     "client": "mysql",

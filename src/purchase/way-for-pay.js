@@ -100,7 +100,9 @@ export class WayForPay {
       orderDate: moment().unix().toString(),
       orderReference: randomstring.generate(16),
       serviceUrl: this._serviceUrl,
-      merchantDomainName: this._merchantDomainName
+      merchantDomainName: this._merchantDomainName,
+      language: 'AUTO',
+      returnUrl: config.get('PURCAHSE_RETURN_URL')
     })
   }
 
