@@ -22,6 +22,10 @@ router.post('/auth', async function (ctx) {
   if (!user) ctx.throw(400, `Cannot get user with email=${email}`)
 
   const match = user.get('password') === password
+  /* const isAcitve = user.get('active') === true
+
+  if (!isAcitve) ctx.throw(402, 'Subscription expired') */
+
   if (!match) ctx.throw(403, 'Invalid password/email')
 
   try {

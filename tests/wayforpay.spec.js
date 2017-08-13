@@ -1,4 +1,5 @@
 import tape from 'tape'
+import moment from 'moment'
 import {WayForPay} from '../src/purchase/way-for-pay'
 import {OrderModel} from '../src/models/orders'
 
@@ -26,7 +27,8 @@ const responseFromWayForPay = {
   fee: 0.02,
   paymentSystem: 'card',
   cardProduct: 'credit',
-  clientName: 'OLEKSANDR BRIK'
+  clientName: 'OLEKSANDR BRIK',
+  fakeField: 'fakeField TEST'
 }
 
 tape('test Way For Pay Response Signature', (t) => {
@@ -37,8 +39,7 @@ tape('test Way For Pay Response Signature', (t) => {
 
 tape('test Save Order', async (t) => {
   try {
-    const res = await new OrderModel(responseFromWayForPay).save()
-    console.log(res.toJSON())
+    await new OrderModel(responseFromWayForPay).save()
   } catch (err) {
     t.fail('Cannot save Order')
     console.log(err)

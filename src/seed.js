@@ -21,8 +21,6 @@ async function seed () {
   /* CREATE REVIEWS */
   await new ReviewModel({ rate: 5 }).save()
   /* END CREATE REVIEWS */
-  const res = await new OrderModel().save()
-  console.log(res.toJSON())
 
   await knex.destroy()
 }

@@ -29,7 +29,8 @@
       "password": "admin123",
       "birthday": "12.12.1991 7:42",
       "email": "g00dv1n.private@gmail.com",
-      "categories": ["lucky", "garden"]
+      "categories": ["lucky", "garden"],
+      "active": false
     },
     {
       "name": "Moon",
@@ -37,7 +38,8 @@
       "password": "admin123",
       "birthday": "12.12.1991 7:42",
       "email": "moon@gmail.com",
-      "categories": ["lucky", "garden"]
+      "categories": ["lucky", "garden"],
+      "active": true
     }
   ]
 }

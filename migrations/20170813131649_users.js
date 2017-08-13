@@ -15,6 +15,7 @@ exports.up = (knex, Promise) => {
     table.string('ip')
     table.string('countryCode')
     table.string('avatarUrl')
+    table.boolean('active').defaultTo(false)
     table.timestamp('created_at').defaultTo(knex.fn.now())
   })
 }

@@ -22,29 +22,5 @@
       "user": "do-not-reply@moonorganizer.com",
       "pass": "0Zfc1*k2"
     }
-  },
-  "defaultUsers": [
-    {
-      "name": "Alex",
-      "surname": "g00dv1n",
-      "password": "admin123",
-      "birthday": "12.12.1991 7:42",
-      "email": "g00dv1n.private@gmail.com",
-      "categories": [
-        "lucky",
-        "garden"
-      ]
-    },
-    {
-      "name": "Moon",
-      "surname": "User",
-      "password": "admin123",
-      "birthday": "12.12.1991 7:42",
-      "email": "moon@gmail.com",
-      "categories": [
-        "lucky",
-        "garden"
-      ]
-    }
-  ]
+  }
 }

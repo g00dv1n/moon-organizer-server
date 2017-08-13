@@ -41,6 +41,25 @@ router.get('/getform/:locale', async ctx => {
   `
 })
 
+router.get('/form/:locale', async ctx => {
+  const fields = {
+    'amount': '1',
+    'currency': 'UAH',
+    'productName': 'Test tovar',
+    'productPrice': '1',
+    'productCount': '1',
+    // 'clientFirstName': 'Name',
+    // 'clientLastName': 'Surname',
+    'clientEmail': 'g00dv1n.private@gmail.com',
+    'clientPhone': '380954939068',
+    'language': ctx.params.locale || 'en',
+    'returnUrl': 'http://31.43.145.164:8090/api/purchase/thankyou-page'
+  }
+  ctx.body = {
+    htmlForm: WPF.buildForm(fields)
+  }
+})
+
 router.post('/thankyou-page', async ctx => {
   ctx.debug('thank-you-page')
   try {
