@@ -2,6 +2,8 @@
   "PORT": 8090,
   "SECRET": "moon-organizer",
   "avatarsDir": "avatars",
+  "PURCHASE_CALLBACK_URL": "http://31.43.145.164:8090/api/purchase/purchase-callback",
+  "MERCHANT_DOMAIN_NAME": "moonorganizer.com",
   "db": {
     "client": "mysql",
     "connection": {

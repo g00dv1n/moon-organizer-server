@@ -1,16 +1,13 @@
 import { UserModel } from './models/users'
 import { ReviewModel } from './models/reviews'
+import { OrderModel } from './models/orders'
 import { knex } from './db'
 import config from 'config'
 import moment from 'moment'
 import { fieldsTransform } from './helpers/userModelUtils'
 
 async function seed () {
-  await UserModel.drop()
-  await ReviewModel.drop()
-
   /* CREATE USERS */
-  await UserModel.createTable()
   const users = config.get('defaultUsers')
   const models = await Promise.all(users.map(user => {
     const birthdayDate = moment(user.birthday, 'DD.MM.YYYY h:mm').unix()
@@ -22,14 +19,14 @@ async function seed () {
   /* END CREATE USERS */
 
   /* CREATE REVIEWS */
-  await ReviewModel.createTable()
   await new ReviewModel({ rate: 5 }).save()
   /* END CREATE REVIEWS */
+  const res = await new OrderModel().save()
+  console.log(res.toJSON())
 
   await knex.destroy()
 }
 
 seed().catch((err) => {
   console.error(err)
-  knex.destroy()
 })

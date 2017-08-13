@@ -5,11 +5,14 @@
   "db": {
     "client": "mysql",
     "connection": {
-      "host"     : "127.0.0.1",
-      "user"     : "moon",
-      "password" : "moon-organizer",
-      "database" : "MOON_DB",
-      "charset"  : "utf8"
+      "host": "127.0.0.1",
+      "user": "moon",
+      "password": "moon-organizer",
+      "database": "MOON_DB",
+      "charset": "utf8"
+    },
+    "migrations": {
+      "tableName": "knex_migrations"
     }
   },
   "mail": {
@@ -27,7 +30,10 @@
       "password": "admin123",
       "birthday": "12.12.1991 7:42",
       "email": "g00dv1n.private@gmail.com",
-      "categories": ["lucky", "garden"]
+      "categories": [
+        "lucky",
+        "garden"
+      ]
     },
     {
       "name": "Moon",
@@ -35,7 +41,10 @@
       "password": "admin123",
       "birthday": "12.12.1991 7:42",
       "email": "moon@gmail.com",
-      "categories": ["lucky", "garden"]
+      "categories": [
+        "lucky",
+        "garden"
+      ]
     }
   ]
 }

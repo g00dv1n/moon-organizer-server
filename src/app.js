@@ -6,6 +6,7 @@ import bodyParser from 'koa-bodyparser'
 import config from 'config'
 import privateAPI from './api/private'
 import publicAPI from './api/public'
+import purchaseAPI from './purchase/router'
 import jwtVerify from './jwtVerify'
 
 const app = new Koa()
@@ -20,18 +21,22 @@ app.use(logger())
 app.use(bodyParser())
 
 // error handler
+const skipCodes = [401]
 app.use(async (ctx, next) => {
   try {
     await next()
   } catch (err) {
-    debug('ERROR: %o', err)
+    if (skipCodes.indexOf(err.code) !== -1) {
+      debug('ERROR: %o', err)
+    }
     ctx.body = err.message
     ctx.status = err.status
   }
 })
 // mount routers
 app.use(publicAPI.routes())
-app.use(jwtVerify(SECRET, ['/api/public', '/robots.txt', '/favicon.ico']))
+app.use(purchaseAPI.routes())
+app.use(jwtVerify(SECRET, ['/api/public', '/api/purchase']))
 app.use(privateAPI.routes())
 
 const listen = () => {

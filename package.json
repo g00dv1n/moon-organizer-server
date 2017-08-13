@@ -7,8 +7,11 @@
     "lint": "./node_modules/.bin/standard ./src/**/*.js",
     "dev": "NODE_ENV=development DEBUG='moon-organizer' ./node_modules/.bin/nodemon --watch ./src --exec 'node ./dev.js'",
     "start": "./node_modules/.bin/babel -d ./dist ./src -s && node ./dist/app.js",
-    "test": "./node_modules/.bin/tape -r babel-register ./tests/**/*.js",
-    "db:seed": "node_modules/.bin/babel-node ./src/seed.js"
+    "test": "./node_modules/.bin/tape -r babel-register ./tests/**/*.js | node_modules/.bin/tap-spec",
+    "db:seed": "node_modules/.bin/babel-node ./src/seed.js",
+    "db:migrate:latest": "node_modules/.bin/knex migrate:latest",
+    "db:migrate:rollback": "node_modules/.bin/knex migrate:rollback",
+    "db:refresh": "npm run db:migrate:rollback && npm run db:migrate:latest && npm run db:seed"
   },
   "author": "",
   "license": "ISC",
@@ -34,6 +37,7 @@
     "koa-send": "^4.1.0",
     "koa-static": "^4.0.1",
     "koa2-cors": "^2.0.3",
+    "lodash": "^4.17.4",
     "mariasql": "^0.2.6",
     "moment": "^2.18.1",
     "mysql": "^2.14.0",
@@ -43,7 +47,8 @@
     "request": "^2.81.0",
     "rimraf": "^2.6.1",
     "sprintf-js": "^1.1.1",
-    "sqlite3": "^3.1.8"
+    "sqlite3": "^3.1.8",
+    "tap-spec": "^4.1.1"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
