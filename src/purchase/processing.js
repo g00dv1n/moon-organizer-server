@@ -1,8 +1,10 @@
 import Debug from 'debug'
-import {OrderModel} from '../models/orders'
-import {UserModel} from '../models/users'
+import { OrderModel } from '../models/orders'
+import { UserModel } from '../models/users'
+import { SubscrptionModel } from '../models/subscriptions'
 import { WPF } from '../purchase/main'
 import { fieldsTransform } from '../helpers/userModelUtils'
+import moment from 'moment'
 
 const debug = Debug('moon-organizer')
 
@@ -11,15 +13,15 @@ const reasonCode = 1100 // Ok status
 const transactionStatus = 'Approved'
 
 const baseOrderObject = {
-  'amount': '1',
   'productCount': '1'
-    // 'currency': 'UAH',
-    // 'productName': 'Test tovar',
-    // 'productPrice': '1',
-    // 'clientFirstName': 'Name',
-    // 'clientLastName': 'Surname',
-    // 'clientEmail': 'g00dv1n.private@gmail.com',
-    // 'clientPhone': '380954939068',
+  // 'amount': '1',
+  // 'currency': 'UAH',
+  // 'productName': 'Test tovar',
+  // 'productPrice': '1',
+  // 'clientFirstName': 'Name',
+  // 'clientLastName': 'Surname',
+  // 'clientEmail': 'g00dv1n.private@gmail.com',
+  // 'clientPhone': '380954939068',
 }
 
 const productInfo = {
@@ -34,6 +36,11 @@ const productInfo = {
     en: 'USD'
   },
   productPrice: {
+    ru: '179.95',
+    en: '2.99',
+    ua: '79.95'
+  },
+  amount: {
     ru: '179.95',
     en: '2.99',
     ua: '79.95'
@@ -60,25 +67,47 @@ export const createBaseOrderObject = (user, locale) => {
 
 export const processRegistration = async (user, locale) => {
   let htmlForm = null
-  try {
-    new UserModel(fieldsTransform(user)).save()
-    const _orderFields = createBaseOrderObject(user, locale)
-    htmlForm = WPF.buildForm(_orderFields)
-  } catch (err) {
-    console.log(err)
+  const checkUser = await new UserModel({ email: user.email }).fetch()
+
+  if (checkUser) {
+    const err = new Error('emailAlreadyExists')
+    err.status = 400
+    throw err
   }
-  return {htmlForm}
+
+  await new UserModel(fieldsTransform(user)).save()
+  const _orderFields = createBaseOrderObject(user, locale)
+  htmlForm = WPF.buildForm(_orderFields)
+
+  return { htmlForm }
 }
 
 export const processOrder = async (order) => {
   if (order.reasonCode !== reasonCode ||
-         order.transactionStatus !== transactionStatus) {
-    debug('Not success order')
+    order.transactionStatus !== transactionStatus) {
+    console.log('Not success order')
     console.log(order)
   }
   try {
     const so = await new OrderModel(order).save()
+    const email = so.get('email')
+    const user = await new UserModel({email}).fetch()
+    if (!user) {
+      console.log('Cannot find user')
+      return
+    }
+    const subscriptions = await new SubscrptionModel({
+      userId: user.get('id'),
+      lastOrderId: so.get('id'),
+      activateAt: moment().toDate(),
+      expiredAt: moment().add(1, 'months').add(2, 'days').toDate()
+    })
+    user.set('active', true)
+    user.set('password', 'admin123')
+    await user.save()
+    console.log(subscriptions.toJSON())
   } catch (err) {
-
+    console.log('Cannot processOrder')
+    console.log(err.message)
   }
 }

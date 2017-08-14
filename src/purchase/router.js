@@ -2,16 +2,16 @@ import Router from 'koa-router'
 import { WPF } from '../purchase/main'
 import asyncBusboy from 'async-busboy'
 import {OrderModel} from '../models/orders'
-import {processRegistration} from './processing'
+import {processRegistration, processOrder} from './processing'
 
 const router = new Router({ prefix: '/api/purchase' })
 
 router.get('/getform/:locale', async ctx => {
   const fields = {
-    'amount': '1',
+    'amount': '10',
     'currency': 'UAH',
     'productName': 'Test tovar',
-    'productPrice': '1',
+    'productPrice': '10',
     'productCount': '1',
     // 'clientFirstName': 'Name',
     // 'clientLastName': 'Surname',
@@ -77,10 +77,7 @@ router.post('/purchase-callback', async ctx => {
   console.log(JSON.parse(ctx.request.rawBody))
   //
   const wpfResponse = JSON.parse(ctx.request.rawBody)
-  if (wpfResponse.reasonCode === 1100) {
-
-  }
-  await new OrderModel(wpfResponse).save()
+  await processOrder(wpfResponse)
   ctx.body = WPF.createResponseObject(wpfResponse.orderReference)
 })
 

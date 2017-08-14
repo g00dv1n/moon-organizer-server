@@ -1,7 +1,7 @@
 import tape from 'tape'
 import { WayForPay } from '../src/purchase/way-for-pay'
 import { OrderModel } from '../src/models/orders'
-import {setupProductInfo} from '../src/purchase/processing'
+import {setupProductInfo, processOrder} from '../src/purchase/processing'
 
 const WPF = new WayForPay('test_merch_n1', 'flk3409refn54t54t*FNJRET')
 
@@ -47,7 +47,7 @@ tape('test Save Order', async (t) => {
   t.end()
 })
 
-tape('test Product Info', async (t) => {
+tape('test Product Info', (t) => {
   const expected = {
     productName: 'Лунный Календарь',
     currency: 'RUB',
@@ -56,5 +56,15 @@ tape('test Product Info', async (t) => {
   const actual = setupProductInfo('ru')
   t.deepEqual(actual, expected)
 
+  t.end()
+})
+
+tape('test Product Info', async (t) => {
+  try {
+    await processOrder(responseFromWayForPay)
+  } catch (err) {
+    t.fail('Cannot save Order')
+    console.log(err)
+  }
   t.end()
 })
