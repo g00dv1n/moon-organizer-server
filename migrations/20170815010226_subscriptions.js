@@ -20,7 +20,7 @@ exports.up = function (knex, Promise) {
 exports.down = function (knex, Promise) {
   return Promise.all([
     knex.raw('SET foreign_key_checks = 0;'),
-    knex.schema.dropTab(tableName),
+    knex.schema.dropTableIfExists(tableName),
     knex.raw('SET foreign_key_checks = 1;')
   ])
 }

@@ -1,10 +1,9 @@
 import { UserModel } from './models/users'
 import { ReviewModel } from './models/reviews'
-import { OrderModel } from './models/orders'
+import { fieldsTransform } from './helpers/userModelUtils'
 import { knex } from './db'
 import config from 'config'
 import moment from 'moment'
-import { fieldsTransform } from './helpers/userModelUtils'
 
 async function seed () {
   /* CREATE USERS */
@@ -13,6 +12,10 @@ async function seed () {
     const birthdayDate = moment(user.birthday, 'DD.MM.YYYY h:mm').unix()
     const userForSave = Object.assign({}, user, { birthday: birthdayDate })
     // return save promise
+    userForSave.geoData = {
+      test: 123,
+      lol: 'sex'
+    }
     return new UserModel(fieldsTransform(userForSave)).save()
   }))
   models.forEach(model => console.log(`Saved user: ${JSON.stringify(model.toJSON())}`))

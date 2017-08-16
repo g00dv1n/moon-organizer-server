@@ -1,12 +1,11 @@
-import Debug from 'debug'
 import { OrderModel } from '../models/orders'
 import { UserModel } from '../models/users'
 import { SubscrptionModel } from '../models/subscriptions'
 import { WPF } from '../purchase/main'
 import { fieldsTransform } from '../helpers/userModelUtils'
 import moment from 'moment'
-
-const debug = Debug('moon-organizer')
+import randomstring from 'randomstring'
+import winston from 'winston'
 
 // constants
 const reasonCode = 1100 // Ok status
@@ -83,31 +82,63 @@ export const processRegistration = async (user, locale) => {
 }
 
 export const processOrder = async (order) => {
+  winston.info('START ORDER PROCESSING', order)
+  if (!WPF.isResponseValid(order)) {
+    winston.error('INVALID SIGNAUTRE', order)
+    return
+  }
   if (order.reasonCode !== reasonCode ||
     order.transactionStatus !== transactionStatus) {
-    console.log('Not success order')
-    console.log(order)
+    winston.error('Not success order', order)
+    return
   }
   try {
+    // SAVE ORDER to DB
     const so = await new OrderModel(order).save()
+    winston.info(`Order with orderReference=${order.orderReference} saved successfully`)
+
     const email = so.get('email')
-    const user = await new UserModel({email}).fetch()
+    const user = await new UserModel({ email }).fetch()
     if (!user) {
-      console.log('Cannot find user')
+      winston.error('Cannot find user with email=' + email)
       return
     }
-    const subscriptions = await new SubscrptionModel({
-      userId: user.get('id'),
-      lastOrderId: so.get('id'),
-      activateAt: moment().toDate(),
-      expiredAt: moment().add(1, 'months').add(2, 'days').toDate()
-    })
+    let subscriptions = await new SubscrptionModel({
+      userId: user.get('id')
+    }).fetch()
+
+    const activateAt = moment().toDate()
+    const expiredAt = moment().add(1, 'months').add(2, 'days').toDate()
+    const lastOrderId = so.get('id')
+
+    if (subscriptions) {
+      subscriptions.set('activateAt', activateAt)
+      subscriptions.set('expiredAt', expiredAt)
+      subscriptions.set('lastOrderId', lastOrderId)
+      await subscriptions.save()
+      winston.info(`Subscription for users.id=${user.get('id')} updated successfully`)
+    } else {
+      subscriptions = await new SubscrptionModel({
+        activateAt,
+        expiredAt,
+        lastOrderId,
+        userId: user.get('id')
+      }).save()
+      winston.info(`Create new subscription for users.id=${user.get('id')}`)
+    }
+
     user.set('active', true)
-    user.set('password', 'admin123')
+    winston.info(`User: id=${user.get('id')} email:${user.get('email')} activated`)
+    if (!user.get('password')) {
+      const password = randomstring.generate(8)
+      user.set('password', password)
+      winston
+        .info(`User: id=${user.get('id')} email:${user.get('email')} generated password=${user.get('password')}`)
+    }
     await user.save()
-    console.log(subscriptions.toJSON())
+    winston.info(`User: id=${user.get('id')} email:${user.get('email')} saved`)
+    winston.info('END ORDER PROCESSING')
   } catch (err) {
-    console.log('Cannot processOrder')
-    console.log(err.message)
+    winston.err('Cannot processOrder', err)
   }
 }

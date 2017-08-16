@@ -12,7 +12,7 @@ exports.up = (knex, Promise) => {
     table.json('tasksFrom')
     table.json('tasksOnCalendar')
     table.string('birthday')
-    table.string('ip')
+    table.json('geoData')
     table.string('countryCode')
     table.string('avatarUrl')
     table.boolean('active').defaultTo(false)

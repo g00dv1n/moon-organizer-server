@@ -98,7 +98,10 @@ export class WayForPay {
       transactionType: 'PURCHASE',
       authorizationType: 'SimpleSignature',
       orderDate: moment().unix().toString(),
-      orderReference: randomstring.generate(16),
+      orderReference: randomstring.generate({
+        length: 12,
+        charset: 'numeric'
+      }),
       serviceUrl: this._serviceUrl,
       merchantDomainName: this._merchantDomainName,
       language: 'AUTO',
@@ -108,8 +111,8 @@ export class WayForPay {
 
   _calculateSignature (_fields, _signatureFieldsArray) {
     const concatStr = _signatureFieldsArray
-      .map(field => _fields[field])
-      .join(';')
+          .map(field => _fields[field])
+          .join(';')
     const hmac = crypto.createHmac('md5', this._merchantPassword)
     hmac.update(concatStr)
     return hmac.digest('hex')

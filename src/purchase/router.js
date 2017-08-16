@@ -72,10 +72,6 @@ router.post('/thankyou-page', async ctx => {
 })
 
 router.post('/purchase-callback', async ctx => {
-  // logs
-  ctx.debug('purchase-callback')
-  console.log(JSON.parse(ctx.request.rawBody))
-  //
   const wpfResponse = JSON.parse(ctx.request.rawBody)
   await processOrder(wpfResponse)
   ctx.body = WPF.createResponseObject(wpfResponse.orderReference)

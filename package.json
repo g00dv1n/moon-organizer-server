@@ -24,6 +24,7 @@
     "babel-register": "^6.24.1",
     "bcrypt": "^1.0.2",
     "bookshelf": "^0.10.4",
+    "bookshelf-json-columns": "^2.1.1",
     "config": "^1.26.1",
     "crypto-js": "^3.1.9-1",
     "crypto-promise": "^2.0.0",
@@ -48,7 +49,8 @@
     "rimraf": "^2.6.1",
     "sprintf-js": "^1.1.1",
     "sqlite3": "^3.1.8",
-    "tap-spec": "^4.1.1"
+    "tap-spec": "^4.1.1",
+    "winston": "^2.3.1"
   },
   "devDependencies": {
     "babel-eslint": "^7.2.3",
