@@ -71,6 +71,10 @@ router.get('/price/:locale', async ctx => {
   ctx.body = setupProductInfo(locale)
 })
 
+router.get('/check-env', async ctx => {
+  ctx.body = config.get('PURCHASE_CALENDAR_RETURN_URL')
+})
+
 router.post('/purchase-callback', async ctx => {
   const wpfResponse = JSON.parse(ctx.request.rawBody)
   await processOrder(wpfResponse)

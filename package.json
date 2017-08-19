@@ -8,6 +8,7 @@
     "dev": "DEBUG='moon-organizer' ./node_modules/.bin/nodemon --watch ./src --exec 'node ./dev.js'",
     "start": "./node_modules/.bin/babel -d ./dist ./src -s && node ./dist/app.js",
     "test": "./node_modules/.bin/tape -r babel-register ./tests/**/*.js | node_modules/.bin/tap-spec",
+    "build": "./node_modules/.bin/babel -d ./dist ./src -s",
     "db:seed": "node_modules/.bin/babel-node ./src/seed.js",
     "db:migrate:latest": "node_modules/.bin/knex migrate:latest",
     "db:migrate:rollback": "node_modules/.bin/knex migrate:rollback",
