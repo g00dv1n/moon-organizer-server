@@ -13,8 +13,8 @@ const reasonCode = 1100 // Ok status
 const transactionStatus = 'Approved'
 
 const baseOrderObject = {
-  'productCount': '1'
-  // 'regularMode': 'monthly'
+  'productCount': '1',
+  'regularMode': 'none'
   // 'dateNext': moment().add(1, 'M').format('DD.MM.YYYY').toString(),
   // 'dateEnd': moment().add(1, 'y').format('DD.MM.YYYY').toString()
 
