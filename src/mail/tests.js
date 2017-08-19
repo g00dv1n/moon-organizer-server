@@ -1,5 +1,11 @@
-import { sendNewPassword } from './sendNewPasswod'
+import { Mailer, EVENTS } from './mailer'
+import { sendActivate } from './actions'
 
-sendNewPassword({ email: 'g00dv1n.private@gmail.com', lang: 'en', password: 'ASDASDASD' })
+const params = { email: 'g00dv1n.private@gmail.com', lang: 'ru', password: 'ASDASDASD' }
+const mailer = new Mailer()
+
+mailer.emit(EVENTS.ACTIVATE_USER, params)
+
+sendActivate(params)
   .then(res => console.log(res))
   .catch(err => console.log(err))

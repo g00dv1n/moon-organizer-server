@@ -2,14 +2,21 @@
   "PORT": 8090,
   "SECRET": "moon-organizer",
   "avatarsDir": "avatars",
+  "PURCHASE_CALLBACK_URL": "https://moonorganizer.com/api/purchase/purchase-callback",
+  "PURCAHSE_RETURN_URL": "https://moonorganizer.com/api/purchase/thankyou-page",
+  "PURCHASE_CALENDAR_RETURN_URL": "https://moonorganizer.com/calendar/#/me/thank-you",
+  "IS_TEST_MERCHANT": true,
   "db": {
     "client": "mysql",
     "connection": {
-      "host"     : "127.0.0.1",
-      "user"     : "moon",
-      "password" : "moon-organizer",
-      "database" : "MOON_DB",
-      "charset"  : "utf8"
+      "host": "127.0.0.1",
+      "user": "moon",
+      "password": "moon-organizer",
+      "database": "MOON_DB",
+      "charset": "utf8"
+    },
+    "migrations": {
+      "tableName": "knex_migrations"
     }
   },
   "mail": {
@@ -19,23 +26,5 @@
       "user": "do-not-reply@moonorganizer.com",
       "pass": "0Zfc1*k2"
     }
-  },
-  "defaultUsers": [
-    {
-      "name": "Alex",
-      "surname": "g00dv1n",
-      "password": "admin123",
-      "birthday": "12.12.1991 7:42",
-      "email": "g00dv1n.private@gmail.com",
-      "categories": ["lucky", "garden"]
-    },
-    {
-      "name": "Moon",
-      "surname": "User",
-      "password": "admin123",
-      "birthday": "12.12.1991 7:42",
-      "email": "moon@gmail.com",
-      "categories": ["lucky", "garden"]
-    }
-  ]
+  }
 }

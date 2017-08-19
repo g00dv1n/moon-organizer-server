@@ -15,7 +15,7 @@ const jwtVerify = (secret, excludePaths) => {
       .every(path => new RegExp(path, 'g').test(ctx.request.path))
 
     if (match) return next()
-    
+
     if (!ctx.header.authorization) ctx.throw(401, 'Authorization required')
 
     const [scheme, token] = ctx.header.authorization.split(' ')
@@ -29,7 +29,7 @@ const jwtVerify = (secret, excludePaths) => {
 
       ctx.state.user = payload
     } catch (e) {
-        ctx.throw(401, e.message)
+      ctx.throw(401, e.message)
     }
     await next()
   }

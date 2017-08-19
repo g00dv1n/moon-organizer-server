@@ -7,3 +7,4 @@ npm-debug.log*
 yarn.lock*
 flow-typed
 package-lock.json
+logs

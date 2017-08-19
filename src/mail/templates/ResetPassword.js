@@ -1,3 +1,5 @@
+const loginLink = 'https://moonorganizer.com/calendar/#/?forcelogin=1'
+
 const ru = `
 Уважаемый Клиент,
 <br>
@@ -8,7 +10,7 @@ const ru = `
 <br>
 Просто скопируйте его и вставьте в форму авторизации:
 <br>
-https://moonorganizer.com/calendar/
+${loginLink}
 <br>
 <br>
 <br>
@@ -26,7 +28,7 @@ Your new password: <b>%(password)s</b>
 <br>
 Just copy and paste it into the authorization form:
 <br>
-https://moonorganizer.com/calendar/
+${loginLink}
 <br>
 <br>
 <br>

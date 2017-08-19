@@ -6,6 +6,7 @@ import config from 'config'
 import send from 'koa-send'
 import { AVATARS_ROOT } from '../helpers/storeAvatars'
 import { sendNewPassword } from '../mail'
+import randomstring from 'randomstring'
 
 const router = new Router({ prefix: '/api/public' })
 const cities = require('../../world-cities-parser/cities.json')
@@ -22,6 +23,10 @@ router.post('/auth', async function (ctx) {
   if (!user) ctx.throw(400, `Cannot get user with email=${email}`)
 
   const match = user.get('password') === password
+  const isAcitve = user.get('active')
+
+  if (!isAcitve) ctx.throw(402, 'Subscription expired')
+
   if (!match) ctx.throw(403, 'Invalid password/email')
 
   try {
@@ -44,10 +49,10 @@ router.post('/review', async function (ctx) {
   if (!review.rate && !review.feedback) {
     ctx.throw(400, 'Cannot get rate or feedback fields')
   }
-  if (review.id === null ) {
+  if (review.id === null) {
     delete review.id
   }
-  
+
   const res = await new ReviewModel(review).save()
   ctx.body = res.toJSON()
 })
@@ -80,8 +85,8 @@ router.post('/reset-password', async ctx => {
   if (!user) {
     ctx.throw(404, 'Cannot get user with email=' + email)
   }
-  const newPass = Math.random().toString(36).substring(16)
-  await sendNewPassword({lang, email, password: newPass})
+  const newPass = randomstring.generate(8)
+  await sendNewPassword({ lang, email, password: newPass })
   ctx.body = await new UserModel({ id: user.id, password: newPass }).save()
 })
 

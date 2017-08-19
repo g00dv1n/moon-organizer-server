@@ -2,13 +2,18 @@
   "PORT": 8090,
   "SECRET": "moon-organizer",
   "avatarsDir": "avatars",
+  "PURCHASE_CALLBACK_URL": "http://31.43.145.164:8090/api/purchase/purchase-callback",
+  "PURCAHSE_RETURN_URL": "http://31.43.145.164:8090/api/purchase/thankyou-page",
+  "PURCHASE_CALENDAR_RETURN_URL": "http://localhost:8080/#/me/thank-you",
+  "MERCHANT_DOMAIN_NAME": "moonorganizer.com",
+  "IS_TEST_MERCHANT": true,
   "db": {
-    "client": "pg",
+    "client": "mysql",
     "connection": {
       "host"     : "127.0.0.1",
       "user"     : "moon",
       "password" : "moon-organizer",
-      "database" : "moon_db",
+      "database" : "MOON_DB",
       "charset"  : "utf8"
     }
   },
@@ -26,8 +31,9 @@
       "surname": "g00dv1n",
       "password": "admin123",
       "birthday": "12.12.1991 7:42",
-      "email": "g00dv1n.private@gmail.com",
-      "categories": ["lucky", "garden"]
+      "email": "g00dv1n.93@gmail.com",
+      "categories": ["lucky", "garden"],
+      "active": false
     },
     {
       "name": "Moon",
@@ -35,7 +41,8 @@
       "password": "admin123",
       "birthday": "12.12.1991 7:42",
       "email": "moon@gmail.com",
-      "categories": ["lucky", "garden"]
+      "categories": ["lucky", "garden"],
+      "active": true
     }
   ]
 }
