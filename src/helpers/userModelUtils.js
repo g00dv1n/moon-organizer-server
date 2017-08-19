@@ -2,7 +2,7 @@ const fieldsTransform = (user, jsonFields = [
   'tasks',
   'tasksOnCalendar',
   'categories',
-  'geoData']
+  'geo']
 ) => {
   const u = Object.assign({}, user)
   jsonFields.forEach(f => {

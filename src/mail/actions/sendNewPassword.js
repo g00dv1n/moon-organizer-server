@@ -1,5 +1,5 @@
-import { transporter } from './transporter'
-import { template, subject } from './langTemplates'
+import { sendMail } from './sendMail'
+import { template, subject } from '../templates/ResetPassword'
 import { sprintf } from 'sprintf-js'
 
 export const sendNewPassword = params => {
@@ -7,10 +7,9 @@ export const sendNewPassword = params => {
   const t = template[lang]
   const s = subject[lang]
   const mailOptions = {
-    from: 'do-not-reply@moonorganizer.com',
     to: email,
     subject: s,
     html: sprintf(t, {password})
   }
-  return transporter.sendMail(mailOptions)
+  return sendMail(mailOptions)
 }

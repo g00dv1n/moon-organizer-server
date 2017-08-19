@@ -62,11 +62,11 @@ app.use(async (ctx, next) => {
   try {
     await next()
   } catch (err) {
-    if (skipCodes.indexOf(err.code) !== -1) {
+    if (skipCodes.indexOf(err.status) === -1) {
       debug('ERROR: %o', err)
     }
     ctx.body = err.message
-    ctx.status = err.status
+    ctx.status = +err.status || 500
   }
 })
 // mount routers

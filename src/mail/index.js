@@ -1,4 +1,3 @@
-import { transporter } from './transporter'
-import { sendNewPassword } from './sendNewPasswod'
+import { sendNewPassword, sendActivate } from './actions'
 
-export { transporter, sendNewPassword }
+export { sendActivate, sendNewPassword }

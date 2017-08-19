@@ -1,8 +1,8 @@
 import Router from 'koa-router'
-import { WPF } from '../purchase/main'
+import config from 'config'
 import asyncBusboy from 'async-busboy'
-import {OrderModel} from '../models/orders'
-import {processRegistration, processOrder} from './processing'
+import { WPF } from '../purchase/main'
+import {processRegistration, processOrder, setupProductInfo} from './processing'
 
 const router = new Router({ prefix: '/api/purchase' })
 
@@ -55,20 +55,20 @@ router.post('/checkout', async ctx => {
 })
 
 router.post('/thankyou-page', async ctx => {
-  ctx.debug('thank-you-page')
+  const url = config.get('PURCHASE_CALENDAR_RETURN_URL')
   try {
     const {fields} = await asyncBusboy(ctx.req)
     console.log(fields)
   } catch (err) {
     console.log(err)
   }
+  ctx.redirect(url)
+})
 
-  ctx.body = `
-  <html>
-    <body>
-      <h1> Thank you page </h1>
-    </body>
-  </html>`
+router.get('/price/:locale', async ctx => {
+  const locale = (ctx.params.locale || 'en').toLowerCase()
+
+  ctx.body = setupProductInfo(locale)
 })
 
 router.post('/purchase-callback', async ctx => {

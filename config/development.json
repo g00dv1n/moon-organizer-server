@@ -4,7 +4,9 @@
   "avatarsDir": "avatars",
   "PURCHASE_CALLBACK_URL": "http://31.43.145.164:8090/api/purchase/purchase-callback",
   "PURCAHSE_RETURN_URL": "http://31.43.145.164:8090/api/purchase/thankyou-page",
+  "PURCHASE_CALENDAR_RETURN_URL": "http://localhost:8080/#/me/thank-you",
   "MERCHANT_DOMAIN_NAME": "moonorganizer.com",
+  "IS_TEST_MERCHANT": true,
   "db": {
     "client": "mysql",
     "connection": {
@@ -29,7 +31,7 @@
       "surname": "g00dv1n",
       "password": "admin123",
       "birthday": "12.12.1991 7:42",
-      "email": "g00dv1n.private@gmail.com",
+      "email": "g00dv1n.93@gmail.com",
       "categories": ["lucky", "garden"],
       "active": false
     },

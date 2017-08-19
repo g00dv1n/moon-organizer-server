@@ -2,6 +2,10 @@
   "PORT": 8090,
   "SECRET": "moon-organizer",
   "avatarsDir": "avatars",
+  "PURCHASE_CALLBACK_URL": "https://moonorganizer.com/api/purchase/purchase-callback",
+  "PURCAHSE_RETURN_URL": "https://moonorganizer.com/api/purchase/thankyou-page",
+  "PURCHASE_CALENDAR_RETURN_URL": "https://moonorganizer.com/calendar/#/me/thank-you",
+  "IS_TEST_MERCHANT": true,
   "db": {
     "client": "mysql",
     "connection": {

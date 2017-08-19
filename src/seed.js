@@ -12,10 +12,6 @@ async function seed () {
     const birthdayDate = moment(user.birthday, 'DD.MM.YYYY h:mm').unix()
     const userForSave = Object.assign({}, user, { birthday: birthdayDate })
     // return save promise
-    userForSave.geoData = {
-      test: 123,
-      lol: 'sex'
-    }
     return new UserModel(fieldsTransform(userForSave)).save()
   }))
   models.forEach(model => console.log(`Saved user: ${JSON.stringify(model.toJSON())}`))

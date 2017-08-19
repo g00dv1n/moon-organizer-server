@@ -6,21 +6,18 @@ import { fieldsTransform } from '../helpers/userModelUtils'
 import moment from 'moment'
 import randomstring from 'randomstring'
 import winston from 'winston'
+import { sendActivate } from '../mail'
 
 // constants
 const reasonCode = 1100 // Ok status
 const transactionStatus = 'Approved'
 
 const baseOrderObject = {
-  'productCount': '1'
-  // 'amount': '1',
-  // 'currency': 'UAH',
-  // 'productName': 'Test tovar',
-  // 'productPrice': '1',
-  // 'clientFirstName': 'Name',
-  // 'clientLastName': 'Surname',
-  // 'clientEmail': 'g00dv1n.private@gmail.com',
-  // 'clientPhone': '380954939068',
+  'productCount': '1',
+  'regularMode': 'monthly'
+  // 'dateNext': moment().add(1, 'M').format('DD.MM.YYYY').toString(),
+  // 'dateEnd': moment().add(1, 'y').format('DD.MM.YYYY').toString()
+
 }
 
 const productInfo = {
@@ -40,6 +37,11 @@ const productInfo = {
     ua: '79.95'
   },
   amount: {
+    ru: '179.95',
+    en: '2.99',
+    ua: '79.95'
+  },
+  regularAmount: {
     ru: '179.95',
     en: '2.99',
     ua: '79.95'
@@ -74,9 +76,16 @@ export const processRegistration = async (user, locale) => {
     throw err
   }
 
-  await new UserModel(fieldsTransform(user)).save()
-  const _orderFields = createBaseOrderObject(user, locale)
-  htmlForm = WPF.buildForm(_orderFields)
+  try {
+    winston.info(`User ${user.email} try to buy.`)
+    await new UserModel(fieldsTransform(user)).save()
+    const _orderFields = createBaseOrderObject(user, locale)
+    console.log(_orderFields)
+    htmlForm = WPF.buildForm(_orderFields)
+    winston.info(`user saved`)
+  } catch (err) {
+    winston.err('Cannot processRegistration', err)
+  }
 
   return { htmlForm }
 }
@@ -126,7 +135,7 @@ export const processOrder = async (order) => {
       }).save()
       winston.info(`Create new subscription for users.id=${user.get('id')}`)
     }
-
+    const isUserActive = user.get('active')
     user.set('active', true)
     winston.info(`User: id=${user.get('id')} email:${user.get('email')} activated`)
     if (!user.get('password')) {
@@ -137,6 +146,14 @@ export const processOrder = async (order) => {
     }
     await user.save()
     winston.info(`User: id=${user.get('id')} email:${user.get('email')} saved`)
+    if (!isUserActive) {
+      const mail = await sendActivate({
+        email: user.get('email'),
+        password: user.get('password'),
+        lang: user.get('locale')
+      })
+      winston.info('send activation mail', mail)
+    }
     winston.info('END ORDER PROCESSING')
   } catch (err) {
     winston.err('Cannot processOrder', err)
