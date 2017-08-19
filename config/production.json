@@ -5,7 +5,7 @@
   "PURCHASE_CALLBACK_URL": "https://moonorganizer.com/api/purchase/purchase-callback",
   "PURCAHSE_RETURN_URL": "https://moonorganizer.com/api/purchase/thankyou-page",
   "PURCHASE_CALENDAR_RETURN_URL": "https://moonorganizer.com/calendar/#/me/thank-you",
-  "IS_TEST_MERCHANT": true,
+  "IS_TEST_MERCHANT": false,
   "MERCHANT_DOMAIN_NAME": "moonorganizer.com",
   "db": {
     "client": "mysql",
