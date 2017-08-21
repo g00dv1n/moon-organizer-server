@@ -1831,7 +1831,7 @@ function loadLocale(name) {
             module && module.exports) {
         try {
             oldLocale = globalLocale._abbr;
-            __webpack_require__(550)("./" + name);
+            __webpack_require__(549)("./" + name);
             // because defineLocale currently also sets the global locale, we
             // want to undo that for lazy loaded locales
             getSetGlobalLocale(oldLocale);
@@ -33391,7 +33391,7 @@ exports.default = function (fn) {
 /* 43 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(551);
+module.exports = __webpack_require__(550);
 
 
 /***/ }),
@@ -75748,7 +75748,7 @@ exports.default = {
  * Released under the ISC License.
  */
 (function (global, factory) {
-   true ? module.exports = factory(__webpack_require__(547)) :
+   true ? module.exports = factory(__webpack_require__(546)) :
   typeof define === 'function' && define.amd ? define(['load-script'], factory) :
   (global.VueAnalytics = factory(global.loadScript));
 }(this, (function (loadScript) { 'use strict';
@@ -82133,7 +82133,7 @@ __webpack_require__(61)('observable');
     }
 }));
 
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(555).setImmediate))
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(554).setImmediate))
 
 /***/ }),
 /* 504 */
@@ -88635,59 +88635,7 @@ function isDef(val) {
 }
 
 /***/ }),
-/* 522 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var exporter = {};
-
-var tester = /^[-!#$%&'*+\/0-9=?A-Z^_a-z{|}~](\.?[-!#$%&'*+\/0-9=?A-Z^_a-z`{|}~])*@[a-zA-Z0-9](-?\.?[a-zA-Z0-9])*\.[a-zA-Z](-?[a-zA-Z0-9])+$/;
-// Thanks to:
-// http://fightingforalostcause.net/misc/2006/compare-email-regex.php
-// http://thedailywtf.com/Articles/Validating_Email_Addresses.aspx
-// http://stackoverflow.com/questions/201323/what-is-the-best-regular-expression-for-validating-email-addresses/201378#201378
-function validate(email)
-{
-	if (!email)
-		return false;
-		
-	if(email.length>254)
-		return false;
-
-	var valid = tester.test(email);
-	if(!valid)
-		return false;
-
-	// Further checking of some things regex can't handle
-	var parts = email.split("@");
-	if(parts[0].length>64)
-		return false;
-
-	var domainParts = parts[1].split(".");
-	if(domainParts.some(function(part) { return part.length>63; }))
-		return false;
-
-	return true;
-}
-exporter.validate = validate;
-
-function validate_async(email, callback)
-{
-    var isValidEmail = false;
-    try {
-        isValidEmail = exporter.validate(email);
-        callback(null, isValidEmail);
-    }
-    catch(err) {
-        callback(err, isValidEmail)
-    }
-}
-exporter.validate_async = validate_async;
-
-module.exports = exporter;
-
-/***/ }),
+/* 522 */,
 /* 523 */,
 /* 524 */,
 /* 525 */,
@@ -88711,8 +88659,7 @@ module.exports = exporter;
 /* 543 */,
 /* 544 */,
 /* 545 */,
-/* 546 */,
-/* 547 */
+/* 546 */
 /***/ (function(module, exports) {
 
 
@@ -88783,7 +88730,7 @@ function ieOnEnd (script, cb) {
 
 
 /***/ }),
-/* 548 */
+/* 547 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -88802,7 +88749,7 @@ exports.toDate = toDate
 
 
 /***/ }),
-/* 549 */
+/* 548 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -88818,7 +88765,7 @@ exports.toDate = toDate
 
 
 
-const julian = __webpack_require__(548)
+const julian = __webpack_require__(547)
 
 // Phases of the moon & precision
 const NEW = 0
@@ -89174,8 +89121,8 @@ exports.phase_range = phase_range
 
 
 /***/ }),
-/* 550 */,
-/* 551 */
+/* 549 */,
+/* 550 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {// This method of obtaining a reference to the global object needs to be
@@ -89196,7 +89143,7 @@ var oldRuntime = hadRuntime && g.regeneratorRuntime;
 // Force reevalutation of runtime.js.
 g.regeneratorRuntime = undefined;
 
-module.exports = __webpack_require__(552);
+module.exports = __webpack_require__(551);
 
 if (hadRuntime) {
   // Restore the original runtime.
@@ -89213,7 +89160,7 @@ if (hadRuntime) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(31)))
 
 /***/ }),
-/* 552 */
+/* 551 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global) {/**
@@ -89956,7 +89903,7 @@ if (hadRuntime) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(31)))
 
 /***/ }),
-/* 553 */
+/* 552 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /* WEBPACK VAR INJECTION */(function(global, process) {(function (global, undefined) {
@@ -90149,7 +90096,7 @@ if (hadRuntime) {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(31), __webpack_require__(225)))
 
 /***/ }),
-/* 554 */
+/* 553 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -90465,7 +90412,7 @@ else window.SunCalc = SunCalc;
 
 
 /***/ }),
-/* 555 */
+/* 554 */
 /***/ (function(module, exports, __webpack_require__) {
 
 var apply = Function.prototype.apply;
@@ -90518,12 +90465,13 @@ exports._unrefActive = exports.active = function(item) {
 };
 
 // setimmediate attaches itself to the global object
-__webpack_require__(553);
+__webpack_require__(552);
 exports.setImmediate = setImmediate;
 exports.clearImmediate = clearImmediate;
 
 
 /***/ }),
+/* 555 */,
 /* 556 */,
 /* 557 */,
 /* 558 */,
@@ -90621,8 +90569,7 @@ exports.clearImmediate = clearImmediate;
 /* 650 */,
 /* 651 */,
 /* 652 */,
-/* 653 */,
-/* 654 */
+/* 653 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -93134,7 +93081,7 @@ if (inBrowser && window.Vue) {
 
 
 /***/ }),
-/* 655 */
+/* 654 */
 /***/ (function(module, exports) {
 
 /**
@@ -93167,8 +93114,8 @@ module.exports = function listToStyles (parentId, list) {
 
 
 /***/ }),
-/* 656 */,
-/* 657 */
+/* 655 */,
+/* 656 */
 /***/ (function(module, exports) {
 
 /*
@@ -93224,7 +93171,7 @@ module.exports = function() {
 
 
 /***/ }),
-/* 658 */
+/* 657 */
 /***/ (function(module, exports, __webpack_require__) {
 
 /*
@@ -93243,7 +93190,7 @@ if (typeof DEBUG !== 'undefined' && DEBUG) {
   ) }
 }
 
-var listToStyles = __webpack_require__(655)
+var listToStyles = __webpack_require__(654)
 
 /*
 type StyleObject = {
@@ -93446,4 +93393,4 @@ function applyToTag (styleElement, obj) {
 
 /***/ })
 ]);
-//# sourceMappingURL=vendor.6bc680e6b3fab6066975.js.map
+//# sourceMappingURL=vendor.08a388d5e9cb9fd0b962.js.map
