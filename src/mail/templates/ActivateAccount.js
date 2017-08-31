@@ -12,6 +12,9 @@ const ru = `
 <br>
 <br>
 Авторизуйтесь здесь: ${loginLink}
+<br>
+<br>
+Ваша книга во вложении!
 `
 const en = `
 Your Personal Calendar has been successfully activated.

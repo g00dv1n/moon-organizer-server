@@ -68,7 +68,12 @@ export const createBaseOrderObject = (user, locale) => {
 
 export const processRegistration = async (user, locale) => {
   let htmlForm = null
-  const checkUser = await new UserModel({ email: user.email }).fetch()
+  let checkUser = await new UserModel({ email: user.email }).fetch()
+
+  if (checkUser && !checkUser.get('active')) {
+    await checkUser.destroy()
+    checkUser = null
+  }
 
   if (checkUser) {
     const err = new Error('emailAlreadyExists')
