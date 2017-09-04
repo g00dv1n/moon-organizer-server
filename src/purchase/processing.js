@@ -152,12 +152,16 @@ export const processOrder = async (order) => {
     await user.save()
     winston.info(`User: id=${user.get('id')} email:${user.get('email')} saved`)
     if (!isUserActive) {
-      const mail = await sendActivate({
+      winston.info('try to send activation mail')
+      sendActivate({
         email: user.get('email'),
         password: user.get('password'),
         lang: user.get('locale')
       })
-      winston.info('send activation mail', mail)
+      .then(mail => winston.info('send activation mail', mail))
+      .catch(err => winston.err('Cannot send activation mail', err))
+    } else {
+      winston.info('already send activation mail')
     }
     winston.info('END ORDER PROCESSING')
   } catch (err) {
