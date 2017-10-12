@@ -5,7 +5,7 @@ import jwt from 'jsonwebtoken'
 import config from 'config'
 import send from 'koa-send'
 import { AVATARS_ROOT } from '../helpers/storeAvatars'
-import { sendNewPassword } from '../mail'
+import { sendNewPassword, sendBook } from '../mail'
 import randomstring from 'randomstring'
 
 const router = new Router({ prefix: '/api/public' })
@@ -88,6 +88,10 @@ router.post('/reset-password', async ctx => {
   const newPass = randomstring.generate(8)
   await sendNewPassword({ lang, email, password: newPass })
   ctx.body = await new UserModel({ id: user.id, password: newPass }).save()
+})
+
+router.get('/test/attachment', async ctx => {
+  ctx.body = await sendBook({email: 'g00dv1n.private@gmail.com'})
 })
 
 export default router

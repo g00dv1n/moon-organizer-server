@@ -6,7 +6,7 @@ import { fieldsTransform } from '../helpers/userModelUtils'
 import moment from 'moment'
 import randomstring from 'randomstring'
 import winston from 'winston'
-import { sendActivate } from '../mail'
+import { sendActivate, sendBook } from '../mail'
 
 // constants
 const reasonCode = 1100 // Ok status
@@ -58,6 +58,26 @@ export const setupProductInfo = (locale) => {
   return _res
 }
 
+export const sendActivationMails = async (user) => {
+  winston.info('try to send activation mail')
+  const am = await sendActivate({
+    email: user.get('email'),
+    password: user.get('password'),
+    lang: user.get('locale')
+  })
+  winston.info('send activation mail', am)
+  // .then(mail => winston.info('send activation mail', mail))
+
+  if (user.get('locale') === 'ru') {
+    winston.info('try to send gift book')
+    const gm = await sendBook({
+      email: user.get('email')
+    })
+    winston.info('send gift book', gm)
+    // .then(mail => winston.info('send gift book', mail))
+  }
+}
+
 export const createBaseOrderObject = (user, locale) => {
   return Object.assign({
     clientFirstName: user.name,
@@ -90,7 +110,7 @@ export const processRegistration = async (user, locale) => {
     htmlForm = WPF.buildForm(_orderFields)
     winston.info(`user saved`)
   } catch (err) {
-    winston.err('Cannot processRegistration', err)
+    winston.error('Cannot processRegistration', err)
   }
 
   return { htmlForm }
@@ -153,19 +173,13 @@ export const processOrder = async (order) => {
     await user.save()
     winston.info(`User: id=${user.get('id')} email:${user.get('email')} saved`)
     if (!isUserActive) {
-      winston.info('try to send activation mail')
-      sendActivate({
-        email: user.get('email'),
-        password: user.get('password'),
-        lang: user.get('locale')
-      })
-      .then(mail => winston.info('send activation mail', mail))
-      .catch(err => winston.err('Cannot send activation mail', err))
+      sendActivationMails(user)
+        .catch(err => winston.error('Cannot send activation mail', err))
     } else {
       winston.info('already send activation mail')
     }
     winston.info('END ORDER PROCESSING')
   } catch (err) {
-    winston.err('Cannot processOrder', err)
+    winston.error('Cannot processOrder', err)
   }
 }
