@@ -68,6 +68,7 @@ export const createBaseOrderObject = (user, locale) => {
 
 export const processRegistration = async (user, locale) => {
   let htmlForm = null
+  user.email = UserModel.normalizeEmail(user.email)
   let checkUser = await new UserModel({ email: user.email }).fetch()
 
   if (checkUser && !checkUser.get('active')) {
