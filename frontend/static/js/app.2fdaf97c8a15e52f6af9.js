@@ -2660,7 +2660,9 @@
           });
         }
       },
-      created: function () {}
+      created: function () {
+        _$1.window.yaCounter.reachGoal("on_promo");
+      }
     };
   };
 
@@ -2780,7 +2782,9 @@
           });
         }
       },
-      created: function () {}
+      created: function () {
+        _$1.window.yaCounter.reachGoal("on_registration");
+      }
     };
   };
 
