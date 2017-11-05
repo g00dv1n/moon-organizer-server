@@ -1128,7 +1128,7 @@
       head: {
         meta: []
       },
-      methods: r()({}, n.i(i.a)(["showTooltips", "showDayTooltip", "setupPromoBlurCategories"]), {
+      methods: r()({}, n.i(i.a)(["showTooltips", "setupPromoBlurCategories"]), {
         toggleLeftSidenav: function () {
           this.$refs.leftSidenav.toggle();
         },
@@ -1209,12 +1209,7 @@
       }),
       created: function () {
         var e = this;
-
-        _$1.window.addEventListener("resize", m(this));
-
-        var t = "no" === this.$store.state.notFirstTime,
-            n = this.isCalendarView;
-        t && n && this.showDayTooltip(), this.$route.query.forcelogin && _$1.setTimeout(function () {
+        _$1.window.addEventListener("resize", m(this)), this.$route.query.forcelogin && _$1.setTimeout(function () {
           return e.openLoginModal();
         }, 1), this.setupPromoBlurCategories(this.$route.params);
       }
@@ -9402,13 +9397,14 @@
         Ge = (n.n(Fe), n(234)),
         Ne = (n.n(Ge), function () {
       var e = s()(r.a.mark(function e() {
+        var t;
         return r.a.wrap(function (e) {
           for (;;) switch (e.prev = e.next) {
             case 0:
-              return e.prev = 0, e.next = 3, Ee.a.dispatch("checkAuth");
+              return e.prev = 0, e.next = 3, Ee.a.dispatch("loadClientInfo");
 
             case 3:
-              return e.next = 5, Ee.a.dispatch("loadClientInfo");
+              return e.next = 5, Ee.a.dispatch("checkAuth");
 
             case 5:
               return e.next = 7, Ee.a.dispatch("setupPrice");
@@ -9421,10 +9417,21 @@
               e.prev = 9, e.t0 = e.catch(0), _$1.console.log(e.t0.message);
 
             case 12:
+              if (e.prev = 12, !(t = "no" === Ee.a.state.notFirstTime)) {
+                e.next = 17;
+                break;
+              }
+
+              return e.next = 17, Ee.a.dispatch("showDayTooltip");
+
+            case 17:
+              return e.finish(12);
+
+            case 18:
             case "end":
               return e.stop();
           }
-        }, e, this, [[0, 9]]);
+        }, e, this, [[0, 9, 12, 18]]);
       }));
       return function () {
         return e.apply(this, arguments);
@@ -9927,7 +9934,7 @@
       },
       setupPromoBlurCategories: function (e, t) {
         var n = e.state,
-            a = ["beauty", "relationship", "health", "shopping"],
+            a = ["beauty", "health", "shopping"],
             r = void 0;
         _$1.window.localStorage.getItem("exeptBlurCategory") ? r = _$1.window.localStorage.getItem("exeptBlurCategory") : (r = t && t.category && t.category.toLowerCase() || "none", _$1.window.localStorage.setItem("exeptBlurCategory", r)), n.bluredCategories = a.filter(function (e) {
           return e.toLowerCase() !== r;
