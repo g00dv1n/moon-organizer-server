@@ -564,8 +564,8 @@
     var a = [{
       name: "default",
       text: {
-        ru: "Лунный календарь 2017",
-        en: "Lunar calendar 2017"
+        ru: "Лунный календарь 2018",
+        en: "Lunar calendar 2018"
       }
     }, {
       name: "relationship",
