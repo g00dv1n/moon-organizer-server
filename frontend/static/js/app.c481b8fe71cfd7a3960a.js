@@ -1765,13 +1765,7 @@
           return _$1.window.localStorage.setItem(this.STORAGE_KEY, "true");
         }
       },
-      mounted: function () {
-        var e = this;
-
-        _$1.setTimeout(function () {
-          e.canOpen() && e.open();
-        }, this.DELAY);
-      }
+      mounted: function () {}
     };
   };
 
