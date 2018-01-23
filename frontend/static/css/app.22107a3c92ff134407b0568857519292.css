@@ -459,6 +459,23 @@ body {
 }
 }
 
+.main-title {
+  font-size: 16px;
+  text-align: left;
+  margin-left: 0! important;
+  font-weight: 500;
+  color: black;
+  text-transform: uppercase;
+  width: 100%;
+  text-align: left;
+}
+i.fa.promo-icon {
+  color: orange;
+  transform: rotate(-30deg);
+  padding-left: 5px;
+}
+
+
 *[data-v-b0af122e] {
     box-sizing: border-box;
     font-size: 16px;
@@ -1549,6 +1566,83 @@ review__rate {
     line-height: 1.5;
     margin-top: 75px;
     margin-bottom: 50px;
+}
+
+.specific-promo-page[data-v-bf0bff08] {
+  margin-top: 15%;
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-align: center;
+      align-items: center;
+  font-size: 20px;
+}
+.specific-promo-page__controls[data-v-bf0bff08] {
+    margin: 20px;
+}
+
+.strikethrough[data-v-71715946] {
+  position: relative;
+}
+.strikethrough[data-v-71715946]:before {
+    border-bottom: 1px solid red;
+    position: absolute;
+    content: "";
+    transform: rotate(-7deg);
+    top: -50%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.price[data-v-71715946] {
+  font-weight: bold;
+  font-style: normal;
+}
+
+.specific-promo-page[data-v-a19f9caa] {
+  margin-top: 15%;
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-align: center;
+      align-items: center;
+  font-size: 20px;
+}
+.specific-promo-page__controls[data-v-a19f9caa] {
+    margin: 20px;
+}
+
+.specific-promo-page[data-v-35410c08] {
+  margin-top: 25px;
+  width: 100%;
+  height: auto;
+  padding: 20px;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-direction: column;
+      flex-direction: column;
+  -ms-flex-align: center;
+      align-items: center;
+  font-size: 20px;
+  line-height: 1.5;
+}
+.specific-promo-page__controls[data-v-35410c08] {
+    margin: 20px;
+}
+.specific-promo-page__screen[data-v-35410c08] {
+    width: 500px;
+    margin: 25px;
+}
+.specific-promo-page__screen img[data-v-35410c08] {
+      width: 100%;
 }
 /* Common */
 /* Responsive Breakpoints */
@@ -7862,4 +7956,4 @@ background: #ccc;
 .promo-blur {
     filter: blur(10px);
 }
-/*# sourceMappingURL=app.38db83f6e114e0c9eca4617ce440b2d3.css.map*/
+/*# sourceMappingURL=app.22107a3c92ff134407b0568857519292.css.map*/
