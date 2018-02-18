@@ -395,8 +395,10 @@
       });
     },
         A = function (e) {
-      var t = s.a.phase_hunt(u()(e).endOf("day").toDate());
-      return u()(t.new_date);
+      var t = u()(e).endOf("day").toDate(),
+          n = u()(e).startOf("day").toDate(),
+          a = s.a.phase_hunt(t);
+      return a.new_date > t && (a = s.a.phase_hunt(n)), u()(a.new_date);
     },
         k = function (e, t) {
       return u()(t).endOf("day").diff(u()(e).startOf("day"), "days");
