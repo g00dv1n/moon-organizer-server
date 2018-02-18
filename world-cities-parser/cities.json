@@ -146406,5 +146406,37 @@
         "latitude": "40.0319",
         "longitude": "-82.4356",
         "ru": "Хит"
+    },
+    {
+        "country": "CY",
+        "defaultName": "Limassol",
+        "en": "Limassol",
+        "latitude": "34.666664",
+        "longitude": "33.0333332",
+        "ru": "Лимасол"
+    },
+    {
+        "country": "CY",
+        "defaultName": "Paphos",
+        "en": "Paphos",
+        "latitude": "34.7666636",
+        "longitude": "32.416665",
+        "ru": "Пафос"
+    },
+    {
+        "country": "CY",
+        "defaultName": "Larnaca",
+        "en": "Larnaca",
+        "latitude": "34.873996504",
+        "longitude": "33.624830834",
+        "ru": "Ларнака"
+    },
+    {
+        "country": "CY",
+        "defaultName": "Nicosia",
+        "en": "Nicosia",
+        "latitude": "35.17531",
+        "longitude": "33.3642",
+        "ru": "Никосия"
     }
 ]
