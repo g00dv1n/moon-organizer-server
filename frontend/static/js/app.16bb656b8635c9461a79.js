@@ -194,7 +194,7 @@
   var _a = function (e, t, n) {
     "use strict";
 
-    var a = n(22),
+    var a = n(18),
         r = n.n(a),
         i = n(125),
         s = n.n(i),
@@ -350,7 +350,7 @@
       return l;
     });
 
-    var a = n(22),
+    var a = n(18),
         r = n.n(a),
         i = n(125),
         s = n.n(i),
@@ -761,34 +761,50 @@
     "use strict";
 
     n.d(t, "a", function () {
-      return g;
+      return b;
     });
 
-    var a = n(369),
-        r = n(363),
-        i = n(364),
-        s = n(365),
-        o = n(366),
-        u = n(367),
-        l = n(368),
-        c = n(370),
-        d = n(371),
-        h = n(628),
-        p = n.n(h),
-        f = {
-      main: a.a,
-      beauty: r.a,
-      business: i.a,
-      garden: s.a,
-      health: o.a,
-      house: u.a,
-      lucky: l.a,
-      relationship: c.a,
-      shopping: d.a
+    var a = n(18),
+        r = n.n(a),
+        i = n(369),
+        s = n(363),
+        o = n(364),
+        u = n(365),
+        l = n(366),
+        c = n(367),
+        d = n(368),
+        h = n(370),
+        p = n(371),
+        f = n(628),
+        g = n.n(f),
+        m = {
+      main: i.a,
+      beauty: s.a,
+      business: o.a,
+      garden: u.a,
+      health: l.a,
+      house: c.a,
+      lucky: d.a,
+      relationship: h.a,
+      shopping: p.a
     },
-        g = function (e) {
-      var t = f[e] ? f[e] : f.main;
-      return t[p()(0, t.length - 1)];
+        y = function (e, t) {
+      var n = {
+        location: e || "day",
+        title: t.titleConst || null,
+        textCode: t.textCode || "t1",
+        btn: t.btnLangConst || t.btn || "learnMore"
+      };
+      return "/calendar/vp-promo-hints?" + r()(n).filter(function (e) {
+        return !!n[e];
+      }).map(function (e) {
+        return e + "=" + n[e];
+      }).join("&");
+    },
+        b = function (e) {
+      var t = m[e] ? m[e] : m.main,
+          n = t[g()(0, t.length - 1)];
+      return n.virtualPage = y(e, n), n;
     };
   };
 
@@ -1466,7 +1482,7 @@
           return this.$route.params && this.$route.params.dayNumber || this.day.showedLunarDay.number;
         },
         goToPromo: function () {
-          this.$router.push({
+          this.$ga.page(this.promo.virtualPage), this.$router.push({
             name: "promo-page"
           });
         }
@@ -1663,11 +1679,6 @@
         category: function () {
           var e = this.$store.state.lastClickedDay;
           return !e || this.isDefault ? null : m(this.currentType, this.locale, e);
-        },
-        goToPromo: function () {
-          this.modal.close(), this.$router.push({
-            name: "promo-page"
-          });
         }
       }),
       methods: {
@@ -1681,6 +1692,11 @@
           return this.user && this.user.tasksOnCalendar && this.user.tasksOnCalendar.length > 0 ? h.d : ["lucky", "fishing"].includes(this.currentType) ? y(this.currentType, this.locale) : function () {
             return !1;
           };
+        },
+        goToPromo: function () {
+          this.$ga.page(this.promo.virtualPage), this.modal.close(), this.$router.push({
+            name: "promo-page"
+          });
         }
       },
       mounted: function () {
@@ -2251,7 +2267,7 @@
         r = n.n(a),
         i = n(10),
         s = n.n(i),
-        o = n(22),
+        o = n(18),
         u = n.n(o),
         l = n(1),
         c = n.n(l),
@@ -2407,7 +2423,7 @@
   var _1E = function (e, t, n) {
     "use strict";
 
-    var a = n(22),
+    var a = n(18),
         r = n.n(a),
         i = n(1),
         s = n.n(i),
@@ -2637,7 +2653,7 @@
       }),
       methods: {
         onClick: function () {
-          this.$router.push({
+          this.$ga.page("/calendar/vp-gift-btn"), this.$router.push({
             name: "promo-page"
           });
         }
@@ -2814,7 +2830,7 @@
         s = n.n(i),
         o = n(10),
         u = n.n(o),
-        l = n(22),
+        l = n(18),
         c = n.n(l),
         d = n(1),
         h = n.n(d),
@@ -2906,13 +2922,14 @@
           });
         },
         submitForm: function () {
-          this.validate() && this.loadform().then(function (e) {
-            e && e.submit();
+          var e = this;
+          this.validate() && this.loadform().then(function (t) {
+            t && (e.$ga.page("/calendar/vp-user-registred"), t.submit());
           });
         }
       },
       created: function () {
-        _$1.window.yaCounter.reachGoal("on_registration");
+        _$1.window.yaCounter && _$1.window.yaCounter.reachGoal("on_registration");
       }
     };
   };
@@ -9512,7 +9529,7 @@
         be = n.n(ye),
         ve = n(224),
         we = (n.n(ve), n(213)),
-        Ae = (n.n(we), n(21)),
+        Ae = (n.n(we), n(22)),
         ke = n.n(Ae),
         Ce = n(4),
         xe = n.n(Ce),
@@ -9600,7 +9617,8 @@
         ru: "Следите за своими биоритмами онлайн с <i>Персональным Лунным Календарем</i>",
         en: "Observe your biorhythms online with <i>the Personal Lunar Calendar</i>"
       }],
-      btn: "learnMore"
+      btn: "learnMore",
+      textCode: "t1"
     },
         r = [a];
   };
@@ -9619,14 +9637,16 @@
         ru: "Следите за своими биоритмами онлайн с <i>Персональным Лунным Календарем</i>",
         en: "Observe your biorhythms online with <i>the Personal Lunar Calendar</i>"
       }],
-      btn: "learnMore"
+      btn: "learnMore",
+      textCode: "t1"
     },
         r = {
       text: {
         ru: "Поручите лунному календарю подобрать лучшие даты для Вашего списка дел!",
         en: "Entrust the picking of the best dates for your to-do list to lunar calendar!"
       },
-      btn: "personalLunarCalendar"
+      btn: "personalLunarCalendar",
+      textCode: "t2"
     },
         i = [a, r];
   };
@@ -9642,7 +9662,8 @@
         ru: "Какие растения высаживать в зависимости от Знака Зодиака, в котором находится Луна? Полные списки овощных, пряно-зеленых, плодово-ягодных, полевых, цветочных и комнатных растений в <i>Персональном Лунном Календаре</i>",
         en: "Which plants to plant, depending on the Zodiac Sign in which the Moon is located? Full lists of vegetables, spices & greenery, fruit & berry, field crops, flowering and houseplants in <i>the Personal Lunar Calendar</i>"
       },
-      btn: "learnMore"
+      btn: "learnMore",
+      textCode: "t1"
     },
         r = [a];
   };
@@ -9661,14 +9682,16 @@
         ru: "Следите за своими биоритмами онлайн с <i>Персональным Лунным Календарем</i>",
         en: "Observe your biorhythms online with <i>the Personal Lunar Calendar</i>"
       }],
-      btn: "learnMore"
+      btn: "learnMore",
+      textCode: "t1"
     },
         r = {
       text: {
         ru: "Мечтаете о дочке-принцессе или о сыночке-наследнике? Выберите пол будущего ребенка заранее с <i>Персональным Лунным Календарем!</i>",
         en: "Do you dream of daughter-princess or son, little heir? Choose the sex of your future child in advance with <i>the Personal Lunar Calendar!</i>"
       },
-      btn: "learnMore"
+      btn: "learnMore",
+      textCode: "t2"
     },
         i = [a, r];
   };
@@ -9684,7 +9707,8 @@
         ru: "Составьте список домашних дел, и лунный календарь сам подберет лучшие даты для них!",
         en: "Make a list of your household affairs, and the lunar calendar will pick up the best dates for them!"
       },
-      btn: "personalLunarCalendar"
+      btn: "personalLunarCalendar",
+      textCode: "t1"
     },
         r = [a];
   };
@@ -9700,7 +9724,8 @@
         ru: "Как привлечь удачу в Вашу жизнь, исходя из того, в какой лунный день Вы родились?",
         en: "How to attract luck to your life, based on the lunar day you were born on?"
       },
-      btn: "personalLunarCalendar"
+      btn: "personalLunarCalendar",
+      textCode: "t1"
     },
         r = [a];
   };
@@ -9721,7 +9746,8 @@
         en: "Exclusive tips for you <i>in the Personal Lunar Calendar</i>"
       }],
       btnLangConst: "learnMore",
-      icon: n(178)
+      icon: n(178),
+      textCode: "t1"
     },
         r = {
       titleConst: "lunarZodiacSign",
@@ -9730,7 +9756,8 @@
         en: "What hidden talents your Lunar Zodiac Sign has given to you?"
       },
       btnLangConst: "personalLunarCalendar",
-      icon: n(180)
+      icon: n(180),
+      textCode: "t2"
     },
         i = {
       titleConst: "lunarCalc",
@@ -9739,7 +9766,8 @@
         en: "What lunar day was at the day of your parents' wedding, and what will be when your baby goes to school? Calculate any date with <i>the Personal Lunar Calendar!</i>"
       },
       btnLangConst: "learnMore",
-      icon: n(179)
+      icon: n(179),
+      textCode: "t3"
     },
         s = [a, r, i];
   };
@@ -9758,21 +9786,24 @@
         ru: "Следите за своими биоритмами онлайн с <i>Персональным Лунным Календарем</i>",
         en: "Observe your biorhythms online with <i>the Personal Lunar Calendar</i>"
       }],
-      btn: "learnMore"
+      btn: "learnMore",
+      textCode: "t1"
     },
         r = {
       text: {
         ru: "Мечтаете о дочке-принцессе или о сыночке-наследнике? Выберите пол будущего ребенка заранее с <i>Персональным Лунным Календарем!</i>",
         en: "Do you dream of daughter-princess or son, little heir? Choose the sex of your future child in advance with <i>the Personal Lunar Calendar!</i>"
       },
-      btn: "learnMore"
+      btn: "learnMore",
+      textCode: "t2"
     },
         i = {
       text: {
         ru: "В какой лунный день родился Ваш любимый человек? <i>Персональный Лунный Календарь</i> поможет Вам понять его лучше и стать еще ближе!",
         en: "On which lunar day was your beloved person born? <i>Personal Lunar Calendar</i> will help you understand your lover better and become closer!"
       },
-      btn: "learnMore"
+      btn: "learnMore",
+      textCode: "t3"
     },
         s = [a, r, i];
   };
@@ -9788,7 +9819,8 @@
         ru: "Составьте список Ваших покупок, и лунный календарь сам подберет лучшие даты для них!",
         en: "Make a list of your purchases, and the lunar calendar will pick up the best dates for them!"
       },
-      btn: "personalLunarCalendar"
+      btn: "personalLunarCalendar",
+      textCode: "t1"
     },
         r = [a];
   };
@@ -10103,7 +10135,7 @@
         r = n.n(a),
         i = n(450),
         s = n.n(i),
-        o = n(22),
+        o = n(18),
         u = n.n(o),
         l = n(114),
         c = {
