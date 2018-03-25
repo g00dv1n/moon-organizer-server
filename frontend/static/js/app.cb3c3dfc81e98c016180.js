@@ -10254,7 +10254,7 @@
       router: c.a,
       CATEGORIES: ["lucky", "beauty", "relationship", "business", "health", "house", "shopping", "garden", "fishing"],
       bluredCategories: [],
-      locale: "ru",
+      locale: "en",
       notFirstTime: _$1.localStorage.getItem("NOT_FIRST_TIME") || "no",
       isLeaveFeedback: "",
       token: "",
