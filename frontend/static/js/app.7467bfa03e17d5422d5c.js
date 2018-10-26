@@ -9551,7 +9551,6 @@
         Fe = (n.n(He), n(237)),
         Ge = (n.n(Fe), function () {
       var e = s()(r.a.mark(function e() {
-        var t;
         return r.a.wrap(function (e) {
           for (;;) switch (e.prev = e.next) {
             case 0:
@@ -9571,21 +9570,13 @@
               e.prev = 9, e.t0 = e.catch(0), _$1.console.log(e.t0.message);
 
             case 12:
-              if (e.prev = 12, !(t = "no" === Ee.a.state.notFirstTime)) {
-                e.next = 17;
-                break;
-              }
+              return e.prev = 12, e.finish(12);
 
-              return e.next = 17, Ee.a.dispatch("showDayTooltip");
-
-            case 17:
-              return e.finish(12);
-
-            case 18:
+            case 14:
             case "end":
               return e.stop();
           }
-        }, e, this, [[0, 9, 12, 18]]);
+        }, e, this, [[0, 9, 12, 14]]);
       }));
       return function () {
         return e.apply(this, arguments);
