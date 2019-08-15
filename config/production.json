@@ -21,11 +21,11 @@
     }
   },
   "mail": {
-    "host": "moonorganizer.com",
-    "port": 587,
+    "host": "email-smtp.eu-west-1.amazonaws.com",
+    "port": 465,
     "auth": {
-      "user": "do-not-reply@moonorganizer.com",
-      "pass": "0Zfc1*k2"
+      "user": "AKIAYC4SX3TEJK2AJM4G",
+      "pass": "BOrLrd0oDnlrcbm9KXMjLM8VyQzGvqj//jaQPaKvR4Qz"
     }
   }
 }
