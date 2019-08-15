@@ -7,7 +7,7 @@ export const sendMail = params => {
     subject,
     html,
     attachments,
-    from: 'do-not-reply@moonorganizer.com'
+    from: 'Moon Organizer <moon.organizer@gmail.com>'
   }
   return transporter.sendMail(mailOptions)
 }

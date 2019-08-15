@@ -1,10 +1,6 @@
-import { Mailer, EVENTS } from './mailer'
 import { sendActivate } from './actions'
 
-const params = { email: 'aivars1@mail.ru', lang: 'en', password: 'pJmtKdl3C' }
-const mailer = new Mailer()
-
-mailer.emit(EVENTS.ACTIVATE_USER, params)
+const params = { email: 'g00dv1n.private@gmail.com', lang: 'en', password: 'pJmtKdl3C' }
 
 sendActivate(params)
   .then(res => console.log(res))
