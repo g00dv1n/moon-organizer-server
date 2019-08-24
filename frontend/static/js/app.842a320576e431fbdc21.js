@@ -9562,20 +9562,23 @@
         return r.a.wrap(function (e) {
           for (;;) switch (e.prev = e.next) {
             case 0:
-              return e.prev = 0, e.next = 3, Ee.a.dispatch("checkAuth");
+              return e.prev = 0, e.next = 3, Ee.a.dispatch("loadClientInfo");
 
             case 3:
-              return e.next = 5, Ee.a.dispatch("setupPrice");
+              return e.next = 5, Ee.a.dispatch("checkAuth");
 
             case 5:
-              e.next = 10;
-              break;
+              return e.next = 7, Ee.a.dispatch("setupPrice");
 
             case 7:
-              e.prev = 7, e.t0 = e.catch(0), _$1.console.log(e.t0.message);
+              e.next = 12;
+              break;
 
-            case 10:
-              return e.prev = 10, new xe.a({
+            case 9:
+              e.prev = 9, e.t0 = e.catch(0), _$1.console.log(e.t0.message);
+
+            case 12:
+              return e.prev = 12, new xe.a({
                 el: "#app",
                 router: Be.a,
                 store: Ee.a,
@@ -9583,13 +9586,13 @@
                 components: {
                   App: Pe.a
                 }
-              }), e.finish(10);
+              }), e.finish(12);
 
-            case 13:
+            case 15:
             case "end":
               return e.stop();
           }
-        }, e, this, [[0, 7, 10, 13]]);
+        }, e, this, [[0, 9, 12, 15]]);
       }));
       return function () {
         return e.apply(this, arguments);
