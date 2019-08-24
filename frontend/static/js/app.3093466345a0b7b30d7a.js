@@ -69,12 +69,14 @@
       routes: [{
         path: "/",
         name: "default",
-        component: o.a
+        component: o.a,
+        beforeEnter: _.a
       }, {
         path: "/lunar-day/:dayNumber",
         name: "lunar-day",
         component: l.a,
-        props: !0
+        props: !0,
+        beforeEnter: _.a
       }, {
         path: "/:category",
         name: "category-calendar",
@@ -84,38 +86,41 @@
         path: "/me/profile",
         name: "profile",
         component: d.a,
-        beforeEnter: _.b
+        beforeEnter: _.a
       }, {
         path: "/me/calc",
         name: "calc",
-        component: g.a
+        component: g.a,
+        beforeEnter: _.a
       }, {
         path: "/me/todo-list",
         name: "todo-list",
-        component: m.a
+        component: m.a,
+        beforeEnter: _.a
       }, {
         path: "/me/todo-my",
         name: "todo-my",
         component: y.a,
         props: !0,
-        beforeEnter: _.b
+        beforeEnter: _.a
       }, {
         path: "/me/lunar-birthday",
         name: "lunar-birthday",
         component: b.a,
         props: !0,
-        beforeEnter: _.b
+        beforeEnter: _.a
       }, {
         path: "/me/zodiac-birthday",
         name: "zodiac-birthday",
         component: v.a,
         props: !0,
-        beforeEnter: _.b
+        beforeEnter: _.a
       }, {
         path: "/me/biorhythms",
         name: "biorhythms",
         component: w.a,
-        props: !0
+        props: !0,
+        beforeEnter: _.a
       }, {
         path: "/reviews/show",
         name: "reviews",
@@ -128,15 +133,18 @@
       }, {
         path: "/promo/calc",
         name: "promo-calc",
-        component: x.a
+        component: x.a,
+        beforeEnter: _.a
       }, {
         path: "/promo/biorhythms",
         name: "promo-biorhythms",
-        component: x.b
+        component: x.b,
+        beforeEnter: _.a
       }, {
         path: "/promo/todo",
         name: "promo-todo",
-        component: x.c
+        component: x.c,
+        beforeEnter: _.a
       }, {
         path: "/me/registration",
         name: "registration",
@@ -9554,44 +9562,41 @@
         return r.a.wrap(function (e) {
           for (;;) switch (e.prev = e.next) {
             case 0:
-              return e.prev = 0, e.next = 3, Ee.a.dispatch("loadClientInfo");
+              return e.prev = 0, e.next = 3, Ee.a.dispatch("checkAuth");
 
             case 3:
-              return e.next = 5, Ee.a.dispatch("checkAuth");
+              return e.next = 5, Ee.a.dispatch("setupPrice");
 
             case 5:
-              return e.next = 7, Ee.a.dispatch("setupPrice");
-
-            case 7:
-              e.next = 12;
+              e.next = 10;
               break;
 
-            case 9:
-              e.prev = 9, e.t0 = e.catch(0), _$1.console.log(e.t0.message);
+            case 7:
+              e.prev = 7, e.t0 = e.catch(0), _$1.console.log(e.t0.message);
 
-            case 12:
-              return e.prev = 12, e.finish(12);
+            case 10:
+              return e.prev = 10, new xe.a({
+                el: "#app",
+                router: Be.a,
+                store: Ee.a,
+                template: "<App/>",
+                components: {
+                  App: Pe.a
+                }
+              }), e.finish(10);
 
-            case 14:
+            case 13:
             case "end":
               return e.stop();
           }
-        }, e, this, [[0, 9, 12, 14]]);
+        }, e, this, [[0, 7, 10, 13]]);
       }));
       return function () {
         return e.apply(this, arguments);
       };
     }());
 
-    xe.a.use(ke.a), xe.a.use(be.a), xe.a.use(ge.a), xe.a.use(he.a), xe.a.use(le.a), xe.a.use(se.a), xe.a.use(ae.a), xe.a.use(ee.a), xe.a.use(V.a), xe.a.use(X.a), xe.a.use(Y.a), xe.a.use(N.a), xe.a.use(H.a), xe.a.use(S.a), xe.a.use(L.a), xe.a.use(B.a), xe.a.use(D.a), xe.a.use(x.a), xe.a.use(A.a), xe.a.use(b.a), xe.a.use(g.a), xe.a.use(h.a.directive), xe.a.prototype.$loading = h.a.service, xe.a.prototype.$notify = l.a, xe.a.use(je.a), xe.a.use(Oe.a), xe.a.use(Te.a), xe.a.filter("capitalize", Ie.a), xe.a.material.registerTheme(Me.a), n.i(Se.a)(xe.a, Be.a), new xe.a({
-      el: "#app",
-      router: Be.a,
-      store: Ee.a,
-      template: "<App/>",
-      components: {
-        App: Pe.a
-      }
-    }), Ge();
+    xe.a.use(ke.a), xe.a.use(be.a), xe.a.use(ge.a), xe.a.use(he.a), xe.a.use(le.a), xe.a.use(se.a), xe.a.use(ae.a), xe.a.use(ee.a), xe.a.use(V.a), xe.a.use(X.a), xe.a.use(Y.a), xe.a.use(N.a), xe.a.use(H.a), xe.a.use(S.a), xe.a.use(L.a), xe.a.use(B.a), xe.a.use(D.a), xe.a.use(x.a), xe.a.use(A.a), xe.a.use(b.a), xe.a.use(g.a), xe.a.use(h.a.directive), xe.a.prototype.$loading = h.a.service, xe.a.prototype.$notify = l.a, xe.a.use(je.a), xe.a.use(Oe.a), xe.a.use(Te.a), xe.a.filter("capitalize", Ie.a), xe.a.material.registerTheme(Me.a), n.i(Se.a)(xe.a, Be.a), Ge();
   };
 
   var _2Y = function (e, t, n) {
@@ -9820,18 +9825,14 @@
     "use strict";
 
     function a(e, t, n) {
-      !1 === i.a.state.authorized ? s.a.replace({
-        name: "default"
+      !1 === r.a.state.authorized ? i.a.replace({
+        name: "registration"
       }) : n();
     }
 
-    function r(e, t, n) {
-      i.a.dispatch("updateType", e.params.category), n();
-    }
-
-    t.b = a, t.a = r;
-    var i = n(29),
-        s = n(44);
+    t.a = a;
+    var r = n(29),
+        i = n(44);
   };
 
   var _38 = function (e, t, n) {
