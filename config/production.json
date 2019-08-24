@@ -22,10 +22,6 @@
   },
   "mail": {
     "host": "email-smtp.eu-west-1.amazonaws.com",
-    "port": 465,
-    "auth": {
-      "user": "AKIAYC4SX3TEJK2AJM4G",
-      "pass": "BOrLrd0oDnlrcbm9KXMjLM8VyQzGvqj//jaQPaKvR4Qz"
-    }
+    "port": 465
   }
 }
