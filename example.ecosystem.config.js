@@ -3,7 +3,9 @@ module.exports = {
     name: 'moon-api',
     script: './dist/app.js',
     env: {
-      'NODE_ENV': 'production'
+      'NODE_ENV': 'production',
+      'SES_USER': '*',
+      'SES_PWD': '*'
     }
   }]
 }
