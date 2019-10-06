@@ -1,3 +1,3 @@
-import { sendNewPassword, sendActivate, sendBook } from './actions'
+import { sendNewPassword, sendActivate, sendBook, sendAbandonedToMautic } from './actions'
 
-export { sendActivate, sendNewPassword, sendBook }
+export { sendActivate, sendNewPassword, sendBook, sendAbandonedToMautic }

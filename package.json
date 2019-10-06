@@ -43,6 +43,7 @@
     "mariasql": "^0.2.6",
     "moment": "^2.18.1",
     "mysql": "^2.14.0",
+    "node-mautic": "^1.0.2",
     "nodemailer": "^4.0.1",
     "pg": "^7.0.2",
     "randomstring": "^1.1.5",

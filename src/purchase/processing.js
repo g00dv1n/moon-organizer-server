@@ -6,11 +6,13 @@ import { fieldsTransform } from '../helpers/userModelUtils'
 import moment from 'moment'
 import randomstring from 'randomstring'
 import winston from 'winston'
-import { sendActivate, sendBook } from '../mail'
+import { sendActivate, sendBook, sendAbandonedToMautic } from '../mail'
 
 // constants
 const reasonCode = 1100 // Ok status
 const transactionStatus = 'Approved'
+
+const expiredTransactionStatus = 'Expired'
 
 const baseOrderObject = {
   'productCount': '1',
@@ -116,12 +118,33 @@ export const processRegistration = async (user, locale) => {
   return { htmlForm }
 }
 
+export const processExpiredOrder = async (order) => {
+  try {
+    const email = order.email
+    const user = await new UserModel({ email }).fetch()
+    let firstname
+    if (user) {
+      firstname = user.get('name')
+    } else {
+      firstname = order.clientName.split(' ')[0]
+    }
+    await sendAbandonedToMautic({firstname, email})
+    winston.info(`user ${email} added to mautic`)
+  } catch (err) {
+    winston.error('Cannot process Expired Order', err)
+  }
+}
+
 export const processOrder = async (order) => {
   winston.info('START ORDER PROCESSING', order)
   if (!WPF.isResponseValid(order)) {
     winston.error('INVALID SIGNAUTRE', order)
     return
   }
+  if (order.transactionStatus === expiredTransactionStatus) {
+    await processExpiredOrder(order)
+  }
+
   if (order.reasonCode !== reasonCode ||
     order.transactionStatus !== transactionStatus) {
     winston.error('Not success order', order)
