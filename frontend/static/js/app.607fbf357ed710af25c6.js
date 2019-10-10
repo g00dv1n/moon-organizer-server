@@ -9,10 +9,10 @@
     var a = n(4),
         r = n.n(a),
         i = n(2),
-        s = n(373),
-        o = n(374),
-        u = n(375),
-        l = n(376);
+        s = n(374),
+        o = n(375),
+        u = n(376),
+        l = n(377);
     r.a.use(i.d);
     var c = new i.d.Store({
       state: l.a,
@@ -49,16 +49,16 @@
         p = n.n(h),
         f = n(710),
         g = n.n(f),
-        m = n(282),
-        y = n(284),
-        b = n(276),
-        v = n(285),
-        w = n(272),
-        A = n(289),
-        k = n(292),
-        C = n(295),
-        x = n(291),
-        _ = n(372);
+        m = n(283),
+        y = n(285),
+        b = n(277),
+        v = n(286),
+        w = n(273),
+        A = n(290),
+        k = n(293),
+        C = n(296),
+        x = n(292),
+        _ = n(373);
 
     r.a.use(i.a);
 
@@ -208,9 +208,9 @@
         s = n.n(i),
         o = n(166),
         u = n.n(o),
-        l = n(626),
+        l = n(627),
         c = n.n(l),
-        d = n(327),
+        d = n(328),
         h = function (e, t) {
       return u()([].concat(s()(e)), function (e) {
         return e[t];
@@ -277,7 +277,7 @@
       return i;
     });
     var a = n(123),
-        r = n(29);
+        r = n(30);
     n.d(t, "b", function () {
       return a.b;
     }), n.d(t, "c", function () {
@@ -296,8 +296,8 @@
   };
 
   var _h = function (e, t, n) {
-    n(515);
-    var a = n(0)(n(424), n(738), null, null);
+    n(516);
+    var a = n(0)(n(425), n(738), null, null);
     e.exports = a.exports;
   };
 
@@ -313,17 +313,17 @@
     }
 
     var i = {
-      "./beauty.png": 644,
-      "./business.png": 645,
+      "./beauty.png": 645,
+      "./business.png": 646,
       "./default.png": 175,
-      "./default1.png": 646,
-      "./fishing.png": 647,
-      "./garden.png": 648,
-      "./health.png": 649,
-      "./house.png": 650,
-      "./lucky.png": 651,
-      "./relationship.png": 652,
-      "./shopping.png": 653
+      "./default1.png": 647,
+      "./fishing.png": 648,
+      "./garden.png": 649,
+      "./health.png": 650,
+      "./house.png": 651,
+      "./lucky.png": 652,
+      "./relationship.png": 653,
+      "./shopping.png": 654
     };
     a.keys = function () {
       return _$1.Object.keys(i);
@@ -378,21 +378,21 @@
   var _n = function (e, t, n) {
     "use strict";
 
-    var a = n(640),
+    var a = n(641),
         r = n.n(a),
-        i = n(406),
+        i = n(407),
         s = n.n(i),
         o = n(3),
         u = n.n(o),
         l = n(166),
         c = n.n(l),
-        d = n(621),
+        d = n(622),
         h = n.n(d),
-        p = n(616),
+        p = n(617),
         f = n.n(p),
-        g = n(629),
+        g = n(630),
         m = n.n(g),
-        y = n(617),
+        y = n(618),
         b = n.n(y),
         v = function (e, t, n) {
       return u()(n).startOf("day").isBetween(u()(e), u()(t)) || u()(n).endOf("day").isBetween(u()(e), u()(t));
@@ -461,10 +461,10 @@
         r = n.n(a),
         i = n(3),
         s = n.n(i),
-        o = n(624),
+        o = n(625),
         u = n.n(o),
         l = n(116),
-        c = n(330),
+        c = n(331),
         d = n(119),
         h = n(67),
         p = n(102),
@@ -525,7 +525,7 @@
           w = n(761)("./" + y.replace(" ", "_").toLowerCase() + ".png"),
           A = b(e),
           k = n.i(d.a)(e.toDate()),
-          C = n(183)("./" + k + ".png");
+          C = n(184)("./" + k + ".png");
       return {
         maxLunarDay: o,
         showedLunarDay: u,
@@ -587,7 +587,7 @@
 
     t.a = i;
     var s = n(44),
-        o = n(29),
+        o = n(30),
         u = {
       biorhythms: a("biorhythms"),
       calc: a("calc"),
@@ -698,36 +698,36 @@
       return O;
     });
 
-    var a = n(332),
-        r = n(343),
-        i = n(354),
-        s = n(356),
-        o = n(357),
-        u = n(358),
-        l = n(359),
-        c = n(360),
-        d = n(361),
-        h = n(333),
-        p = n(334),
-        f = n(335),
-        g = n(336),
-        m = n(337),
-        y = n(338),
-        b = n(339),
-        v = n(340),
-        w = n(341),
-        A = n(342),
-        k = n(344),
-        C = n(345),
-        x = n(346),
-        _ = n(347),
-        P = n(348),
-        D = n(349),
-        T = n(350),
-        E = n(351),
-        B = n(352),
-        M = n(353),
-        I = n(355),
+    var a = n(333),
+        r = n(344),
+        i = n(355),
+        s = n(357),
+        o = n(358),
+        u = n(359),
+        l = n(360),
+        c = n(361),
+        d = n(362),
+        h = n(334),
+        p = n(335),
+        f = n(336),
+        g = n(337),
+        m = n(338),
+        y = n(339),
+        b = n(340),
+        v = n(341),
+        w = n(342),
+        A = n(343),
+        k = n(345),
+        C = n(346),
+        x = n(347),
+        _ = n(348),
+        P = n(349),
+        D = n(350),
+        T = n(351),
+        E = n(352),
+        B = n(353),
+        M = n(354),
+        I = n(356),
         L = {
       bd1: a.a,
       bd2: r.a,
@@ -774,16 +774,16 @@
 
     var a = n(18),
         r = n.n(a),
-        i = n(369),
-        s = n(363),
-        o = n(364),
-        u = n(365),
-        l = n(366),
-        c = n(367),
-        d = n(368),
-        h = n(370),
-        p = n(371),
-        f = n(628),
+        i = n(370),
+        s = n(364),
+        o = n(365),
+        u = n(366),
+        l = n(367),
+        c = n(368),
+        d = n(369),
+        h = n(371),
+        p = n(372),
+        f = n(629),
         g = n.n(f),
         m = {
       main: i.a,
@@ -831,10 +831,10 @@
 
     var a = n(10),
         r = n.n(a),
-        i = n(377),
+        i = n(378),
         s = n(3),
         o = n.n(s),
-        u = n(29),
+        u = n(30),
         l = function (e) {
       var t = {};
       return e.forEach(function (e) {
@@ -923,7 +923,7 @@
     }
 
     t.a = a;
-    var r = n(31),
+    var r = n(23),
         i = n.n(r);
     t.b = a;
   };
@@ -957,13 +957,13 @@
   };
 
   var _G = function (e, t, n) {
-    n(520);
-    var a = n(0)(n(423), n(744), null, null);
+    n(521);
+    var a = n(0)(n(424), n(744), null, null);
     e.exports = a.exports;
   };
 
   var _H = function (e, t, n) {
-    var a = n(0)(n(431), n(742), null, null);
+    var a = n(0)(n(432), n(742), null, null);
     e.exports = a.exports;
   };
 
@@ -979,22 +979,22 @@
     }
 
     var i = {
-      "./aquarius.png": 686,
-      "./aries.png": 687,
-      "./cancer.png": 688,
-      "./capricorn.png": 689,
-      "./gemini.png": 690,
-      "./leo.png": 691,
-      "./libra.png": 692,
-      "./pisces.png": 693,
-      "./sagittarius.png": 694,
-      "./scorpio.png": 695,
-      "./taurus.png": 696,
-      "./virgo.png": 697
+      "./aquarius.png": 687,
+      "./aries.png": 688,
+      "./cancer.png": 689,
+      "./capricorn.png": 690,
+      "./gemini.png": 691,
+      "./leo.png": 692,
+      "./libra.png": 693,
+      "./pisces.png": 694,
+      "./sagittarius.png": 695,
+      "./scorpio.png": 696,
+      "./taurus.png": 697,
+      "./virgo.png": 698
     };
     a.keys = function () {
       return _$1.Object.keys(i);
-    }, a.resolve = r, e.exports = a, a.id = 183;
+    }, a.resolve = r, e.exports = a, a.id = 184;
   };
 
   var _J = function (e, t, n) {
@@ -1036,7 +1036,7 @@
     }
 
     t.a = a;
-    var r = n(698),
+    var r = n(181),
         i = n.n(r),
         s = "UA-91648464-1",
         o = "/calendar";
@@ -1109,7 +1109,7 @@
       e.component("vue-chart", r.a);
     }
 
-    var r = n(439);
+    var r = n(440);
     t.a = a;
   };
 
@@ -1170,8 +1170,8 @@
   var _1f = function (e, t) {};
 
   var _1g = function (e, t, n) {
-    n(527);
-    var a = n(0)(n(407), n(751), null, null);
+    n(528);
+    var a = n(0)(n(408), n(751), null, null);
     e.exports = a.exports;
   };
 
@@ -1188,9 +1188,9 @@
         c = n.n(l),
         d = n(706),
         h = n.n(d),
-        p = n(279),
-        f = n(287),
-        g = n(264),
+        p = n(280),
+        f = n(288),
+        g = n(265),
         m = function () {
       return _$1.document && _$1.document.documentElement && _$1.document.documentElement.clientWidth < 1024;
     },
@@ -1345,7 +1345,7 @@
   var _1j = function (e, t, n) {
     "use strict";
 
-    var a = n(259);
+    var a = n(260);
     n.d(t, "a", function () {
       return a.a;
     });
@@ -1442,13 +1442,13 @@
         i = n(3),
         s = n.n(i),
         o = n(67),
-        u = n(397),
+        u = n(398),
         l = n(2),
         c = n(69),
-        d = n(261),
+        d = n(262),
         h = n(121),
         p = n(122),
-        f = n(182),
+        f = n(183),
         g = n.n(f),
         m = function () {
       return _$1.window.pageYOffset > 500;
@@ -1623,14 +1623,14 @@
         r = n.n(a),
         i = n(699),
         s = n.n(i),
-        o = n(328),
+        o = n(329),
         u = n(704),
         l = n.n(u),
         c = n(2),
         d = n(66),
         h = n(69),
         p = n(122),
-        f = n(182),
+        f = n(183),
         g = n.n(f),
         m = function (e, t, n) {
       var a = null;
@@ -1865,7 +1865,7 @@
         s = n.n(i),
         o = n(1),
         u = n.n(o),
-        l = n(495),
+        l = n(496),
         c = n.n(l),
         d = n(2);
     t.a = {
@@ -1947,7 +1947,7 @@
     var a = n(1),
         r = n.n(a),
         i = n(2),
-        s = n(260),
+        s = n(261),
         o = n(118),
         u = n(3),
         l = n.n(u);
@@ -2130,7 +2130,7 @@
     var a = n(1),
         r = n.n(a),
         i = n(2),
-        s = n(630),
+        s = n(631),
         o = n.n(s),
         u = n(3),
         l = n.n(u);
@@ -2220,7 +2220,7 @@
 
     var a = n(1),
         r = n.n(a),
-        i = n(30),
+        i = n(31),
         s = n(2),
         o = n(116),
         u = n(121),
@@ -2281,7 +2281,7 @@
         c = n.n(l),
         d = n(712),
         h = n.n(d),
-        p = n(181),
+        p = n(182),
         f = n.n(p),
         g = n(104),
         m = n.n(g),
@@ -2435,7 +2435,7 @@
         r = n.n(a),
         i = n(1),
         s = n.n(i),
-        o = n(30),
+        o = n(31),
         u = n(2),
         l = n(69);
     t.a = {
@@ -2512,7 +2512,7 @@
         r = n.n(a),
         i = n(1),
         s = n.n(i),
-        o = n(30),
+        o = n(31),
         u = n(2),
         l = n(3),
         c = n.n(l);
@@ -2599,9 +2599,9 @@
 
     var a = n(1),
         r = n.n(a),
-        i = n(30),
+        i = n(31),
         s = n(2),
-        o = n(384),
+        o = n(385),
         u = n(119),
         l = n(3),
         c = n.n(l);
@@ -2622,7 +2622,7 @@
           return n.i(o.a)(this.zodiac);
         },
         icon: function () {
-          return n(183)("./" + this.zodiac + ".png");
+          return n(184)("./" + this.zodiac + ".png");
         }
       }),
       methods: {},
@@ -2686,7 +2686,7 @@
     var a = n(1),
         r = n.n(a),
         i = n(2),
-        s = n(30),
+        s = n(31),
         o = n(45),
         u = [{
       title: {
@@ -2697,7 +2697,7 @@
         ru: "Выберите только те категории, которые Вам интересны, для отображения в Персональном Лунном Календаре!",
         en: "Select only those categories that you are interested in, to display in Personal Lunar Calendar!"
       },
-      url: n(675)
+      url: n(676)
     }, {
       title: {
         ru: "Список Дел",
@@ -2707,7 +2707,7 @@
         ru: "Составьте список Ваших дел и Лунный Календарь сам предложит Вам лучшие даты для их выполнения и, если пожелаете, напомнит Вам о них!",
         en: "Make a list of your to-dos and the Lunar Calendar will independently offer you the best dates for their fulfillment! And, if you wish, remind you of your plans in advance!"
       },
-      url: n(676)
+      url: n(677)
     }, {
       title: {
         ru: "Мои Биоритмы",
@@ -2717,7 +2717,7 @@
         ru: "Отслеживайте свое состояние в режиме реального времени - графики Ваших физического, эмоционального и интеллектуального ритмов всегда под рукой!",
         en: "Track your condition real-time with the graphs of your physical, emotional and intellectual rhythms!"
       },
-      url: n(677)
+      url: n(678)
     }, {
       title: {
         ru: "Калькулятор Лунных Дней",
@@ -2737,7 +2737,7 @@
         ru: "Какие растения высаживать в зависимости от Знака Зодиака, в котором находится Луна? Используйте списки овощных, пряно-зеленых, плодово-ягодных, полевых, цветущих и комнатных растений для посадки на каждый день!",
         en: "Which plants to plant, depending on the Zodiac Sign in which the Moon is located? Use the lists of vegetables, spices & greenery, fruit & berry, field crops, flowering and houseplants which are good for planting for every day!"
       },
-      url: n(679)
+      url: n(680)
     }, {
       title: {
         ru: "Календарь Зачатия по Знакам Зодиака",
@@ -2747,7 +2747,7 @@
         ru: 'Запланируйте пол ребенка заранее! Лунный календарь зачатия всегда подскажет, в "мужском" или "женском" Знаке Зодиака находится Луна',
         en: 'Plan the sex of the baby in advance! Conception lunar calendar always tells you, in which Zodiac Sign the Moon is now - the "male" or "female"'
       },
-      url: n(678)
+      url: n(679)
     }, {
       title: {
         ru: "Лунный День Рождения",
@@ -2794,9 +2794,6 @@
             name: "registration"
           });
         }
-      },
-      created: function () {
-        _$1.window.yaCounter.reachGoal("on_promo");
       }
     };
   };
@@ -2832,7 +2829,7 @@
   var _1Q = function (e, t, n) {
     "use strict";
 
-    var a = n(31),
+    var a = n(23),
         r = n.n(a),
         i = n(70),
         s = n.n(i),
@@ -2842,7 +2839,7 @@
         c = n.n(l),
         d = n(1),
         h = n.n(d),
-        p = n(181),
+        p = n(182),
         f = n.n(p),
         g = n(104),
         m = n.n(g),
@@ -2935,9 +2932,6 @@
             t && (e.$ga.page("/calendar/vp-user-registred"), t.submit());
           });
         }
-      },
-      created: function () {
-        _$1.window.yaCounter && _$1.window.yaCounter.reachGoal("on_registration");
       }
     };
   };
@@ -8158,36 +8152,36 @@
   var _2o = function (e, t, n) {
     "use strict";
 
-    var a = n(297),
-        r = n(308),
-        i = n(319),
-        s = n(321),
-        o = n(322),
-        u = n(323),
-        l = n(324),
-        c = n(325),
-        d = n(326),
-        h = n(298),
-        p = n(299),
-        f = n(300),
-        g = n(301),
-        m = n(302),
-        y = n(303),
-        b = n(304),
-        v = n(305),
-        w = n(306),
-        A = n(307),
-        k = n(309),
-        C = n(310),
-        x = n(311),
-        _ = n(312),
-        P = n(313),
-        D = n(314),
-        T = n(315),
-        E = n(316),
-        B = n(317),
-        M = n(318),
-        I = n(320),
+    var a = n(298),
+        r = n(309),
+        i = n(320),
+        s = n(322),
+        o = n(323),
+        u = n(324),
+        l = n(325),
+        c = n(326),
+        d = n(327),
+        h = n(299),
+        p = n(300),
+        f = n(301),
+        g = n(302),
+        m = n(303),
+        y = n(304),
+        b = n(305),
+        v = n(306),
+        w = n(307),
+        A = n(308),
+        k = n(310),
+        C = n(311),
+        x = n(312),
+        _ = n(313),
+        P = n(314),
+        D = n(315),
+        T = n(316),
+        E = n(317),
+        B = n(318),
+        M = n(319),
+        I = n(321),
         L = [{}, a.a, r.a, i.a, s.a, o.a, u.a, l.a, c.a, d.a, h.a, p.a, f.a, g.a, m.a, y.a, b.a, v.a, w.a, A.a, k.a, C.a, x.a, _.a, P.a, D.a, T.a, E.a, B.a, M.a, I.a];
 
     t.a = L;
@@ -8215,19 +8209,20 @@
   var _2q = function (e, t, n) {
     "use strict";
 
-    var a = n(108),
-        r = n.n(a),
-        i = function () {
-      return r.a.get("https://ipinfo.io/json");
+    var a = n(23),
+        r = (n.n(a), n(108)),
+        i = n.n(r),
+        s = function () {
+      return i.a.get("https://ipinfo.io/json");
     };
 
-    t.a = i;
+    t.a = s;
   };
 
   var _2r = function (e, t, n) {
     "use strict";
 
-    var a = n(445),
+    var a = n(446),
         r = n.n(a),
         i = [{
       days: [29, 30, 1],
@@ -9469,94 +9464,94 @@
         r = n.n(a),
         i = n(63),
         s = n.n(i),
-        o = n(226),
-        u = (n.n(o), n(201)),
+        o = n(227),
+        u = (n.n(o), n(202)),
         l = n.n(u),
-        c = n(225),
-        d = (n.n(c), n(200)),
+        c = n(226),
+        d = (n.n(c), n(201)),
         h = n.n(d),
-        p = n(211),
-        f = (n.n(p), n(189)),
+        p = n(212),
+        f = (n.n(p), n(190)),
         g = n.n(f),
-        m = n(233),
-        y = (n.n(m), n(207)),
+        m = n(234),
+        y = (n.n(m), n(208)),
         b = n.n(y),
-        v = n(227),
-        w = (n.n(v), n(202)),
+        v = n(228),
+        w = (n.n(v), n(203)),
         A = n.n(w),
-        k = n(218),
-        C = (n.n(k), n(195)),
+        k = n(219),
+        C = (n.n(k), n(196)),
         x = n.n(C),
-        _ = n(219),
-        P = (n.n(_), n(196)),
+        _ = n(220),
+        P = (n.n(_), n(197)),
         D = n.n(P),
-        T = n(215),
-        E = (n.n(T), n(192)),
+        T = n(216),
+        E = (n.n(T), n(193)),
         B = n.n(E),
-        M = n(216),
-        I = (n.n(M), n(193)),
+        M = n(217),
+        I = (n.n(M), n(194)),
         L = n.n(I),
-        O = n(229),
-        j = (n.n(O), n(203)),
+        O = n(230),
+        j = (n.n(O), n(204)),
         S = n.n(j),
-        z = n(212),
-        R = (n.n(z), n(190)),
+        z = n(213),
+        R = (n.n(z), n(191)),
         H = n.n(R),
-        F = n(231),
-        G = (n.n(F), n(205)),
+        F = n(232),
+        G = (n.n(F), n(206)),
         N = n.n(G),
-        U = n(228),
+        U = n(229),
         Q = (n.n(U), n(107)),
         Y = n.n(Q),
-        K = n(235),
-        q = (n.n(K), n(209)),
+        K = n(236),
+        q = (n.n(K), n(210)),
         X = n.n(q),
-        J = n(221),
-        Z = (n.n(J), n(198)),
+        J = n(222),
+        Z = (n.n(J), n(199)),
         V = n.n(Z),
-        W = n(234),
-        $ = (n.n(W), n(208)),
+        W = n(235),
+        $ = (n.n(W), n(209)),
         ee = n.n($),
-        te = n(232),
-        ne = (n.n(te), n(206)),
+        te = n(233),
+        ne = (n.n(te), n(207)),
         ae = n.n(ne),
-        re = n(220),
-        ie = (n.n(re), n(197)),
+        re = n(221),
+        ie = (n.n(re), n(198)),
         se = n.n(ie),
-        oe = n(214),
-        ue = (n.n(oe), n(191)),
+        oe = n(215),
+        ue = (n.n(oe), n(192)),
         le = n.n(ue),
-        ce = n(230),
-        de = (n.n(ce), n(204)),
+        ce = n(231),
+        de = (n.n(ce), n(205)),
         he = n.n(de),
-        pe = n(217),
-        fe = (n.n(pe), n(194)),
+        pe = n(218),
+        fe = (n.n(pe), n(195)),
         ge = n.n(fe),
-        me = n(223),
-        ye = (n.n(me), n(199)),
+        me = n(224),
+        ye = (n.n(me), n(200)),
         be = n.n(ye),
-        ve = n(224),
-        we = (n.n(ve), n(213)),
+        ve = n(225),
+        we = (n.n(ve), n(214)),
         Ae = (n.n(we), n(22)),
         ke = n.n(Ae),
         Ce = n(4),
         xe = n.n(Ce),
-        _e = n(238),
+        _e = n(239),
         Pe = n.n(_e),
-        De = n(239),
+        De = n(240),
         Te = n.n(De),
-        Ee = n(29),
+        Ee = n(30),
         Be = n(44),
-        Me = n(187),
-        Ie = n(184),
-        Le = n(240),
+        Me = n(188),
+        Ie = n(185),
+        Le = n(241),
         Oe = n.n(Le),
-        je = n(188),
-        Se = n(186),
-        ze = (n(185), n(236)),
-        Re = (n.n(ze), n(210)),
-        He = (n.n(Re), n(222)),
-        Fe = (n.n(He), n(237)),
+        je = n(189),
+        Se = n(187),
+        ze = (n(186), n(237)),
+        Re = (n.n(ze), n(211)),
+        He = (n.n(Re), n(223)),
+        Fe = (n.n(He), n(238)),
         Ge = (n.n(Fe), function () {
       var e = s()(r.a.mark(function e() {
         return r.a.wrap(function (e) {
@@ -9834,7 +9829,7 @@
     }
 
     t.a = a;
-    var r = n(29),
+    var r = n(30),
         i = n(44);
   };
 
@@ -9843,20 +9838,21 @@
 
     var a = n(10),
         r = n.n(a),
-        i = n(446),
+        i = n(447),
         s = n.n(i),
         o = n(64),
         u = n.n(o),
         l = n(63),
         c = n.n(l),
-        d = n(31),
+        d = n(23),
         h = n.n(d),
-        p = n(329),
+        p = n(330),
         f = n(120),
         g = n(4),
         m = n.n(g),
         y = n(68),
-        b = {
+        b = n(181),
+        v = (n.n(b), {
       loadClientInfo: function (e) {
         var t = e.commit;
         return n.i(p.a)().then(function (e) {
@@ -10048,17 +10044,17 @@
       },
       checkAuth: function (e) {
         var t = this,
-            n = e.state,
-            a = e.dispatch;
+            a = e.state,
+            r = e.dispatch;
         return c()(u.a.mark(function e() {
-          var r, i;
+          var i, o;
           return u.a.wrap(function (e) {
             for (;;) switch (e.prev = e.next) {
               case 0:
-                return r = n.token, n.axios.defaults.headers.common.Authorization = "Bearer " + r, e.prev = 2, e.next = 5, a("getUser");
+                return i = a.token, a.axios.defaults.headers.common.Authorization = "Bearer " + i, e.prev = 2, e.next = 5, r("getUser");
 
               case 5:
-                i = e.sent, i && (n.authorized = !0, n.user = i, n.personal = !0, _$1.console.log("User:"), _$1.console.log(_$1.JSON.parse(s()(i)))), e.next = 12;
+                o = e.sent, o && (a.authorized = !0, a.user = o, a.personal = !0, _$1.console.log("User:"), _$1.console.log(_$1.JSON.parse(s()(o))), n.i(b.set)("userId", o.email), n.i(b.event)("authentication", "login", o.email)), e.next = 12;
                 break;
 
               case 9:
@@ -10119,8 +10115,8 @@
           return e.toLowerCase() !== r;
         });
       }
-    };
-    t.a = b;
+    });
+    t.a = v;
   };
 
   var _39 = function (e, t, n) {
@@ -10128,7 +10124,7 @@
 
     var a = n(10),
         r = n.n(a),
-        i = n(450),
+        i = n(451),
         s = n.n(i),
         o = n(18),
         u = n.n(o),
@@ -10177,7 +10173,7 @@
         return e.lastClickedDay;
       },
       userAvatar: function (e) {
-        return e.user && e.user.avatarUrl ? l.a.API_ROOT + "public/avatar/" + e.user.avatarUrl : n(642);
+        return e.user && e.user.avatarUrl ? l.a.API_ROOT + "public/avatar/" + e.user.avatarUrl : n(643);
       },
       user: function (e) {
         var t = r()({}, e.user);
@@ -10230,18 +10226,18 @@
   var _3b = function (e, t, n) {
     "use strict";
 
-    var a = n(31),
+    var a = n(23),
         r = n.n(a),
         i = n(10),
         s = n.n(i),
         o = n(120),
-        u = n(331),
+        u = n(332),
         l = n(115),
         c = n(44),
         d = n(114),
         h = n(108),
         p = n.n(h),
-        f = n(378),
+        f = n(379),
         g = {
       calendarTypes: o.a,
       constants: u.a,
@@ -11516,7 +11512,7 @@
           ru: "луна",
           en: "moon"
         },
-        planetLogoPath: n(671),
+        planetLogoPath: n(672),
         description: {
           ru: "<strong>Хозяйка понедельника – Луна.</strong> Беспокойная и переменчивая, в астрологии Луна отвечает за эмоции, изменения настроения, женское начало. Потому понедельники лучше посвящать домашним хлопотам, общению с любимыми, семьей, воспитанию детей. Любое большое дело, начатое в понедельник, наверняка будет протекать нестабильно и изменять свое направление, так что этот день – не самый благоприятный для начала бизнес-проектов.<br/><br/>\nПонедельник – день тяжелый, только если идти против течения Лунной энергии. Используйте энергию дня себе во благо, позаботьтесь о своих близких и уюте в Вашем доме, найдите способ порадовать друзей и коллег. Довольная Луна подарит Вам хорошее самочувствие и счастливые взаимоотношения с окружающими.<br/><br/>\n<i>Цвет дня – фиолетовый. Нота – фа.</i>",
           en: "<strong>Moon is the Monday's ruler.</strong> Restless and changeable, the Moon in astrology is responsible for emotion, mood changes, femininity. Because of this, it is better to devote the Mondays to household chores, communication with loved ones, family, parenting. Any great work, which begun on Monday, probably will flow unstable and change its direction, so this day is not the most auspicious for starting business projects.<br/><br/>\nMonday is the hard day only if you go against the tide of the Moon energy. Use the energy of the day for your own benefit, take care of your loved ones and your home coziness, find a way to please friends and colleagues. Satisfied moon will give you good health and happy relationships with others."
@@ -11531,7 +11527,7 @@
           ru: "марс",
           en: "mars"
         },
-        planetLogoPath: n(669),
+        planetLogoPath: n(670),
         description: {
           ru: "<strong>Небесный покровитель вторника – Марс.</strong> Энергия этой планеты очень мощная, напористая, «боевая». Марс усилит Ваши лидерские задатки и поможет Вам в любом деле, требующем сообразительности и храбрости. Вторник – прекрасное время, чтобы начать новаторский проект, проявить решительность и инициативу, убедить окружающих в своей правоте. Чем больше сделаешь сегодня, тем больше энергии получишь для дальнейших действий!<br/><br/>\nИзбегайте агрессии и открытых конфликтов – Марс способен из мелочи раздуть крупную ссору. Поиски компромисса в близких отношениях также лучше отложите на другой день недели.<br/><br/>\n<i>Цвет дня – красный. Нота – до.</i>",
           en: "<strong>Mars is the celestial patron of Tuesday.</strong> The energy of this planet is very powerful and assertive. Mars will strengthen your leadership traits and help you in any business that requires intelligence and courage. Tuesday is the perfect time to start an innovative project, take the initiative, convince others of your rightness. The more that you do today, the more energy you'll get for the further actions!<br/><br/>\nAvoid aggression and conflicts - Mars can inflate a large quarrel. It is also better to postpone the search for compromise in a relationship to another day of the week."
@@ -11546,7 +11542,7 @@
           ru: "меркурий",
           en: "mercury"
         },
-        planetLogoPath: n(670),
+        planetLogoPath: n(671),
         description: {
           ru: "<strong>Средой управляет Меркурий –</strong> планета, ответственная за все интеллектуальное, за коммуникацию, путешествия, покупки. Меркурий наделяет нас рациональностью, быстротой мышления и остроумием, потому среда отлично подходит для всего, что требует ясности мысли, диалога или принятия решений. Устраивайте деловые встречи и заключайте выгодные сделки, начинайте учиться новому, обзаводитесь полезными знакомствами, отправляйтесь в поездки или на шоппинг – сегодня Небеса помогают Вам!<br/><br/>\n<i>Цвет дня – желтый. Нота – си.</i>",
           en: "<strong>The Wednesday is ruled by Mercury -</strong> this planet is responsible for all intellectual, for communication, traveling, shopping. Mercury gives us rationality, quick thinking, and wit, so Wednesday is perfect for anything that requires clear mindset, dialogue, and decision-making. Arrange a business meeting and conclude profitable deals, begin to learn new things, acquire useful contacts, go on trips or shopping - the skies help you today!<br/><br/>"
@@ -11561,7 +11557,7 @@
           ru: "юпитер",
           en: "jupiter"
         },
-        planetLogoPath: n(668),
+        planetLogoPath: n(669),
         description: {
           ru: "<strong>Четвертый день недели управляется Юпитером –</strong> самой философской и духовной планетой в астрологии. Юпитер отвечает за процветание, изобилие и высокие идеалы, помогает нам расширить границы посредством духовных практик и методик самопознания. Посвятите четверг обучению, самосовершенствованию, глубоким размышлениям. Сегодня – прекрасный день, чтобы начать масштабный проект, восстановить справедливость, заняться политической деятельностью и социальной работой, узаконить отношения с любимым человеком.<br/><br/>\n<i>Цвет дня – зеленый. Нота – ля.</i>",
           en: "<strong>The Thursday is ruled by Jupiter -</strong> the most philosophical and spiritual planet in astrology. Jupiter is responsible for prosperity, abundance and high ideals, it helps us to expand the boundaries through spiritual practices and self-discovery techniques. Dedicate Thursday to training, self-improvement, deep reflection. Today is the perfect day to start a large-scale project, restore justice, engage in political activities and social work, legitimize the relationship with your loved one.<br/><br/>"
@@ -11576,7 +11572,7 @@
           ru: "венера",
           en: "venus"
         },
-        planetLogoPath: n(674),
+        planetLogoPath: n(675),
         description: {
           ru: "<strong>Небесная покровительница пятницы – Венера.</strong> Эта планета любит все красивое, романтику, страсть, искусство, возвышенность чувств. Пятницу лучше всего провести, отдыхая в красивом месте, сходить в театр или галерею, устроить романтическое свидание, приготовить приятный сюрприз или подарок для любимого человека. Важно уделить время себе, красиво одеться, уложить волосы. Дайте волю своему воображению, творите, любите и наслаждайтесь прекрасным сегодня – и Венера исполнит все Ваши самые смелые мечты!<br/><br/>\n<i>Цвет дня – синий. Нота – ми.</i>",
           en: "<strong>Beautiful Venus is the Friday's ruler.</strong> This planet loves all beautiful and romantic, the passion and art. The best decision is to spent Friday relaxing in a beautiful place, go to the theater or gallery, arrange a romantic date, prepare a pleasant surprise or a gift for a loved one. It is important to take the time for yourself, dress pretty, make your hair and nails. Unleash your imagination, create, love, and enjoy the beauty today - Venus will fulfill all your wildest dreams!<br/><br/"
@@ -11591,7 +11587,7 @@
           ru: "сатурн",
           en: "saturn"
         },
-        planetLogoPath: n(672),
+        planetLogoPath: n(673),
         description: {
           ru: "<strong>Сатурн – покровитель субботы.</strong> Это самая холодная и аскетичная планета, которая любит дисциплину, уединение и покой. В субботу лучше побыть наедине с собой, отдохнуть, помедитировать, осмыслить свои цели, подвести итоги. Этот день идеален для всего, чему необходим трезвый, реалистичный и практический подход.<br/><br/>\n<i>Цвет дня – голубой. Нота – соль.</i>",
           en: "<strong>Saturn is the patron of the Saturday.</strong> It is the coldest and the most ascetic planet which loves the discipline, privacy, and tranquility. It's better to be alone with yourself, relax, meditate, reflect on your goals, summarize on Saturday. It is perfect for anything that requires a sober, realistic and practical approach.<br/><br/"
@@ -11606,7 +11602,7 @@
           ru: "солцне",
           en: "sun"
         },
-        planetLogoPath: n(673),
+        planetLogoPath: n(674),
         description: {
           ru: "<strong>Воскресеньем управляет само Солнце –</strong> что бы вы не начали в этот день, наверняка удастся! Дни Солнца созданы для активной радости, праздника, веселья и счастья. Обратитесь к тем, к кому прежде не решались, общайтесь, знакомьтесь – Солнце поможет Вам обзавестись хорошими друзьями и надежными партнерами. Начните сегодня заботиться о своем здоровье, и Солнце подарит Вам бодрость и свою светлую и теплую энергию. Неделя начинается в воскресенье!<br/><br/>\n<i>Цвет дня – оранжевый. Нота – ре.</i>",
           en: "<strong>Sunday is ruled by the Sun itself -</strong> whatever you begin on this day is likely to succeed! Days of the Sun were created for the active joy, celebration, and happiness. Start to communicate with people today - the sun will help you to get the good friends and reliable partners. Start to take care of your health today, and the sun will give you cheerfulness and its bright and warm energy. The week starts on Sunday!<br/><br/"
@@ -11812,18 +11808,18 @@
       return m;
     });
 
-    var a = n(379),
-        r = n(380),
-        i = n(381),
-        s = n(382),
-        o = n(383),
-        u = n(385),
-        l = n(386),
-        c = n(387),
-        d = n(388),
-        h = n(389),
-        p = n(390),
-        f = n(391),
+    var a = n(380),
+        r = n(381),
+        i = n(382),
+        s = n(383),
+        o = n(384),
+        u = n(386),
+        l = n(387),
+        c = n(388),
+        d = n(389),
+        h = n(390),
+        p = n(391),
+        f = n(392),
         g = {
       aquarius: a.a,
       aries: r.a,
@@ -12275,18 +12271,18 @@
       return m;
     });
 
-    var a = n(392),
-        r = n(393),
-        i = n(394),
-        s = n(395),
-        o = n(396),
-        u = n(398),
-        l = n(399),
-        c = n(400),
-        d = n(401),
-        h = n(402),
-        p = n(403),
-        f = n(404),
+    var a = n(393),
+        r = n(394),
+        i = n(395),
+        s = n(396),
+        o = n(397),
+        u = n(399),
+        l = n(400),
+        c = n(401),
+        d = n(402),
+        h = n(403),
+        p = n(404),
+        f = n(405),
         g = {
       aquarius: a.a,
       aries: r.a,
@@ -12575,7 +12571,7 @@
       value: !0
     });
 
-    var a = n(258);
+    var a = n(259);
     t.default = a.a;
   };
 
@@ -12586,7 +12582,7 @@
       value: !0
     });
 
-    var a = n(262);
+    var a = n(263);
     t.default = a.a;
   };
 
@@ -12597,7 +12593,7 @@
       value: !0
     });
 
-    var a = n(263);
+    var a = n(264);
     t.default = a.a;
   };
 
@@ -12608,7 +12604,7 @@
       value: !0
     });
 
-    var a = n(266);
+    var a = n(267);
     t.default = a.a;
   };
 
@@ -12619,7 +12615,7 @@
       value: !0
     });
 
-    var a = n(294);
+    var a = n(295);
     t.default = a.a;
   };
 
@@ -12630,7 +12626,7 @@
       value: !0
     });
 
-    var a = n(265);
+    var a = n(266);
     t.default = a.a;
   };
 
@@ -12673,7 +12669,7 @@
       value: !0
     });
 
-    var a = n(267);
+    var a = n(268);
     t.default = a.a;
   };
 
@@ -12684,7 +12680,7 @@
       value: !0
     });
 
-    var a = n(268);
+    var a = n(269);
     t.default = a.a;
   };
 
@@ -12775,7 +12771,7 @@
       value: !0
     });
 
-    var a = n(269);
+    var a = n(270);
     t.default = a.a;
   };
 
@@ -12801,7 +12797,7 @@
       value: !0
     });
 
-    var a = n(273);
+    var a = n(274);
     t.default = a.a;
   };
 
@@ -12812,7 +12808,7 @@
       value: !0
     });
 
-    var a = n(278);
+    var a = n(279);
     t.default = a.a;
   };
 
@@ -12823,7 +12819,7 @@
       value: !0
     });
 
-    var a = n(270);
+    var a = n(271);
     t.default = a.a;
   };
 
@@ -12834,7 +12830,7 @@
       value: !0
     });
 
-    var a = n(271);
+    var a = n(272);
     t.default = a.a;
   };
 
@@ -12845,7 +12841,7 @@
       value: !0
     });
 
-    var a = n(274);
+    var a = n(275);
     t.default = a.a;
   };
 
@@ -12856,7 +12852,7 @@
       value: !0
     });
 
-    var a = n(275);
+    var a = n(276);
     t.default = a.a;
   };
 
@@ -12867,7 +12863,7 @@
       value: !0
     });
 
-    var a = n(277);
+    var a = n(278);
     t.default = a.a;
   };
 
@@ -12878,7 +12874,7 @@
       value: !0
     });
 
-    var a = n(280);
+    var a = n(281);
     t.default = a.a;
   };
 
@@ -12889,7 +12885,7 @@
       value: !0
     });
 
-    var a = n(281);
+    var a = n(282);
     t.default = a.a;
   };
 
@@ -12900,7 +12896,7 @@
       value: !0
     });
 
-    var a = n(283);
+    var a = n(284);
     t.default = a.a;
   };
 
@@ -12911,7 +12907,7 @@
       value: !0
     });
 
-    var a = n(286);
+    var a = n(287);
     t.default = a.a;
   };
 
@@ -12971,7 +12967,7 @@
       value: !0
     });
 
-    var a = n(288);
+    var a = n(289);
     t.default = a.a;
   };
 
@@ -12982,7 +12978,7 @@
       value: !0
     });
 
-    var a = n(290);
+    var a = n(291);
     t.default = a.a;
   };
 
@@ -13120,7 +13116,7 @@
       value: !0
     });
 
-    var a = n(293);
+    var a = n(294);
     t.default = a.a;
   };
 
@@ -13131,22 +13127,22 @@
       value: !0
     });
 
-    var a = n(296);
+    var a = n(297);
     t.default = a.a;
   };
 
   var _4a = function (e, t, n) {
     "use strict";
 
-    var a = n(623),
+    var a = n(624),
         r = n.n(a),
-        i = n(27),
+        i = n(28),
         s = n.n(i),
-        o = n(622),
+        o = n(623),
         u = n.n(o),
         l = n(164),
         c = n.n(l),
-        d = n(442),
+        d = n(443),
         h = n.i(d.a)(),
         p = {
       packages: {
@@ -13328,11 +13324,11 @@
   var _4d = function (e, t, n) {
     "use strict";
 
-    var a = n(440);
+    var a = n(441);
     n.d(t, "d", function () {
       return a.a;
     });
-    var r = n(441);
+    var r = n(442);
     n.d(t, "b", function () {
       return r.a;
     });
@@ -13340,7 +13336,7 @@
     n.d(t, "a", function () {
       return i.a;
     });
-    var s = n(443);
+    var s = n(444);
     n.d(t, "c", function () {
       return s.a;
     });
@@ -13361,7 +13357,7 @@
     }
 
     t.a = a;
-    var r = n(26),
+    var r = n(27),
         i = n.n(r),
         s = n(164),
         o = n.n(s);
@@ -13456,7 +13452,7 @@
     };
     a.keys = function () {
       return _$1.Object.keys(i);
-    }, a.resolve = r, e.exports = a, a.id = 636;
+    }, a.resolve = r, e.exports = a, a.id = 637;
   };
 
   var _4L = function (e, t, n) {
@@ -13684,170 +13680,170 @@
   };
 
   var _5F = function (e, t, n) {
-    n(531);
-    var a = n(0)(n(408), n(755), "data-v-d0c65424", null);
+    n(532);
+    var a = n(0)(n(409), n(755), "data-v-d0c65424", null);
     e.exports = a.exports;
   };
 
   var _5G = function (e, t, n) {
-    n(514);
-    var a = n(0)(n(409), n(737), null, null);
+    n(515);
+    var a = n(0)(n(410), n(737), null, null);
     e.exports = a.exports;
   };
 
   var _5H = function (e, t, n) {
-    n(529);
-    var a = n(0)(n(410), n(753), "data-v-b0af122e", null);
+    n(530);
+    var a = n(0)(n(411), n(753), "data-v-b0af122e", null);
     e.exports = a.exports;
   };
 
   var _5I = function (e, t, n) {
-    n(506);
-    var a = n(0)(n(411), n(729), null, null);
+    n(507);
+    var a = n(0)(n(412), n(729), null, null);
     e.exports = a.exports;
   };
 
   var _5J = function (e, t, n) {
-    n(519);
-    var a = n(0)(n(412), n(743), null, null);
+    n(520);
+    var a = n(0)(n(413), n(743), null, null);
     e.exports = a.exports;
   };
 
   var _5K = function (e, t, n) {
-    n(508);
-    var a = n(0)(n(413), n(731), null, null);
+    n(509);
+    var a = n(0)(n(414), n(731), null, null);
     e.exports = a.exports;
   };
 
   var _5L = function (e, t, n) {
-    n(504);
-    var a = n(0)(n(414), n(727), null, null);
+    n(505);
+    var a = n(0)(n(415), n(727), null, null);
     e.exports = a.exports;
   };
 
   var _5M = function (e, t, n) {
-    n(507);
-    var a = n(0)(n(415), n(730), "data-v-2cb56b64", null);
+    n(508);
+    var a = n(0)(n(416), n(730), "data-v-2cb56b64", null);
     e.exports = a.exports;
   };
 
   var _5N = function (e, t, n) {
-    n(516);
-    var a = n(0)(n(416), n(739), "data-v-42fd9966", null);
+    n(517);
+    var a = n(0)(n(417), n(739), "data-v-42fd9966", null);
     e.exports = a.exports;
   };
 
   var _5O = function (e, t, n) {
-    n(526);
-    var a = n(0)(n(417), n(750), null, null);
+    n(527);
+    var a = n(0)(n(418), n(750), null, null);
     e.exports = a.exports;
   };
 
   var _5P = function (e, t, n) {
-    n(523);
-    var a = n(0)(n(418), n(747), "data-v-71d64113", null);
+    n(524);
+    var a = n(0)(n(419), n(747), "data-v-71d64113", null);
     e.exports = a.exports;
   };
 
   var _5Q = function (e, t, n) {
-    n(518);
-    var a = n(0)(n(419), n(741), "data-v-554d1984", null);
+    n(519);
+    var a = n(0)(n(420), n(741), "data-v-554d1984", null);
     e.exports = a.exports;
   };
 
   var _5R = function (e, t, n) {
-    n(524);
-    var a = n(0)(n(420), n(748), null, null);
+    n(525);
+    var a = n(0)(n(421), n(748), null, null);
     e.exports = a.exports;
   };
 
   var _5S = function (e, t, n) {
-    n(513);
-    var a = n(0)(n(421), n(736), null, null);
+    n(514);
+    var a = n(0)(n(422), n(736), null, null);
     e.exports = a.exports;
   };
 
   var _5T = function (e, t, n) {
-    n(505);
-    var a = n(0)(n(422), n(728), "data-v-1da08370", null);
+    n(506);
+    var a = n(0)(n(423), n(728), "data-v-1da08370", null);
     e.exports = a.exports;
   };
 
   var _5U = function (e, t, n) {
-    n(533);
-    var a = n(0)(n(425), n(757), "data-v-f1ed5eb2", null);
+    n(534);
+    var a = n(0)(n(426), n(757), "data-v-f1ed5eb2", null);
     e.exports = a.exports;
   };
 
   var _5V = function (e, t, n) {
-    n(532);
-    var a = n(0)(n(426), n(756), null, null);
+    n(533);
+    var a = n(0)(n(427), n(756), null, null);
     e.exports = a.exports;
   };
 
   var _5W = function (e, t, n) {
-    n(510);
-    var a = n(0)(n(427), n(733), null, null);
+    n(511);
+    var a = n(0)(n(428), n(733), null, null);
     e.exports = a.exports;
   };
 
   var _5X = function (e, t, n) {
-    n(534);
-    var a = n(0)(n(428), n(758), "data-v-f4bb223c", null);
+    n(535);
+    var a = n(0)(n(429), n(758), "data-v-f4bb223c", null);
     e.exports = a.exports;
   };
 
   var _5Y = function (e, t, n) {
-    n(525);
-    var a = n(0)(n(429), n(749), "data-v-73e0efc9", null);
+    n(526);
+    var a = n(0)(n(430), n(749), "data-v-73e0efc9", null);
     e.exports = a.exports;
   };
 
   var _5Z = function (e, t, n) {
-    n(522);
-    var a = n(0)(n(430), n(746), "data-v-71715946", null);
+    n(523);
+    var a = n(0)(n(431), n(746), "data-v-71715946", null);
     e.exports = a.exports;
   };
 
   var _60 = function (e, t, n) {
-    n(521);
-    var a = n(0)(n(432), n(745), "data-v-6a4f19ce", null);
+    n(522);
+    var a = n(0)(n(433), n(745), "data-v-6a4f19ce", null);
     e.exports = a.exports;
   };
 
   var _61 = function (e, t, n) {
-    n(517);
-    var a = n(0)(n(433), n(740), "data-v-51c898ac", null);
+    n(518);
+    var a = n(0)(n(434), n(740), "data-v-51c898ac", null);
     e.exports = a.exports;
   };
 
   var _62 = function (e, t, n) {
-    n(512);
-    var a = n(0)(n(434), n(735), "data-v-35410c08", null);
+    n(513);
+    var a = n(0)(n(435), n(735), "data-v-35410c08", null);
     e.exports = a.exports;
   };
 
   var _63 = function (e, t, n) {
-    n(530);
-    var a = n(0)(n(435), n(754), "data-v-bf0bff08", null);
+    n(531);
+    var a = n(0)(n(436), n(754), "data-v-bf0bff08", null);
     e.exports = a.exports;
   };
 
   var _64 = function (e, t, n) {
-    n(528);
-    var a = n(0)(n(436), n(752), "data-v-a19f9caa", null);
+    n(529);
+    var a = n(0)(n(437), n(752), "data-v-a19f9caa", null);
     e.exports = a.exports;
   };
 
   var _65 = function (e, t, n) {
-    n(511);
-    var a = n(0)(n(437), n(734), "data-v-3222c98f", null);
+    n(512);
+    var a = n(0)(n(438), n(734), "data-v-3222c98f", null);
     e.exports = a.exports;
   };
 
   var _66 = function (e, t, n) {
-    n(509);
-    var a = n(0)(n(438), n(732), "data-v-30a92108", null);
+    n(510);
+    var a = n(0)(n(439), n(732), "data-v-30a92108", null);
     e.exports = a.exports;
   };
 
@@ -14154,12 +14150,12 @@
         }, [a("img", {
           staticClass: "todo__img left",
           attrs: {
-            src: n(667)
+            src: n(668)
           }
         }), e._v(" "), a("img", {
           staticClass: "todo__img right",
           attrs: {
-            src: n(666)
+            src: n(667)
           }
         }), e._v(" "), a("div", {
           staticClass: "todo__tooltip"
@@ -14665,7 +14661,7 @@
           staticClass: "img-container"
         }, [a("img", {
           attrs: {
-            src: n(684)
+            src: n(685)
           }
         })]);
       }, function () {
@@ -14676,7 +14672,7 @@
           staticClass: "img-container"
         }, [a("img", {
           attrs: {
-            src: n(665)
+            src: n(666)
           }
         })]);
       }, function () {
@@ -14714,7 +14710,7 @@
           staticClass: "img-container"
         }, [a("img", {
           attrs: {
-            src: n(682)
+            src: n(683)
           }
         })]);
       }, function () {
@@ -15183,7 +15179,7 @@
           staticClass: "content__logo visible-md-block visible-lg-block"
         }, [a("img", {
           attrs: {
-            src: n(643)
+            src: n(644)
           }
         })]);
       }]
@@ -15344,7 +15340,7 @@
           staticClass: "desc"
         }, [e._v(e._s(e.constants.promoBtnText) + ">>")]), e._v(" "), a("img", {
           attrs: {
-            src: n(655),
+            src: n(656),
             alt: ""
           }
         })]) : e._e();
@@ -15406,7 +15402,7 @@
           staticClass: "profile__title"
         }, [a("img", {
           attrs: {
-            src: n(654)
+            src: n(655)
           }
         }), e._v(" "), a("div", [e._v(e._s(e.constants.editProfile))])]), e._v(" "), a("div", {
           staticClass: "raw"
@@ -15765,7 +15761,7 @@
           staticClass: "login-btn"
         }, [a("img", {
           attrs: {
-            src: n(656)
+            src: n(657)
           },
           on: {
             click: function (t) {
@@ -16168,12 +16164,12 @@
         }, [a("img", {
           staticClass: "todo__img left2",
           attrs: {
-            src: n(683)
+            src: n(684)
           }
         }), e._v(" "), a("img", {
           staticClass: "todo__img right2",
           attrs: {
-            src: n(685)
+            src: n(686)
           }
         }), e._v(" "), e.canSave ? a("div", {
           staticClass: "todo__tooltip"
@@ -16233,14 +16229,14 @@
     }
 
     var i = {
-      "./first_quarter.png": 657,
-      "./full_moon.png": 658,
-      "./last_quarter.png": 659,
-      "./new_moon.png": 660,
-      "./waning_crescent.png": 661,
-      "./waning_gibbous.png": 662,
-      "./waxing_crescent.png": 663,
-      "./waxing_gibbous.png": 664
+      "./first_quarter.png": 658,
+      "./full_moon.png": 659,
+      "./last_quarter.png": 660,
+      "./new_moon.png": 661,
+      "./waning_crescent.png": 662,
+      "./waning_gibbous.png": 663,
+      "./waxing_crescent.png": 664,
+      "./waxing_gibbous.png": 665
     };
     a.keys = function () {
       return _$1.Object.keys(i);
@@ -16259,8 +16255,8 @@
     }
 
     var i = {
-      "./biorhythms-1-en.jpg": 680,
-      "./biorhythms-1-ru.jpg": 681
+      "./biorhythms-1-en.jpg": 681,
+      "./biorhythms-1-ru.jpg": 682
     };
     a.keys = function () {
       return _$1.Object.keys(i);
@@ -16275,8 +16271,8 @@
   }
 
   var _3 = [0];
-  var _4 = [,,,,,,,,,,,,,,,,,,,,,,,,,,,,, _5, _6,,,,,,,,,,,,,, _7, _8,,,,,,,,,,,,,,,,,,,,, _9, _a, _b, _d,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,, _g, _h,, _i,,,,,,,, _j, _k, _n, _o, _p, _q, _r, _u, _w, _x, _y,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,, _z, _A, _B, _C, _D, _E, _F, _G, _H, _I, _J, _K, _L, _M, _N,,,,,,,,,,,,,,,,,,,,,, _O, _P, _Q, _R, _S, _T, _U, _V, _W, _X, _Y, _Z, _10, _11, _12, _13, _14, _15, _16, _17, _18, _19, _1a, _1b, _1c, _1d, _1e, _1f, _1g,,,,,,,,,,,,,,,,,,,, _1h, _1i, _1j, _1k, _1l, _1m, _1n, _1o, _1p, _1q, _1r, _1s, _1t, _1u, _1v, _1w, _1x, _1y, _1z, _1A, _1B, _1C, _1D, _1E, _1F, _1G, _1H, _1I, _1J, _1K, _1L, _1M, _1N, _1O, _1P, _1Q, _1R, _1S, _1T, _1U, _1V, _1W, _1X, _1Y, _1Z, _20, _21, _22, _23, _24, _25, _26, _27, _28, _29, _2a, _2b, _2c, _2d, _2e, _2f, _2g, _2h, _2i, _2j, _2k, _2l, _2m, _2n, _2o, _2p, _2q, _2r, _2s, _2t, _2u, _2v, _2w, _2x, _2y, _2z, _2A, _2B, _2C, _2D, _2E, _2F, _2G, _2H, _2I, _2J, _2K, _2L, _2M, _2N, _2O, _2P, _2Q, _2R, _2S, _2T, _2U, _2V, _2W, _2X, _2Y, _2Z, _30, _31, _32, _33, _34, _35, _36, _37, _38, _39, _3a, _3b, _3c, _3d, _3e, _3f, _3g, _3h, _3i, _3j, _3k, _3l, _3m, _3n, _3o, _3p, _3q, _3r, _3s, _3t, _3u, _3v, _3w, _3x, _3y, _3z, _3A, _3B, _3C, _3D,,, _3E, _3F, _3G, _3H, _3I, _3J, _3K, _3L, _3M, _3N, _3O, _3P, _3Q, _3R, _3S, _3T, _3U, _3V, _3W, _3X, _3Y, _3Z, _40, _41, _42, _43, _44, _45, _46, _47, _48, _49, _4a, _4b, _4c, _4d, _4e,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,, _4f, _4g, _4h, _4i, _4j, _4k, _4l, _4m, _4n, _4o, _4p, _4q, _4r, _4s, _4t, _4u, _4v, _4w, _4x, _4y, _4z, _4A, _4B, _4C, _4D, _4E, _4F, _4G, _4H, _4I, _4J,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,, _4K,,,,,, _4L, _4M, _4N, _4O, _4P, _4Q, _4R, _4S, _4T, _4U, _4V, _4W, _4X, _4Y, _4Z, _50, _51, _52, _53, _54, _55, _56, _57, _58, _59, _5a, _5b, _5c, _5d, _5e, _5f, _5g, _5h, _5i, _5j, _5k, _5l, _5m, _5n, _5o, _5p, _5q, _5r, _5s, _5t, _5u, _5v, _5w, _5x, _5y, _5z, _5A, _5B, _5C, _5D, _5E,, _5F, _5G, _5H, _5I, _5J, _5K, _5L, _5M, _5N, _5O, _5P, _5Q, _5R, _5S, _5T, _5U, _5V, _5W, _5X, _5Y, _5Z, _60, _61, _62, _63, _64, _65, _66, _67, _68, _69, _6a, _6b, _6c, _6d, _6e, _6f, _6g, _6h, _6i, _6j, _6k, _6l, _6m, _6n, _6o, _6p, _6q, _6r, _6s, _6t, _6u, _6v, _6w, _6x, _6y, _6z, _6A, _6B, _6C,,, _6D, _6E];
-  var _6F = [362];
+  var _4 = [,,,,,,,,,,,,,,,,,,,,,,,,,,,,,, _5, _6,,,,,,,,,,,,, _7, _8,,,,,,,,,,,,,,,,,,,,, _9, _a, _b, _d,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,, _g, _h,, _i,,,,,,,, _j, _k, _n, _o, _p, _q, _r, _u, _w, _x, _y,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,, _z, _A, _B, _C, _D, _E, _F,, _G, _H, _I, _J, _K, _L, _M, _N,,,,,,,,,,,,,,,,,,,,,, _O, _P, _Q, _R, _S, _T, _U, _V, _W, _X, _Y, _Z, _10, _11, _12, _13, _14, _15, _16, _17, _18, _19, _1a, _1b, _1c, _1d, _1e, _1f, _1g,,,,,,,,,,,,,,,,,,,, _1h, _1i, _1j, _1k, _1l, _1m, _1n, _1o, _1p, _1q, _1r, _1s, _1t, _1u, _1v, _1w, _1x, _1y, _1z, _1A, _1B, _1C, _1D, _1E, _1F, _1G, _1H, _1I, _1J, _1K, _1L, _1M, _1N, _1O, _1P, _1Q, _1R, _1S, _1T, _1U, _1V, _1W, _1X, _1Y, _1Z, _20, _21, _22, _23, _24, _25, _26, _27, _28, _29, _2a, _2b, _2c, _2d, _2e, _2f, _2g, _2h, _2i, _2j, _2k, _2l, _2m, _2n, _2o, _2p, _2q, _2r, _2s, _2t, _2u, _2v, _2w, _2x, _2y, _2z, _2A, _2B, _2C, _2D, _2E, _2F, _2G, _2H, _2I, _2J, _2K, _2L, _2M, _2N, _2O, _2P, _2Q, _2R, _2S, _2T, _2U, _2V, _2W, _2X, _2Y, _2Z, _30, _31, _32, _33, _34, _35, _36, _37, _38, _39, _3a, _3b, _3c, _3d, _3e, _3f, _3g, _3h, _3i, _3j, _3k, _3l, _3m, _3n, _3o, _3p, _3q, _3r, _3s, _3t, _3u, _3v, _3w, _3x, _3y, _3z, _3A, _3B, _3C, _3D,,, _3E, _3F, _3G, _3H, _3I, _3J, _3K, _3L, _3M, _3N, _3O, _3P, _3Q, _3R, _3S, _3T, _3U, _3V, _3W, _3X, _3Y, _3Z, _40, _41, _42, _43, _44, _45, _46, _47, _48, _49, _4a, _4b, _4c, _4d, _4e,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,, _4f, _4g, _4h, _4i, _4j, _4k, _4l, _4m, _4n, _4o, _4p, _4q, _4r, _4s, _4t, _4u, _4v, _4w, _4x, _4y, _4z, _4A, _4B, _4C, _4D, _4E, _4F, _4G, _4H, _4I, _4J,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,, _4K,,,,,, _4L, _4M, _4N, _4O, _4P, _4Q, _4R, _4S, _4T, _4U, _4V, _4W, _4X, _4Y, _4Z, _50, _51, _52, _53, _54, _55, _56, _57, _58, _59, _5a, _5b, _5c, _5d, _5e, _5f, _5g, _5h, _5i, _5j, _5k, _5l, _5m, _5n, _5o, _5p, _5q, _5r, _5s, _5t, _5u, _5v, _5w, _5x, _5y, _5z, _5A, _5B, _5C, _5D, _5E, _5F, _5G, _5H, _5I, _5J, _5K, _5L, _5M, _5N, _5O, _5P, _5Q, _5R, _5S, _5T, _5U, _5V, _5W, _5X, _5Y, _5Z, _60, _61, _62, _63, _64, _65, _66, _67, _68, _69, _6a, _6b, _6c, _6d, _6e, _6f, _6g, _6h, _6i, _6j, _6k, _6l, _6m, _6n, _6o, _6p, _6q, _6r, _6s, _6t, _6u, _6v, _6w, _6x, _6y, _6z, _6A, _6B, _6C,,, _6D, _6E];
+  var _6F = [363];
 
   var _$0 = _2(_3, _4, _6F);
 }).call(this);
