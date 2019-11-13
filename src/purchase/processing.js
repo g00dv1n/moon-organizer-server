@@ -16,10 +16,9 @@ const expiredTransactionStatus = 'Expired'
 
 const baseOrderObject = {
   'productCount': '1',
-  'regularMode': 'none'
-  // 'dateNext': moment().add(1, 'M').format('DD.MM.YYYY').toString(),
-  // 'dateEnd': moment().add(1, 'y').format('DD.MM.YYYY').toString()
-
+  'regularMode': 'monthly',
+  'regularOn': 1,
+  'dateNext': moment().add(1, 'M').format('DD.MM.YYYY').toString()
 }
 
 const productInfo = {
