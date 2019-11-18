@@ -49,9 +49,8 @@ router.get('/form/:locale', async ctx => {
 })
 
 router.post('/checkout', async ctx => {
-  const {user, locale = 'en'} = ctx.request.body
-
-  ctx.body = await processRegistration(user, locale.toLowerCase())
+  const {user, locale = 'en', plan = 'month'} = ctx.request.body
+  ctx.body = await processRegistration(user, locale.toLowerCase(), plan)
 })
 
 router.post('/thankyou-page', async ctx => {
