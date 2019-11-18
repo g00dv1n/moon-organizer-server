@@ -2912,7 +2912,8 @@
           var e = this;
           return this.axios.post("/purchase/checkout", {
             user: this.getUserModel(this.newUser),
-            locale: this.geo.country
+            locale: this.geo.country,
+            plan: this.$route.query.plan || "month"
           }).then(function (e) {
             var t = e.data,
                 n = _$1.document.getElementById("hidden-purchase-form");
