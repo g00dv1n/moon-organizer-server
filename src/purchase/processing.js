@@ -65,17 +65,17 @@ const productPrice = {
   year: {
     productPrice: {
       ru: '1099.95',
-      en: '59.95',
+      en: '29.95',
       ua: '599.95'
     },
     amount: {
       ru: '1099.95',
-      en: '59.95',
+      en: '29.95',
       ua: '599.95'
     },
     regularAmount: {
       ru: '1099.95',
-      en: '59.95',
+      en: '29.95',
       ua: '599.95'
     }
   }
