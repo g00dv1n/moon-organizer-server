@@ -34,7 +34,7 @@ const productInfo = {
   productName: {
     ru: 'Лунный Календарь',
     ua: 'Лунный Календарь',
-    en: 'Lunar Calendar'
+    en: 'Moon Calendar'
   },
   currency: {
     ru: 'RUB',
@@ -47,17 +47,17 @@ const productPrice = {
   month: {
     productPrice: {
       ru: '599.95',
-      en: '15.95',
+      en: '3.95',
       ua: '299.95'
     },
     amount: {
       ru: '599.95',
-      en: '15.95',
+      en: '3.95',
       ua: '299.95'
     },
     regularAmount: {
       ru: '599.95',
-      en: '15.95',
+      en: '3.95',
       ua: '299.95'
     }
   },
