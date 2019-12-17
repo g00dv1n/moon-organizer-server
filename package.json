@@ -40,6 +40,7 @@
     "koa-static": "^4.0.1",
     "koa2-cors": "^2.0.3",
     "lodash": "^4.17.4",
+    "lune": "^0.4.0",
     "mariasql": "^0.2.6",
     "moment": "^2.18.1",
     "mysql": "^2.14.0",
@@ -51,6 +52,7 @@
     "rimraf": "^2.6.1",
     "sprintf-js": "^1.1.1",
     "sqlite3": "^3.1.8",
+    "suncalc": "^1.8.0",
     "tap-spec": "^4.1.1",
     "winston": "^2.3.1"
   },
