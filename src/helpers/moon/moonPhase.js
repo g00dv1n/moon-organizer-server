@@ -8,6 +8,25 @@ import config from 'config'
 const ICONS_PATH = path
   .resolve(process.env.PWD, 'files', 'moon-phases')
 
+// constants for moon phase string calculation
+const MOON_PHASES = { NEW: 0, FIRST: 0.25, FULL: 0.5, LAST: 0.75, NEXTNEW: 1 }
+
+// pytnon function bisect_right for moon phase string calculation
+// from https://github.com/aureooms/js-bisect/blob/master/src/bisect_right.js
+function bisectRight (a, x, lo = 0, hi = a.length) {
+  if (lo < 0) throw new Error('lo must be non-negative')
+
+  while (lo < hi) {
+    const mid = (lo + hi) / 2 | 0
+
+    if (x < a[mid]) hi = mid
+
+    else lo = mid + 1
+  }
+
+  return lo
+}
+
 // normalize values to range 0...1
 function normalize (v) {
   v = v - Math.floor(v)
@@ -16,11 +35,62 @@ function normalize (v) {
   }
   return v
 }
+
+export function getPhaseString (date, useTime = true) {
+  let currentDate
+
+  if (useTime) {
+    currentDate = date // use actual date and time
+  } else {
+    // use end of the day
+    // At the end of the day, we can always determine if there was a major phase today.
+    currentDate = moment(date).endOf('d').toDate()
+  }
+
+  let PRECISION = 0
+
+  const { phase } = lune.phase(currentDate)
+
+  const majorPhases = lune.phase_hunt(currentDate)
+
+  const isMajorPhaseToday = Object.values(majorPhases).some(md => {
+    return moment(date).isSame(moment(md), 'day')
+  })
+
+  if (isMajorPhaseToday) {
+    PRECISION = 0.05 // avg 30h
+  }
+
+  const phaseNames = [
+    {val: MOON_PHASES.NEW + PRECISION, name: 'New Moon'},
+
+    {val: MOON_PHASES.FIRST, name: 'Waxing Crescent'},
+
+    {val: MOON_PHASES.FIRST + PRECISION, name: 'First Quarter'},
+
+    {val: MOON_PHASES.FULL, name: 'Waxing Gibbous'},
+
+    {val: MOON_PHASES.FULL + PRECISION, name: 'Full Moon'},
+
+    {val: MOON_PHASES.LAST, name: 'Waning Gibbous'},
+
+    {val: MOON_PHASES.LAST + PRECISION, name: 'Last Quarter'},
+
+    {val: MOON_PHASES.NEXTNEW, name: 'Waning Crescent'},
+
+    {val: MOON_PHASES.NEXTNEW + PRECISION, name: 'New Moon'}
+  ]
+  const values = phaseNames.map(p => p.val)
+
+  const i = bisectRight(values, phase)
+
+  return phaseNames[i].name
+}
+
 export function getPhaseAndZodiacInfo (date) {
   let age, // Moon's age
     longitude, // Moon's ecliptic longitude
     phase, // Moon's phase
-    trajectory, // Moon's trajectory
     zodiac // Moon's zodiac sign
   let yy, mm, k1, k2, k3, jd
   let ip, dp, rp
@@ -45,34 +115,8 @@ export function getPhaseAndZodiacInfo (date) {
   ip = luneInfo.phase
   age = luneInfo.age
 
-  if (age < 1.84566) {
-    phase = 'New Moon'
-    trajectory = 'ascendent'
-  } else if (age < 5.53699) {
-    phase = 'Waxing Crescent'
-    trajectory = 'ascendent'
-  } else if (age < 9.22831) {
-    phase = 'First Quarter'
-    trajectory = 'ascendent'
-  } else if (age < 12.91963) {
-    phase = 'Waxing Gibbous'
-    trajectory = 'ascendent'
-  } else if (age < 16.61096) {
-    phase = 'Full Moon'
-    trajectory = 'descendent'
-  } else if (age < 20.30228) {
-    phase = 'Waning Gibbous'
-    trajectory = 'descendent'
-  } else if (age < 23.99361) {
-    phase = 'Last Quarter'
-    trajectory = 'descendent'
-  } else if (age < 27.68493) {
-    phase = 'Waning Crescent'
-    trajectory = 'descendent'
-  } else {
-    phase = 'New Moon'
-    trajectory = 'ascendent'
-  }
+  phase = getPhaseString(date)
+
   ip = ip * 2 * Math.PI // Convert phase to radians
   // Calculate moon's distance
   dp = 2 * Math.PI * normalize((jd - 2451562.2) / 27.55454988)
@@ -112,7 +156,6 @@ export function getPhaseAndZodiacInfo (date) {
   return {
     age,
     phase,
-    trajectory,
     zodiac
   }
 }
