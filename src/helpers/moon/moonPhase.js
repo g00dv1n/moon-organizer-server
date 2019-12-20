@@ -8,6 +8,9 @@ import config from 'config'
 const ICONS_PATH = path
   .resolve(process.env.PWD, 'files', 'moon-phases')
 
+const DESCRIPTIONS = require(
+  path.resolve(process.env.PWD, 'files', 'moon-phases', 'descriptions.json'))
+
 // constants for moon phase string calculation
 const MOON_PHASES = { NEW: 0, FIRST: 0.25, FULL: 0.5, LAST: 0.75, NEXTNEW: 1 }
 
@@ -166,10 +169,11 @@ export function getMoonTimeInfo (date, latitude, longitude) {
 
 export function getFullMoonWidgetInfo (date, latitude, longitude) {
   let info = getPhaseAndZodiacInfo(date)
+  const phaseCode = info.phase.toLowerCase().split(' ').join('_')
   const riseAndSetFormatStr = 'MM/DD/YYYY, h:mm A'
   const dateFmt = moment(date).format('ddd, MMMM Do YYYY')
   const phaseIcoPath = path
-    .join(ICONS_PATH, info.phase.toLowerCase().split(' ').join('_') + '.png')
+    .join(ICONS_PATH, phaseCode + '.png')
   const {link, linkLabel} = config.get('moonPhaseWidget')
 
   let {rise, set} = getMoonTimeInfo(date, latitude, longitude)
@@ -180,5 +184,7 @@ export function getFullMoonWidgetInfo (date, latitude, longitude) {
   const phaseIco = 'data:image/png;base64,' +
     fs.readFileSync(phaseIcoPath, { encoding: 'base64' })
 
-  return Object.assign(info, {rise, set, phaseIco, dateFmt, link, linkLabel})
+  const phaseDesc = DESCRIPTIONS[phaseCode] || ''
+
+  return Object.assign(info, {rise, set, phaseIco, dateFmt, link, linkLabel, phaseDesc})
 }

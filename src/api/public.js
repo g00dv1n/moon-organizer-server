@@ -96,7 +96,7 @@ router.get('/test/attachment', async ctx => {
 })
 
 router.post('/moon-phase', async ctx => {
-  const { date, latitude, longitude} = ctx.request.body
+  const {date, latitude, longitude} = ctx.request.body
   const moonInfo = getFullMoonWidgetInfo(new Date(date), latitude, longitude)
   ctx.body = moonInfo
 })
