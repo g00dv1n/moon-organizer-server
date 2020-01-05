@@ -163,17 +163,22 @@ export function getPhaseAndZodiacInfo (date) {
   }
 }
 
+export function getHemisphere (latitude) {
+  return latitude > 0 ? 'northern' : 'southern'
+}
+
 export function getMoonTimeInfo (date, latitude, longitude) {
   return SunCalc.getMoonTimes(date, latitude, longitude)
 }
 
 export function getFullMoonWidgetInfo (date, latitude, longitude) {
   let info = getPhaseAndZodiacInfo(date)
+  const hemisphere = getHemisphere(latitude)
   const phaseCode = info.phase.toLowerCase().split(' ').join('_')
   const riseAndSetFormatStr = 'MM/DD/YYYY, h:mm A'
   const dateFmt = moment(date).format('ddd, MMMM Do YYYY')
   const phaseIcoPath = path
-    .join(ICONS_PATH, phaseCode + '.png')
+    .join(ICONS_PATH, phaseCode + `_${hemisphere}.png`)
   const {link, linkLabel} = config.get('moonPhaseWidget')
 
   let {rise, set} = getMoonTimeInfo(date, latitude, longitude)
@@ -186,5 +191,5 @@ export function getFullMoonWidgetInfo (date, latitude, longitude) {
 
   const phaseDesc = DESCRIPTIONS[phaseCode] || ''
 
-  return Object.assign(info, {rise, set, phaseIco, dateFmt, link, linkLabel, phaseDesc})
+  return Object.assign(info, {rise, set, phaseIco, dateFmt, link, linkLabel, phaseDesc, hemisphere})
 }
