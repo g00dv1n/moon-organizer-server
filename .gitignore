@@ -8,3 +8,4 @@ yarn.lock*
 flow-typed
 package-lock.json
 logs/*
+ecosystem.config.js

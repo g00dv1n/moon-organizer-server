@@ -5,7 +5,9 @@ module.exports = {
     env: {
       'NODE_ENV': 'production',
       'SES_USER': '*',
-      'SES_PWD': '*'
+      'SES_PWD': '*',
+      'MAUTIC_USER': '*',
+      'MAUTIC_PWD': '*'
     }
   }]
 }

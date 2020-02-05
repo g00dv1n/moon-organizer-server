@@ -7,6 +7,7 @@ import send from 'koa-send'
 import { AVATARS_ROOT } from '../helpers/storeAvatars'
 import { sendNewPassword, sendBook } from '../mail'
 import randomstring from 'randomstring'
+import {getFullMoonWidgetInfo} from '../helpers/moon/moonPhase'
 
 const router = new Router({ prefix: '/api/public' })
 const cities = require('../../world-cities-parser/cities.json')
@@ -92,6 +93,12 @@ router.post('/reset-password', async ctx => {
 
 router.get('/test/attachment', async ctx => {
   ctx.body = await sendBook({email: 'g00dv1n.private@gmail.com'})
+})
+
+router.post('/moon-phase', async ctx => {
+  const {date, latitude, longitude} = ctx.request.body
+  const moonInfo = getFullMoonWidgetInfo(new Date(date), latitude, longitude)
+  ctx.body = moonInfo
 })
 
 export default router

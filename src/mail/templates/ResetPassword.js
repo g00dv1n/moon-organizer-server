@@ -1,4 +1,4 @@
-const loginLink = 'https://moonorganizer.com/calendar/#/?forcelogin=1'
+const loginLink = 'https://moonorganizer.com/calendar/#/me/registration?forcelogin=1'
 
 const ru = `
 Уважаемый Клиент,

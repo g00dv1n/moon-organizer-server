@@ -6,54 +6,89 @@ import { fieldsTransform } from '../helpers/userModelUtils'
 import moment from 'moment'
 import randomstring from 'randomstring'
 import winston from 'winston'
-import { sendActivate, sendBook } from '../mail'
+import { sendActivate, sendBook, sendAbandonedToMautic } from '../mail'
 
 // constants
 const reasonCode = 1100 // Ok status
 const transactionStatus = 'Approved'
 
-const baseOrderObject = {
-  'productCount': '1',
-  'regularMode': 'none'
-  // 'dateNext': moment().add(1, 'M').format('DD.MM.YYYY').toString(),
-  // 'dateEnd': moment().add(1, 'y').format('DD.MM.YYYY').toString()
+const expiredTransactionStatus = 'Expired'
 
+const baseOrderObject = {
+  month: {
+    'productCount': '1',
+    'regularMode': 'monthly',
+    'regularOn': 1,
+    'dateNext': moment().add(1, 'M').format('DD.MM.YYYY').toString()
+  },
+
+  year: {
+    'productCount': '1',
+    'regularMode': 'yearly',
+    'regularOn': 1,
+    'dateNext': moment().add(1, 'Y').format('DD.MM.YYYY').toString()
+  }
 }
 
 const productInfo = {
   productName: {
     ru: 'Лунный Календарь',
     ua: 'Лунный Календарь',
-    en: 'Lunar Calendar'
+    en: 'Moon Calendar'
   },
   currency: {
     ru: 'RUB',
     ua: 'UAH',
     en: 'USD'
-  },
-  productPrice: {
-    ru: '599.95',
-    en: '15.95',
-    ua: '299.95'
-  },
-  amount: {
-    ru: '599.95',
-    en: '15.95',
-    ua: '299.95'
-  },
-  regularAmount: {
-    ru: '599.95',
-    en: '15.95',
-    ua: '299.95'
   }
 }
 
-export const setupProductInfo = (locale) => {
+const productPrice = {
+  month: {
+    productPrice: {
+      ru: '599.95',
+      en: '3.95',
+      ua: '299.95'
+    },
+    amount: {
+      ru: '599.95',
+      en: '3.95',
+      ua: '299.95'
+    },
+    regularAmount: {
+      ru: '599.95',
+      en: '3.95',
+      ua: '299.95'
+    }
+  },
+
+  year: {
+    productPrice: {
+      ru: '1099.95',
+      en: '29.95',
+      ua: '599.95'
+    },
+    amount: {
+      ru: '1099.95',
+      en: '29.95',
+      ua: '599.95'
+    },
+    regularAmount: {
+      ru: '1099.95',
+      en: '29.95',
+      ua: '599.95'
+    }
+  }
+}
+
+export const setupProductInfo = (locale, plan) => {
   const _l = locale.toLowerCase()
   const _def = 'en'
   const _res = {}
-  for (const k in productInfo) {
-    _res[k] = productInfo[k][_l] ? productInfo[k][_l] : productInfo[k][_def]
+  const _priceInfo = productPrice[plan] || productPrice.month
+  const _fullProductInfo = Object.assign({}, productInfo, _priceInfo)
+  for (const k in _fullProductInfo) {
+    _res[k] = _fullProductInfo[k][_l] ? _fullProductInfo[k][_l] : _fullProductInfo[k][_def]
   }
   return _res
 }
@@ -78,15 +113,16 @@ export const sendActivationMails = async (user) => {
   }
 }
 
-export const createBaseOrderObject = (user, locale) => {
+export const createBaseOrderObject = (user, locale, plan) => {
+  const selectedBaseOrderObject = baseOrderObject[plan] || baseOrderObject.month
   return Object.assign({
     clientFirstName: user.name,
     clientLastName: user.surname,
     clientEmail: user.email
-  }, baseOrderObject, setupProductInfo(locale))
+  }, selectedBaseOrderObject, setupProductInfo(locale, plan))
 }
 
-export const processRegistration = async (user, locale) => {
+export const processRegistration = async (user, locale, plan) => {
   let htmlForm = null
   user.email = UserModel.normalizeEmail(user.email)
   let checkUser = await new UserModel({ email: user.email }).fetch()
@@ -105,8 +141,7 @@ export const processRegistration = async (user, locale) => {
   try {
     winston.info(`User ${user.email} try to buy.`)
     await new UserModel(fieldsTransform(user)).save()
-    const _orderFields = createBaseOrderObject(user, locale)
-    console.log(_orderFields)
+    const _orderFields = createBaseOrderObject(user, locale, plan)
     htmlForm = WPF.buildForm(_orderFields)
     winston.info(`user saved`)
   } catch (err) {
@@ -116,12 +151,33 @@ export const processRegistration = async (user, locale) => {
   return { htmlForm }
 }
 
+export const processExpiredOrder = async (order) => {
+  try {
+    const email = order.email
+    const user = await new UserModel({ email }).fetch()
+    let firstname
+    if (user) {
+      firstname = user.get('name')
+    } else {
+      firstname = order.clientName.split(' ')[0]
+    }
+    await sendAbandonedToMautic({firstname, email})
+    winston.info(`user ${email} added to mautic`)
+  } catch (err) {
+    winston.error('Cannot process Expired Order', err)
+  }
+}
+
 export const processOrder = async (order) => {
   winston.info('START ORDER PROCESSING', order)
   if (!WPF.isResponseValid(order)) {
     winston.error('INVALID SIGNAUTRE', order)
     return
   }
+  if (order.transactionStatus === expiredTransactionStatus) {
+    await processExpiredOrder(order)
+  }
+
   if (order.reasonCode !== reasonCode ||
     order.transactionStatus !== transactionStatus) {
     winston.error('Not success order', order)
