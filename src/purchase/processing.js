@@ -46,37 +46,37 @@ const productInfo = {
 const productPrice = {
   month: {
     productPrice: {
-      ru: '599.95',
+      ru: '119.95',
       en: '3.95',
-      ua: '299.95'
+      ua: '49.95'
     },
     amount: {
-      ru: '599.95',
+      ru: '119.95',
       en: '3.95',
-      ua: '299.95'
+      ua: '49.95'
     },
     regularAmount: {
-      ru: '599.95',
+      ru: '119.95',
       en: '3.95',
-      ua: '299.95'
+      ua: '49.95'
     }
   },
 
   year: {
     productPrice: {
-      ru: '1099.95',
+      ru: '799.95',
       en: '29.95',
-      ua: '599.95'
+      ua: '299.95'
     },
     amount: {
-      ru: '1099.95',
+      ru: '799.95',
       en: '29.95',
-      ua: '599.95'
+      ua: '299.95'
     },
     regularAmount: {
-      ru: '1099.95',
+      ru: '799.95',
       en: '29.95',
-      ua: '599.95'
+      ua: '299.95'
     }
   }
 }
