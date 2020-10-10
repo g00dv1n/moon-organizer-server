@@ -6,7 +6,8 @@ import { fieldsTransform } from '../helpers/userModelUtils'
 import moment from 'moment'
 import randomstring from 'randomstring'
 import winston from 'winston'
-import { sendActivate, sendBook, sendAbandonedToMautic } from '../mail'
+import { sendActivate, sendAbandonedToMautic } from '../mail'
+import { processAnonRegistration } from './anonRegistration'
 
 // constants
 const reasonCode = 1100 // Ok status
@@ -97,28 +98,19 @@ export const sendActivationMails = async (user) => {
   winston.info('try to send activation mail')
   const am = await sendActivate({
     email: user.get('email'),
+    name: user.get('name'),
     password: user.get('password'),
     lang: user.get('locale')
   })
   winston.info('send activation mail', am)
-  // .then(mail => winston.info('send activation mail', mail))
-
-  if (user.get('locale') === 'ru') {
-    winston.info('try to send gift book')
-    const gm = await sendBook({
-      email: user.get('email')
-    })
-    winston.info('send gift book', gm)
-    // .then(mail => winston.info('send gift book', mail))
-  }
 }
 
 export const createBaseOrderObject = (user, locale, plan) => {
   const selectedBaseOrderObject = baseOrderObject[plan] || baseOrderObject.month
   return Object.assign({
-    clientFirstName: user.name,
-    clientLastName: user.surname,
-    clientEmail: user.email
+    clientFirstName: user.name || '',
+    clientLastName: user.surname || '',
+    clientEmail: user.email || ''
   }, selectedBaseOrderObject, setupProductInfo(locale, plan))
 }
 
@@ -146,6 +138,21 @@ export const processRegistration = async (user, locale, plan) => {
     winston.info(`user saved`)
   } catch (err) {
     winston.error('Cannot processRegistration', err)
+  }
+
+  return { htmlForm }
+}
+
+export const processGuestCheckout = async (locale, plan) => {
+  let htmlForm = null
+
+  try {
+    winston.info(`Anon user try to buy.`)
+    const _orderFields = createBaseOrderObject({}, locale, plan)
+    htmlForm = WPF.buildForm(_orderFields)
+    winston.info(`Guest went to payment page`)
+  } catch (err) {
+    winston.error('Cannot processGuestCheckout', err)
   }
 
   return { htmlForm }
@@ -189,10 +196,11 @@ export const processOrder = async (order) => {
     winston.info(`Order with orderReference=${order.orderReference} saved successfully`)
 
     const email = so.get('email')
-    const user = await new UserModel({ email }).fetch()
+    let user = await new UserModel({ email }).fetch()
     if (!user) {
-      winston.error('Cannot find user with email=' + email)
-      return
+      winston.info('Cannot find user with email=' + email)
+      winston.info('Creating anon user with email=' + email)
+      user = await processAnonRegistration(order)
     }
     let subscriptions = await new SubscrptionModel({
       userId: user.get('id')

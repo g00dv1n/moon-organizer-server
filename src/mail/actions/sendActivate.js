@@ -3,13 +3,13 @@ import { template, subject } from '../templates/ActivateAccount'
 import { sprintf } from 'sprintf-js'
 
 export const sendActivate = params => {
-  const { lang, email, password } = params
+  const { lang, email, password, name = 'client' } = params
   const t = template[lang]
   const s = subject[lang]
   const mailOptions = {
     to: email,
     subject: s,
-    html: sprintf(t, { email, password })
+    html: sprintf(t, { email, password, name })
   }
   return sendMail(mailOptions)
 }
