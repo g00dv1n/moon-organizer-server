@@ -146438,5 +146438,13 @@
         "latitude": "35.17531",
         "longitude": "33.3642",
         "ru": "Никосия"
+    },
+    {
+        "country": "DE",
+        "defaultName": "Stade",
+        "en": "Stade",
+        "latitude": "53.59337",
+        "longitude": "9.47629",
+        "ru": "Штаде"
     }
 ]
