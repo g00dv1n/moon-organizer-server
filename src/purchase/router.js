@@ -2,7 +2,7 @@ import Router from 'koa-router'
 import config from 'config'
 import asyncBusboy from 'async-busboy'
 import { WPF } from '../purchase/main'
-import {processRegistration, processOrder, setupProductInfo} from './processing'
+import {processRegistration, processGuestCheckout, processOrder, setupProductInfo} from './processing'
 
 const router = new Router({ prefix: '/api/purchase' })
 
@@ -50,7 +50,16 @@ router.get('/form/:locale', async ctx => {
 
 router.post('/checkout', async ctx => {
   const {user, locale = 'en', plan = 'month'} = ctx.request.body
-  ctx.body = await processRegistration(user, locale.toLowerCase(), plan)
+
+  let res
+
+  if (user) {
+    res = await processRegistration(user, locale.toLowerCase(), plan)
+  } else {
+    res = await processGuestCheckout(locale.toLowerCase(), plan)
+  }
+
+  ctx.body = res
 })
 
 router.post('/thankyou-page', async ctx => {

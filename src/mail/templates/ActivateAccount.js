@@ -1,4 +1,4 @@
-const loginLink = 'https://moonorganizer.com/calendar/#/me/registration?forcelogin=1'
+const loginLink = 'https://moonorganizer.com/calendar/#/me/login'
 
 const ru = `
 Ваш Персональный календарь успешно активирован.
@@ -12,22 +12,30 @@ const ru = `
 <br>
 <br>
 Авторизуйтесь здесь: ${loginLink}
-<br>
-<br>
-Ваша книга прийдет в следующем письме!
 `
 const en = `
-Your Personal Calendar has been successfully activated.
+Dear %(name)s,
+<br>
+thank you for your interest in our product!
 <br>
 <br>
-Your login information:
-<br>
-login: <b>%(email)s</b>
-<br>
-password: <b>%(password)s</b>
+Here is your login data:
 <br>
 <br>
-Please, log in here: ${loginLink}
+Your login: <b>%(email)s</b>
+<br>
+Your password: <b>%(password)s</b>
+<br>
+<br>
+Just copy and paste them into the form here:
+<br>
+${loginLink}
+<br>
+<br>
+After login, please fill out your profile so the calendar can give you personalized advice.
+<br>
+<br>
+Have a nice day!
 `
 
 export const template = {
@@ -36,6 +44,6 @@ export const template = {
 }
 
 export const subject = {
-  ru: 'Персональный Лунный Календарь',
-  en: 'Moon Organizer - Personal Calendar'
+  ru: 'Лунный Календарь данные для входа',
+  en: 'Moon Calendar login data'
 }
