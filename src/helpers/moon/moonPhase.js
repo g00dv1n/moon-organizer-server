@@ -2,7 +2,7 @@ import SunCalc from 'suncalc'
 import lune from 'lune'
 import moment from 'moment'
 import path from 'path'
-import fs from 'fs'
+import fs from 'fs/promises'
 import config from 'config'
 
 const ICONS_PATH = path
@@ -171,7 +171,7 @@ export function getMoonTimeInfo (date, latitude, longitude) {
   return SunCalc.getMoonTimes(date, latitude, longitude)
 }
 
-export function getFullMoonWidgetInfo (date, latitude, longitude) {
+export async function getFullMoonWidgetInfo (date, latitude, longitude) {
   let info = getPhaseAndZodiacInfo(date)
   const hemisphere = getHemisphere(latitude)
   const phaseCode = info.phase.toLowerCase().split(' ').join('_')
@@ -186,8 +186,8 @@ export function getFullMoonWidgetInfo (date, latitude, longitude) {
   rise = moment(rise).format(riseAndSetFormatStr)
   set = moment(set).format(riseAndSetFormatStr)
 
-  const phaseIco = 'data:image/png;base64,' +
-    fs.readFileSync(phaseIcoPath, { encoding: 'base64' })
+  const fileData = await fs.readFile(phaseIcoPath, { encoding: 'base64' })
+  const phaseIco = 'data:image/png;base64,' + fileData
 
   const phaseDesc = DESCRIPTIONS[phaseCode] || ''
 
